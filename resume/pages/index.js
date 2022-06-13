@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Francisco Pantoja</title>
+        <title>Alwayne Bailey</title>
         <link rel="image_src" href="https://franciscopantojag.me/images/ogImage.jpg" />
         <meta
           name="description"
