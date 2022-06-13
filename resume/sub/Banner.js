@@ -57,7 +57,7 @@ export default function Banner() {
           </div>
         </section>
         <figure className={styles.bannerContRight}>
-          <img alt="Alwayne Bailey" src="/images/profilePicture.jpg" />
+          <img alt="Alwayne Bailey" src="/profile.jpg" />
         </figure>
       </div>
     </section>
