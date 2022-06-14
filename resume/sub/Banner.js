@@ -32,7 +32,7 @@ export default function Banner() {
           <div className={`${styles.buttons}`}>
             <div>
               <button className={`${styles.but}`}>
-                <a target="_blank" href="">
+                <a target="_blank" href="https://gateway.pinata.cloud/ipfs/Qma4bA6tTeyhEJdoX1XobyphPNBtSBXgSyJhVe2VRYmtx5">
                   DOWNLOAD RESUME
                 </a>
               </button>
