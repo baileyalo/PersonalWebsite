@@ -1,3 +1,3 @@
 ## Resume Developed Using Next js 
 
-npm run dev
+`npm run dev`
