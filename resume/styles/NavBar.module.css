@@ -1,0 +1,118 @@
+.navBar {
+    background-color: var(--light-gray);
+    -webkit-box-shadow: 0px 0px 5px 0px black;
+    -moz-box-shadow: 0px 0px 5px 0px black;
+    box-shadow: 0px 0px 5px 0px black;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  
+  .navBarCont {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    font-size: 0.8rem;
+  }
+  .navBarCont > ul {
+    display: flex;
+    padding: 1.2em 0;
+    align-items: center;
+  }
+  .navBarCont > ul > li {
+    list-style: none;
+    margin-right: 3em;
+    display: flex;
+  }
+  .navBarCont > ul > li:last-child {
+    margin-right: 0;
+  }
+  .navBarCont > ul > li > a {
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+  }
+  
+  @media (hover: hover) {
+    .navBarCont > ul > li > a:hover {
+      color: white;
+      opacity: 1;
+    }
+  }
+  .navBarCont > ul > li > a:active {
+    color: var(--red);
+  }
+  .navBarRes {
+    display: none;
+    position: fixed;
+    max-width: 0;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .navBarResUl {
+    position: absolute;
+    min-height: 100vh;
+    align-items: stretch;
+    padding-top: 4.48rem;
+    background-color: rgba(34, 34, 34, 0.95);
+    z-index: 1;
+    top: 0;
+    left: -10.7rem;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.5s ease;
+  }
+  .navBarResUl > li {
+    width: 100%;
+    display: flex;
+    border-top: 1px solid var(--border);
+  }
+  .navBarResUl > li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .navBarResUl > li > a {
+    padding: 1rem 2rem;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    text-align: center;
+    color: rgba(233, 233, 233, 0.9);
+  }
+  @media (hover: hover) {
+    .navBarResUl > li > a:hover {
+      color: white;
+      opacity: 1;
+    }
+  }
+  .navBarResUl > li > a:active {
+    color: var(--red);
+    background-color: rgba(34, 34, 34, 1);
+  }
+  @media (orientation: portrait) {
+    .navBar {
+      display: none;
+    }
+    .navBarRes {
+      display: block;
+    }
+  }
+  @media (max-width: 900px) {
+    .navBarCont > ul {
+      padding: 1em 0;
+    }
+    .navBarCont > ul > li {
+      margin-right: 2em;
+    }
+  }
+  
+  .navBarResUlOpen {
+    left: 0;
+  }

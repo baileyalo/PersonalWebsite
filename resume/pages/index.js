@@ -1,10 +1,10 @@
 import Head from "next/head";
-import NavBar from "../sections/navBar";
-import Banner from "../sections/banner";
-import AboutMe from "../sections/aboutMe";
-import Education from "../sections/education";
-import Experience from "../sections/experience";
-import Skills from "../sections/skills";
+import NavBar from "../sub/navBar";
+import Banner from "../sub/banner";
+import AboutMe from "../sub/aboutMe";
+import Education from "../sub/education";
+import Experience from "../sub/experience";
+import Skills from "../sub/skills";
 import Modal from "../components/modal";
 import { Contexto } from "../appContext";
 import { useContext } from "react";
