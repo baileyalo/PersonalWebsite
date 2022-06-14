@@ -16,7 +16,7 @@ export default function About() {
         <header>
           <h2>About me</h2>
           <h3>
-            My name is Alwayne Bailey,{' '}
+            My name is Alwayne Bailey,<br/>
             <span className="colorRed">Blockchain Developer | Full Stack Developer | Educator</span>
           </h3>
         </header>

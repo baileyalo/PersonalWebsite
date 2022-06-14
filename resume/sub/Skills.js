@@ -46,7 +46,9 @@ export default function Skills() {
               <h3>Tech | Frameworks</h3>
               <ul>
                 {TechSkills.map((skill, pos) => (
-                  <Skill key={pos} skill={skill} />
+                  <Skill key={pos} skill={skill} 
+              
+                 />
                 ))}
               </ul>
             </div>
