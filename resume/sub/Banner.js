@@ -25,12 +25,14 @@ export default function Banner() {
             </span>{' '}
             Bachelor of Education
           </h2>
-          <h3>[REACT / HTML / CSS / JS / SOLIDITY/ NODE JS]</h3>
+          <h3>[ REACT / HTML / CSS / JS / SOLIDITY / NODE JS ]</h3>
           <h3>
             <a href={`mailto:${email}`}>{email}</a>
           </h3>
+          <br/>
           <div className={`${styles.buttons}`}>
             <div>
+            
               <button className={`${styles.but}`}>
                 <a target="_blank" href="https://gateway.pinata.cloud/ipfs/Qma4bA6tTeyhEJdoX1XobyphPNBtSBXgSyJhVe2VRYmtx5">
                   DOWNLOAD RESUME

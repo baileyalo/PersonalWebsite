@@ -64,7 +64,7 @@ export default function Skills() {
                   <ul className="rowFlexRes">
                     {softSkills.slice(0, 2).map((skill, pos) => (
                       <li key={pos}>
-                        <FontAwesomeIcon color="var(--blue)" icon={faCheck} />{" "}
+                        <FontAwesomeIcon color="var(--red)" icon={faCheck} />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
                       </li>
                     ))}
@@ -74,7 +74,7 @@ export default function Skills() {
                   <ul className="rowFlexRes">
                     {softSkills.slice(2, 4).map((skill, pos) => (
                       <li key={pos}>
-                        <FontAwesomeIcon color="var(--blue)" icon={faCheck} />{" "}
+                        <FontAwesomeIcon color="var(--red)" icon={faCheck} />{" "}
                         <span style={{ opacity: "0.9" }}>{`${skill}`}</span>
                       </li>
                     ))}

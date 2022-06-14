@@ -38,7 +38,7 @@
   
   @media (hover: hover) {
     .navBarCont > ul > li > a:hover {
-      color: white;
+      color: rgb(190, 39, 49);
       opacity: 1;
     }
   }

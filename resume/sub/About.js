@@ -17,7 +17,7 @@ export default function About() {
           <h2>About me</h2>
           <h3>
             My name is Alwayne Bailey,{' '}
-            <span className="colorBlue">Blockchain Developer | Full Stack Developer</span>
+            <span className="colorRed">Blockchain Developer | Full Stack Developer | Educator</span>
           </h3>
         </header>
 
@@ -29,12 +29,11 @@ export default function About() {
         </p>
         <p>         
           Email:
-          <br />
           <strong>
-            <a href={`mailto:${email}`}>📧{email}</a>
+            <a href={`mailto:${email}`}> 📧{email}</a>
           </strong>
           ; projects that I have worked on {' '}
-          <strong>
+          <strong >
             <a target="_blank" href="https://github.com/baileyalo">
               github
             </a>
