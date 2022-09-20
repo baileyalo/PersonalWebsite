@@ -11,10 +11,37 @@ export default function Experience() {
       <div className="cardContainer">
         <div className="card">
           <div className="cardContent">
+          <div className="cardCont">
+              <h5>
+                <span>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - Present
+                </span>
+              </h5>
+              <h3>Full Stack Blockchain Developer</h3>
+              <h4>Helios Creator Inc.</h4>
+              <ul>
+                <li>
+                  <span className="colorBlue">- </span>
+                  <span>Build features and applications with a mobile responsive design </span>
+                </li>
+                <li>
+                  <span className="colorBlue">- </span>{' '}
+                  <span>Build the front-end of applications through appealing visual design using React</span>
+                </li>
+                <li>
+                  <span className="colorBlue">- </span>{' '}
+                  <span>Write effective APIs</span>
+                </li>
+                <li>
+                  <span className="colorBlue">- </span>{' '}
+                  <span>  Troubleshoot, debug and upgrade software</span>
+                </li>
+              </ul>
+            </div>
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2019 - Present
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2019 - 2022
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
