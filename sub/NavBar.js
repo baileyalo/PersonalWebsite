@@ -26,7 +26,8 @@ export default function NavBar() {
     {
       label: "education",
       target: "#education",
-    },    
+    }, 
+       
     {
       label: "skills",
       target: "#skills",
