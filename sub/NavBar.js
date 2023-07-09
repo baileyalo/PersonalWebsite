@@ -23,6 +23,7 @@ export default function NavBar() {
       label: "experience",
       target: "#experience",
     },
+    
     {
       label: "education",
       target: "#education",
