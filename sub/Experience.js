@@ -64,29 +64,6 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2018 -2019
-                </span>
-              </h5>
-              <h3>IT TECHNICAL SUPPORT SPECIALIST</h3>
-              <h4>Total Credit Recovery</h4>
-              <ul>
-                <li>
-                  <span className="colorBlue">- </span>
-                  <span>Configure and install new employee workstations across all departments</span>
-                </li>
-                <li>
-                  <span className="colorBlue">- </span>{' '}
-                  <span>Maintain 90% accuracy on ticket escalation</span>
-                </li>
-                <li>
-                  <span className="colorBlue">- </span>{' '}
-                  <span>Configure and maintain Active Directory and GPO</span>
-                </li>
-              </ul>
-            </div>
-            <div className="cardCont">
-              <h5>
-                <span>
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2010 -2016
                 </span>
               </h5>

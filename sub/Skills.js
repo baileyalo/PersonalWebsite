@@ -7,17 +7,20 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function Skills() {
   const TechSkills = [
-    { name: "HTML", progress: "80" },
+    { name: "HTML", progress: "90" },
     { name: "CSS", progress: "80" },
-    { name: "JavaScript", progress: "75" },
-    { name: "React", progress: "70" },
+    { name: "JavaScript", progress: "85" },
+    { name: "TypeScript", progress: "85" },
+    { name: "React Js", progress: "85" },
+    { name: "React Native", progress: "90" },
     { name: "SOLIDITY", progress: "75" },
-    { name: "Git / GitHub", progress: "50" },
+    { name: "Git / GitHub", progress: "90" },
   ];
   const overallCirSkills = [
-    { name: "Web Development", progress: "70" },
-    { name: "Database Management", progress: "50" },
-    { name: "Blockchain", progress: "55" },
+    { name: "Web Development", progress: "85" },
+    { name: "App Development", progress: "90" },
+    { name: "Database Management", progress: "70" },
+    { name: "Blockchain", progress: "85" },
   ];
   const softSkills = [
     "TeamWork",
@@ -25,9 +28,11 @@ export default function Skills() {
     "Problem Solving Skills",
   ];
   const softwareSkills = [
-    { name: "VS Code", progress: "80" },
-    { name: "NODE JS", progress: "70" },
-    { name: "MONGODB", progress: "50" },
+    { name: "VS Code", progress: "90" },
+    { name: "NODE JS", progress: "90" },
+    { name: "AWS", progress: "80" },
+    { name: "SOLANA", progress: "80" },
+    { name: "MONGODB", progress: "80" },
     { name: "ETHEREUM", progress: "65" },
     { name: "TRUFFLE", progress: "75" },
     { name: "HARDHAT", progress: "70" },

@@ -23,7 +23,7 @@ export default function About() {
 
         <p>
         A dedicated and result-oriented professional possessing knowledge 
-        of troubleshooting and programming, seeking a position as a Blockchain Engineer, 
+        of troubleshooting and software development, seeking a position as an Engineer, 
         in efforts to make the most of my coding and troubleshooting skills and leverage 
         the goals and ambitions of the organization.
         </p>
