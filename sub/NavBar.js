@@ -1,5 +1,5 @@
 
-import styles from "../styles/navBar.module.css";
+import styles from "../styles/NavBar.module.css";
 import scrollIt from "../components/helpers";
 import Hamburger from "../components/hamburger";
 import { Contexto } from "../appContext";
