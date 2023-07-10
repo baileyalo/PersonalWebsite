@@ -6,6 +6,7 @@ const nextConfig = {
 module.exports = {
   // other exports
   // nextConfig,
+  reactStrictMode: true,
   target: 'serverless', // add this line
 };
 
