@@ -18,7 +18,7 @@ export default function Experience() {
                 </span>
               </h5>
               <h3>Full Stack Blockchain Developer</h3>
-              <h4>Helios Creator Inc.</h4>
+              <h4>Helios Creator Inc. Toronto, Canada</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
@@ -45,7 +45,7 @@ export default function Experience() {
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
-              <h4>Rogers Communications Inc.</h4>
+              <h4>Rogers Communications Inc. Toronto, Canada</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
@@ -53,7 +53,7 @@ export default function Experience() {
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
-                  <span>Maintain 90% monthly KPIs on customer satisfaction</span>
+                  <span>Maintain 90% monthly KPIs on business satisfaction</span>
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
@@ -68,7 +68,7 @@ export default function Experience() {
                 </span>
               </h5>
               <h3>Head Teller</h3>
-              <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica)</h4>
+              <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>

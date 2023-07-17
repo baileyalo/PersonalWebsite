@@ -8,13 +8,14 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 export default function Skills() {
   const TechSkills = [
     { name: "HTML", progress: "90" },
-    { name: "CSS", progress: "80" },
-    { name: "JavaScript", progress: "85" },
+    { name: "CSS", progress: "90" },
+    { name: "JavaScript", progress: "90" },
     { name: "TypeScript", progress: "85" },
     { name: "React Js", progress: "85" },
+    { name: "NODE JS", progress: "85" },
     { name: "React Native", progress: "90" },
-    { name: "SOLIDITY", progress: "75" },
-    { name: "Git / GitHub", progress: "90" },
+    { name: "SOLIDITY", progress: "85" },
+    { name: "Git", progress: "90" },
   ];
   const overallCirSkills = [
     { name: "Web Development", progress: "85" },
@@ -25,19 +26,24 @@ export default function Skills() {
   const softSkills = [
     "TeamWork",
     "Communication",
-    "Problem Solving Skills",
+    "Critical thinking",
+    "Problem-solving",
+    "Flexibility",
   ];
   const softwareSkills = [
-    { name: "VS Code", progress: "90" },
-    { name: "NODE JS", progress: "90" },
+    { name: "VS CODE", progress: "90" },
     { name: "AWS", progress: "80" },
     { name: "SOLANA", progress: "80" },
-    { name: "MONGODB", progress: "80" },
+    { name: "MONGODB-COMPASS", progress: "85" },
     { name: "ETHEREUM", progress: "65" },
-    { name: "TRUFFLE", progress: "75" },
-    { name: "HARDHAT", progress: "70" },
-    { name: "GANACHE", progress: "70" },
-    { name: "PINATA", progress: "70" },
+    { name: "TRUFFLE", progress: "85" },
+    { name: "HARDHAT", progress: "80" },
+    { name: "GANACHE", progress: "90" },
+    { name: "PINATA", progress: "90" },
+    { name: "POSTMAN", progress: "80" },
+    { name: "ANDROID STUDIO", progress: "90" },
+    { name: "CLICK-UP", progress: "80" },
+    { name: "GITHUB", progress: "90" },
   ];
   return (
     <section className="container">

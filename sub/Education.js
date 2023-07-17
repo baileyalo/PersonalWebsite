@@ -12,14 +12,14 @@ export default function Education() {
         <div className="card">
           <div className="cardContent">
             <div className="cardCont">
-              <h5>
+              {/* <h5>
                 <span>
                   {" "}
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2021 - 2022
                 </span>
-              </h5>
+              </h5> */}
               <h3>Graduate Certificate</h3>
-              <h4>George Brown College</h4>
+              <h4>George Brown College, Toronto Canada</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
@@ -28,14 +28,14 @@ export default function Education() {
               </ul>
             </div>
             <div className="cardCont">
-              <h5>
+              {/* <h5>
                 <span>
                   {" "}
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2017 - 2019
                 </span>
-              </h5>
+              </h5> */}
               <h3>Graduate Certificate</h3>
-              <h4>IBT College</h4>
+              <h4>IBT College, Toronto Canada.</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
@@ -44,14 +44,14 @@ export default function Education() {
               </ul>
             </div>
             <div className="cardCont">
-              <h5>
+              {/* <h5>
                 <span>
                   {" "}
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2010 - 2015
                 </span>
-              </h5>
+              </h5> */}
               <h3>Bachelor of Education</h3>
-              <h4>University of Technology</h4>
+              <h4>University of Technology, Kingston Jamaica</h4>
               <ul>
                 <li>
                   <span className="colorRed">- </span>
