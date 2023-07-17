@@ -18,7 +18,7 @@ export default function Skills() {
     { name: "Git", progress: "90" },
   ];
   const overallCirSkills = [
-    { name: "Web Development", progress: "85" },
+    { name: "Web Development", progress: "90" },
     { name: "App Development", progress: "90" },
     { name: "Database Management", progress: "70" },
     { name: "Blockchain", progress: "85" },
