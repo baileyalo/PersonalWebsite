@@ -50,9 +50,9 @@ export default function Modal() {
         );
         console.log("result", result)
         if (result.status == 200) {
-          setSubmitMessage(() => "Thank You");
+          setSubmitMessage(() => "Sent!");
         } else {
-          setSubmitMessage(() => "error");
+          setSubmitMessage(() => "Error, try Again");
         }
         console.log("result:", result);
         await timeout(2);
@@ -66,7 +66,7 @@ export default function Modal() {
       if (allowSend) {
         setAllowSend(() => false);
         console.error(err);
-        setSubmitMessage(() => "error");
+        setSubmitMessage(() => "Error, try Again");
         await timeout(2);
         closeModal();
         setSubmitMessage(() => "");
