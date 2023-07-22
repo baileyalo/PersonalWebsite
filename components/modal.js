@@ -35,8 +35,8 @@ export default function Modal() {
   const submitForm = async (e) => {
     e.preventDefault();
     const emailjsObj = {
-      serviceId: "gmail",
-      templateId: "template_aRfTvlUy",
+      serviceId: process.env.NEXT_PUBLIC_SERVICE_ID,
+      templateId: process.env.NEXT_PUBLIC_TEMPLATE_ID,
       userId: process.env.NEXT_PUBLIC_USER_ID,
     };
     try {
@@ -48,6 +48,7 @@ export default function Modal() {
           form,
           emailjsObj.userId
         );
+        console.log("result", result)
         if (result.status == 200) {
           setSubmitMessage(() => "Thank You");
         } else {

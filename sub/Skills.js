@@ -39,7 +39,7 @@ export default function Skills() {
     { name: "TRUFFLE", progress: "85" },
     { name: "HARDHAT", progress: "80" },
     { name: "GANACHE", progress: "90" },
-    { name: "PINATA", progress: "90" },
+    { name: "IPFS", progress: "90" },
     { name: "POSTMAN", progress: "80" },
     { name: "ANDROID STUDIO", progress: "90" },
     { name: "CLICK-UP", progress: "80" },
