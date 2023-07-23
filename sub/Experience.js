@@ -17,7 +17,7 @@ export default function Experience() {
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - Present
                 </span>
               </h5>
-              <h3>Full Stack Blockchain Developer</h3>
+              <h3>Software Engineer</h3>
               <h4>Helios Creator Inc. Toronto, Canada</h4>
               <ul>
                 <li>
@@ -67,7 +67,7 @@ export default function Experience() {
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2010 -2016
                 </span>
               </h5>
-              <h3>Head Teller</h3>
+              <h3>Head Bank Teller</h3>
               <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica</h4>
               <ul>
                 <li>
