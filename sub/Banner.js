@@ -12,6 +12,7 @@ export default function Banner() {
   function openModal() {
     setIsOpen(true);
   }
+
   return (
     <section className={`container ${styles.banner}`}>
       <div className={`containerCont ${styles.bannerCont}`}>
@@ -29,8 +30,8 @@ export default function Banner() {
             Graduate Certificate
           </h2>
           <h3>
-            [ REACT.JS / HTML / CSS / JS / TS / SOLIDITY / NODE.JS / REACT NATIVE /
-            MONGODB / MYSQL / AWS]
+            [ REACT.JS / HTML / CSS / JS / TS / SOLIDITY / NODE.JS / REACT
+            NATIVE / MONGODB / MYSQL / AWS]
           </h3>
           <h3>
             <a href={`mailto:${email}`}>{email}</a>
@@ -38,14 +39,14 @@ export default function Banner() {
           <br />
           <div className={`${styles.buttons}`}>
             <div>
-              <button className={`${styles.but}`}>
+              {/* <button  className={`${styles.but}`}>
                 <a
-                  target="_blank"
-                  href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
+                // target="_blank"
+                // href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
                 >
                   DOWNLOAD RESUME
                 </a>
-              </button>
+              </button> */}
               <button className={`${styles.svgBut}`}>
                 <a
                   target="_blank"

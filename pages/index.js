@@ -9,6 +9,7 @@ import Modal from "../components/modal";
 import { Contexto } from "../appContext";
 import { useContext } from "react";
 
+
 export default function Home() {
   const { navResOpen, setNavResOpen } = useContext(Contexto);
   const closeNavRes = () => {

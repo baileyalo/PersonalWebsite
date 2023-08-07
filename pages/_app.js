@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import smoothscroll from "smoothscroll-polyfill";
 import { ContextoProvider } from "../appContext";
 import Modal from "react-modal";
+
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }) {

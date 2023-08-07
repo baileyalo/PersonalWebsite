@@ -7,14 +7,14 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function Skills() {
   const TechSkills = [
-    { name: "HTML", progress: "90" },
-    { name: "CSS", progress: "90" },
+    { name: "Html", progress: "90" },
+    { name: "Css", progress: "90" },
     { name: "JavaScript", progress: "90" },
     { name: "TypeScript", progress: "85" },
     { name: "React Js", progress: "85" },
-    { name: "NODE JS", progress: "85" },
+    { name: "Node js", progress: "85" },
     { name: "React Native", progress: "90" },
-    { name: "SOLIDITY", progress: "85" },
+    { name: "Solidity", progress: "85" },
     { name: "Git", progress: "90" },
   ];
   const overallCirSkills = [

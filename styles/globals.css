@@ -121,15 +121,15 @@ a {
 
 /*About*/
 .sectionContAbout {
-  margin-top: 3rem;
+  margin-top: 0.3rem;
 }
 @media (orientation: portrait) {
   .sectionContAbout {
-    margin-top: calc(1rem + 5vh);
+    margin-top: calc(0.5rem + 5vh);
   }
 }
 .sectionContAbout h3 {
-  margin-top: 0.8em;
+  margin-top: 0.3em;
   margin-bottom: 0.6em;
 }
 .sectionContAbout p {
