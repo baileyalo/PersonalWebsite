@@ -7,12 +7,13 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function Skills() {
   const TechSkills = [
-    { name: "Html", progress: "90" },
-    { name: "Css", progress: "90" },
+    { name: "HTML", progress: "90" },
+    { name: "CSS", progress: "90" },
     { name: "JavaScript", progress: "90" },
     { name: "TypeScript", progress: "85" },
     { name: "React Js", progress: "85" },
     { name: "Node js", progress: "85" },
+    { name: "GraphQL", progress: "85" },
     { name: "React Native", progress: "90" },
     { name: "Solidity", progress: "85" },
     { name: "Git", progress: "90" },
@@ -20,8 +21,7 @@ export default function Skills() {
   const overallCirSkills = [
     { name: "Web Development", progress: "90" },
     { name: "App Development", progress: "90" },
-    { name: "Database Management", progress: "70" },
-    { name: "Blockchain", progress: "85" },
+    { name: "Database Management", progress: "70" }
   ];
   const softSkills = [
     "TeamWork",
@@ -39,10 +39,12 @@ export default function Skills() {
     { name: "TRUFFLE", progress: "85" },
     { name: "HARDHAT", progress: "80" },
     { name: "GANACHE", progress: "90" },
-    { name: "IPFS", progress: "90" },
+    { name: "FIGMA", progress: "85" },
+    { name: "BLOCKCHAIN", progress: "70" },
     { name: "POSTMAN", progress: "80" },
     { name: "ANDROID STUDIO", progress: "90" },
     { name: "CLICK-UP", progress: "80" },
+    { name: "JIRA", progress: "80" },
     { name: "GITHUB", progress: "90" },
   ];
   return (

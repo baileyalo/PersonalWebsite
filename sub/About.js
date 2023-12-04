@@ -19,17 +19,17 @@ export default function About() {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-              Blockchain Developer | Full Stack Developer | Educator
+              Front-End Developer | Blockchain Developer | Banker | Educator
             </span>
           </h3>
         </header>
 
         <p>
-          Meticulous Professional with 3 years of experience designing, testing
+          Meticulous Professional with 3+ years of experience designing, testing
           and developing software solutions. In-depth understanding of web
-          technologies with focus on delivering innovative business solutions. 7
+          technologies with focus on delivering innovative business solutions. With 7+
           years experience in financial services providing exceptional customer
-          service and cash management and 2 years experience in Technical
+          service and cash management and 2+ years experience in Technical
           Support. Excels in fast-paced, high-energy and deadline-driven
           environment with willingness to take on additional tasks.
         </p>
