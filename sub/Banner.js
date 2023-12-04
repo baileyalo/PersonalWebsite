@@ -30,7 +30,7 @@ export default function Banner() {
             Graduate Certificate
           </h2>
           <h3>
-            [ REACT.JS / HTML / CSS / JS / TS / SOLIDITY / NODE.JS / REACT
+            [ REACT.JS / HTML / CSS / JS / TS / GRAPHQL / SOLIDITY / NODE.JS / REACT
             NATIVE / MONGODB / MYSQL / AWS]
           </h3>
           <h3>
