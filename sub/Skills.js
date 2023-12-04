@@ -1,5 +1,3 @@
-
-
 import Skill from "../components/skill";
 import CircularProg from "../components/circularProg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +19,8 @@ export default function Skills() {
   const overallCirSkills = [
     { name: "Web Development", progress: "90" },
     { name: "App Development", progress: "90" },
-    { name: "Database Management", progress: "70" }
+    { name: "Database Management", progress: "70" },
+    { name: "Cloud Management", progress: "70" },
   ];
   const softSkills = [
     "TeamWork",
@@ -29,6 +28,8 @@ export default function Skills() {
     "Critical thinking",
     "Problem-solving",
     "Flexibility",
+    "Debugging",
+    "Time Management",
   ];
   const softwareSkills = [
     { name: "VS CODE", progress: "90" },
@@ -59,9 +60,7 @@ export default function Skills() {
               <h3>Tech | Frameworks</h3>
               <ul>
                 {TechSkills.map((skill, pos) => (
-                  <Skill key={pos} skill={skill} 
-              
-                 />
+                  <Skill key={pos} skill={skill} />
                 ))}
               </ul>
             </div>
@@ -87,7 +86,17 @@ export default function Skills() {
                 </li>
                 <li>
                   <ul className="rowFlexRes">
-                    {softSkills.slice(2, 4).map((skill, pos) => (
+                    {softSkills.slice(3, 5).map((skill, pos) => (
+                      <li key={pos}>
+                        <FontAwesomeIcon color="var(--red)" icon={faCheck} />{" "}
+                        <span style={{ opacity: "0.9" }}>{`${skill}`}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+                <li>
+                  <ul className="rowFlexRes">
+                    {softSkills.slice(5, 8).map((skill, pos) => (
                       <li key={pos}>
                         <FontAwesomeIcon color="var(--red)" icon={faCheck} />{" "}
                         <span style={{ opacity: "0.9" }}>{`${skill}`}</span>
