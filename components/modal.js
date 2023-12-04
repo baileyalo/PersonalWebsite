@@ -48,7 +48,6 @@ export default function Modal() {
           form,
           emailjsObj.userId
         );
-        console.log("result", result)
         if (result.status == 200) {
           setSubmitMessage(() => "Sent!");
         } else {
@@ -95,7 +94,7 @@ export default function Modal() {
       <h1>
         Thank you for your time{" "}
         <span aria-label="Hi there" role="img">
-          ✌
+          👍🏽
         </span>
       </h1>
       <h2>Please fill this form, and I'll be in touch with you</h2>

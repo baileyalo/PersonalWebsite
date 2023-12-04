@@ -14,7 +14,7 @@ export default function Experience() {
           <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - Present
+                  <FontAwesomeIcon icon={faCalendarAlt} />2022 - Present
                 </span>
               </h5>
               <h3>Software Engineer</h3>
@@ -22,26 +22,26 @@ export default function Experience() {
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
-                  <span>Build features and applications with a mobile responsive design </span>
+                  <span>Maintain and develop application with Solana, React.js, React Native, MongoDB, AWS, Node.js, Python. </span>
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
-                  <span>Build the front-end of applications through appealing visual design using React</span>
+                  <span> Design the architecture of core components and redesign of existing components to build a maintainable code base.</span>
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
-                  <span>Write effective APIs</span>
+                  <span>Liaise with external venders with integration and implementation of different third party frameworks.</span>
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
-                  <span>  Troubleshoot, debug and upgrade software</span>
+                  <span>Enhance code quality by refactoring legacy code base for better reuse-ability.</span>
                 </li>
               </ul>
             </div>
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2019 - 2022
+                  <FontAwesomeIcon icon={faCalendarAlt} />2019 - 2022
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
@@ -64,7 +64,7 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2010 -2016
+                  <FontAwesomeIcon icon={faCalendarAlt} />2010 -2016
                 </span>
               </h5>
               <h3>Head Bank Teller</h3>
@@ -72,7 +72,7 @@ export default function Experience() {
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
-                  <span> Maintain 95% in transactions processing</span>
+                  <span>Maintain 95% in transactions processing</span>
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
@@ -80,7 +80,7 @@ export default function Experience() {
                 </li>
                 <li>
                   <span className="colorBlue">- </span>{' '}
-                  <span> Cross-trained as Superuser for core system upgrade and exposed to the software lifecycle</span>
+                  <span>Cross-trained as Superuser for core system upgrade and exposed to the software lifecycle</span>
                 </li>
               </ul>
             </div>
