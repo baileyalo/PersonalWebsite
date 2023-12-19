@@ -24,7 +24,7 @@ export default function Home() {
         <link rel="image_src" href="https://franciscopantojag.me/images/ogImage.jpg" />
         <meta
           name="description"
-          content="This is a website showcasing my skills and experiences"
+          content="This is a website showcasing my Education, Skills and Work Experiences"
         />
         <meta property="og:title" content="Alwayne Bailey" />
         <meta property="og:site_name" content="Alwayne Bailey" />

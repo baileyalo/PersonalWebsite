@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
           />
-          <meta name="author" content="Alwayne Bailey " />
+          <meta name="author" content="Alwayne Bailey" />
         </Head>
 
         <Component {...pageProps} />
