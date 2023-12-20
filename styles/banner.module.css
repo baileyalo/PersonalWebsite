@@ -98,12 +98,12 @@
     background-color: var(--dark-black);
     border-radius: 100%;
     width: 36px;
-    height: 36px;
+    height: 56px;
     border: none;
     box-sizing: border-box;
     justify-content: space;
     align-items: center;
-    margin-left: 1em;
+    margin-left: 2em;
   }
   .svgBut > a {
     display: flex;

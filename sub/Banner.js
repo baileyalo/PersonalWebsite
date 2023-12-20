@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Contexto } from "../appContext";
 
 export default function Banner() {
-  const name = "Alwayne O. Bailey";
+  const name = "Alwayne Bailey";
   const email = "baileyalwayne@gmail.com";
   const { setIsOpen } = useContext(Contexto);
 
@@ -30,38 +30,14 @@ export default function Banner() {
             Graduate Certificate
           </h2>
           <h3>
-            [ REACT.JS / HTML / CSS / JS / TS / GRAPHQL / SOLIDITY / NODE.JS / REACT
-            NATIVE / MONGODB / MYSQL / AWS]
+            [ REACT.JS / HTML / CSS / JS / TS / GRAPHQL / SOLIDITY / NODE.JS /
+            REACT NATIVE / MONGODB / MYSQL / AWS]
           </h3>
           <h3>
-            <a href={`mailto:${email}`}>{email}</a>
+            📧<a href={`mailto:${email}`}>{email}</a>
           </h3>
           <br />
           <div className={`${styles.buttons}`}>
-            <div>
-              {/* <button  className={`${styles.but}`}>
-                <a
-                // target="_blank"
-                // href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
-                >
-                  DOWNLOAD RESUME
-                </a>
-              </button> */}
-              <button className={`${styles.svgBut}`}>
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/alwayne-bailey/"
-                >
-                  <Linkedin />
-                </a>
-              </button>
-              <button className={`${styles.svgBut}`}>
-                <a target="_blank" href="https://github.com/baileyalo">
-                  <Github />
-                </a>
-              </button>
-            </div>
-
             <button onClick={openModal} className={`${styles.but}`}>
               CONTACT ME
             </button>
@@ -70,6 +46,29 @@ export default function Banner() {
         <figure className={styles.bannerContRight}>
           <img alt="Alwayne Bailey" src="/profile.jpg" />
         </figure>
+        <div className={`${styles.buttons}`}>
+          {/* <button  className={`${styles.but}`}>
+                <a
+                // target="_blank"
+                // href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
+                >
+                  DOWNLOAD RESUME
+                </a>
+              </button> */}
+          <button className={`${styles.svgBut}`}>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/alwayne-bailey/"
+            >
+              <Linkedin />
+            </a>
+          </button>
+          <button className={`${styles.svgBut}`}>
+            <a target="_blank" href="https://github.com/baileyalo">
+              <Github />
+            </a>
+          </button>
+        </div>
       </div>
     </section>
   );
