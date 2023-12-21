@@ -9,11 +9,14 @@ export default function Skills() {
     { name: "CSS", progress: "90" },
     { name: "JavaScript", progress: "90" },
     { name: "TypeScript", progress: "85" },
-    { name: "React Js", progress: "85" },
-    { name: "Node js", progress: "85" },
-    { name: "GraphQL", progress: "85" },
-    { name: "React Native", progress: "90" },
     { name: "Solidity", progress: "85" },
+    { name: "React Js", progress: "85" },
+    { name: "React Native", progress: "90" },
+    { name: "Node js", progress: "85" },
+    { name: "Express js", progress: "85" },
+    { name: "GraphQL", progress: "85" },
+    { name: "MongoDB", progress: "85" },
+    { name: "MySQL", progress: "85" },
     { name: "Git", progress: "90" },
   ];
   const overallCirSkills = [
