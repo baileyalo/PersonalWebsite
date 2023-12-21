@@ -20,8 +20,8 @@ export default function Skills() {
     { name: "Git", progress: "90" },
   ];
   const overallCirSkills = [
-    { name: "Web Development", progress: "90" },
-    { name: "App Development", progress: "90" },
+    { name: "Web App Development", progress: "90" },
+    { name: "Mobile App Development", progress: "90" },
     { name: "Database Management", progress: "70" },
     { name: "Cloud Management", progress: "70" },
   ];
@@ -35,8 +35,8 @@ export default function Skills() {
     "Time Management",
   ];
   const softwareSkills = [
-    { name: "VS CODE", progress: "90" },
-    { name: "ANDROID STUDIO", progress: "90" },
+    { name: "VS-CODE", progress: "90" },
+    { name: "ANDROID-STUDIO", progress: "90" },
     { name: "AWS", progress: "80" },
     { name: "GITHUB", progress: "90" },
     { name: "CLICK-UP", progress: "90" },
@@ -46,7 +46,7 @@ export default function Skills() {
     { name: "MONGODB-COMPASS", progress: "85" },
     { name: "SOLANA", progress: "80" },
     { name: "ETHEREUM", progress: "65" },
-    { name: "HYPERLEDGER FABRIC", progress: "65" },
+    { name: "HYPERLEDGER-FABRIC", progress: "65" },
     { name: "TRUFFLE", progress: "85" },
     { name: "HARDHAT", progress: "80" },
     { name: "GANACHE", progress: "90" },
