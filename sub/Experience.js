@@ -14,11 +14,11 @@ export default function Experience() {
           <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} />2022 - Present{" "}
+                  <FontAwesomeIcon icon={faCalendarAlt} />{" "}2022 - Present{" "}
                 </span>
               </h5>
               <h3>Software Engineer</h3>
-              <h4>Helios Creator Inc. Toronto, Canada</h4>
+              <h4>Helios Creator Inc. Toronto, Canada.</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
@@ -41,11 +41,11 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} />2019 - 2022{" "}
+                  <FontAwesomeIcon icon={faCalendarAlt} />{" "}2019 - 2022{" "}
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
-              <h4>Rogers Communications Inc. Toronto, Canada</h4>
+              <h4>Rogers Communications Inc. Toronto, Canada.</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
@@ -64,11 +64,11 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} />2010 -2016{" "}
+                  <FontAwesomeIcon icon={faCalendarAlt} />{" "}2010 -2016{" "}
                 </span>
               </h5>
               <h3>Head Bank Teller</h3>
-              <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica</h4>
+              <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica.</h4>
               <ul>
                 <li>
                   <span className="colorBlue">- </span>
