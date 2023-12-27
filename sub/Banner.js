@@ -41,6 +41,17 @@ export default function Banner() {
             <button onClick={openModal} className={`${styles.but}`}>
               CONTACT ME
             </button>
+            <br />
+            <button className={`${styles.but}`}>
+              <a
+                target="_blank"
+                href="https://github.com/baileyalo"
+                // target="_blank"
+                // href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
+              >
+                VIEW PORTFOLIO
+              </a>
+            </button>
           </div>
         </section>
         <a target="_blank" href="https://www.linkedin.com/in/alwayne-bailey/">
@@ -49,14 +60,6 @@ export default function Banner() {
           </figure>
         </a>
         <div className={`${styles.buttons}`}>
-          {/* <button  className={`${styles.but}`}>
-                <a
-                // target="_blank"
-                // href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
-                >
-                  DOWNLOAD RESUME
-                </a>
-              </button> */}
           <button className={`${styles.svgBut}`}>
             <a
               target="_blank"
