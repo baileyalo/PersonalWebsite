@@ -43,9 +43,11 @@ export default function Banner() {
             </button>
           </div>
         </section>
-        <figure className={styles.bannerContRight}>
-          <img alt="Alwayne Bailey" src="/profile.jpg" />
-        </figure>
+        <a target="_blank" href="https://www.linkedin.com/in/alwayne-bailey/">
+          <figure className={styles.bannerContRight}>
+            <img alt="Alwayne Bailey" src="/profile.jpg" />
+          </figure>
+        </a>
         <div className={`${styles.buttons}`}>
           {/* <button  className={`${styles.but}`}>
                 <a

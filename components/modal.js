@@ -53,7 +53,6 @@ export default function Modal() {
         } else {
           setSubmitMessage(() => "Error, try Again");
         }
-        console.log("result:", result);
         await timeout(2);
         closeModal();
         setSubmitMessage(() => "");
