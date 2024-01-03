@@ -25,7 +25,7 @@ export default function About() {
         </header>
 
         <p>
-          Meticulous Professional with 3+ years of experience designing, testing
+          A Meticulous Professional with 3+ years of experience designing, testing
           and developing software solutions. In-depth understanding of web
           technologies with focus on delivering innovative business solutions. With 7+
           years experience in financial services providing exceptional customer
