@@ -25,12 +25,12 @@ export default function About() {
         </header>
 
         <p>
-          A Meticulous Professional with 3+ years of experience designing, testing
+          A meticulous, motivated, hardworking professional with 2 + years of experience designing, testing
           and developing software solutions. In-depth understanding of web
-          technologies with focus on delivering innovative business solutions. With 7+
+          technologies with focus on delivering innovative business solutions. With 8 +
           years experience in financial services providing exceptional customer
-          service and cash management and 2+ years experience in Technical
-          Support. Excels in fast-paced, high-energy and deadline-driven
+          service and cash management and 3 + years experience in Technical Customer
+          Support in a team environment. Excels in fast-paced, high-energy and deadline-driven
           environment with willingness to take on additional tasks.
         </p>
         <p>

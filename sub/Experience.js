@@ -59,6 +59,10 @@ export default function Experience() {
                   <span className="colorBlue">- </span>{' '}
                   <span>Maintain 90% accuracy on ticket escalations across core service areas</span>
                 </li>
+                <li>
+                  <span className="colorBlue">- </span>{' '}
+                  <span>Maintain customer satisfaction rating above 90% through telephone, email and chat.</span>
+                </li>
               </ul>
             </div>
             <div className="cardCont">
@@ -81,6 +85,10 @@ export default function Experience() {
                 <li>
                   <span className="colorBlue">- </span>{' '}
                   <span>Cross-trained as Superuser for core system upgrade and exposed to the software lifecycle</span>
+                </li>
+                <li>
+                  <span className="colorBlue">- </span>{' '}
+                  <span>•	Assist with daily branch closures and maintenance of infrastructure</span>
                 </li>
               </ul>
             </div>
