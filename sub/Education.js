@@ -52,7 +52,7 @@ export default function Education() {
               <ul>
                 <li>
                   <span className="colorRed">- </span>
-                  <span>Business and Computer Science</span>
+                  <span>Business Administration and Computer Science</span>
                 </li>
               </ul>
             </div>

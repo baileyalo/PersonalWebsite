@@ -31,7 +31,7 @@ export default function Banner() {
           </h2>
           <h3>
             [ REACT.JS / HTML / CSS / JS / TS / GRAPHQL / SOLIDITY / NODE.JS /
-            REACT NATIVE / MONGODB / MYSQL / AWS ]
+            REACT NATIVE / MONGODB / MYSQL / POSTGRESQL / AWS ]
           </h3>
           <h3>
             📧<a href={`mailto:${email}`}>{email}</a>

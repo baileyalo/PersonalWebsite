@@ -17,12 +17,12 @@ export default function Experience() {
                   <FontAwesomeIcon icon={faCalendarAlt} />{" "}2022 - Present{" "}
                 </span>
               </h5>
-              <h3>Software Engineer</h3>
+              <h3>Software Developer</h3>
               <h4>Helios Creator Inc. Toronto, Canada.</h4>
               <ul>
                 <li>
                   <span className="colorRed">- </span>
-                  <span>Maintain and develop application with Solana, React.js, React Native, MongoDB, AWS, Node.js, Python. </span>
+                  <span>Maintain and develop application with Solana, React.js, React Native, MongoDB, PostgreSQL, AWS, Node.js, Python. </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>{' '}
