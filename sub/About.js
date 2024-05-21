@@ -23,7 +23,6 @@ export default function About() {
             </span>
           </h3>
         </header>
-
         <p>
           A meticulous, motivated, hardworking professional with 2 + years of experience designing, testing
           and developing software solutions. In-depth understanding of web

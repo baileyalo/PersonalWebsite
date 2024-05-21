@@ -1,5 +1,5 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 export default function Education() {
   return (
@@ -12,44 +12,41 @@ export default function Education() {
         <div className="card">
           <div className="cardContent">
             <div className="cardCont">
-              {/* <h5>
+              <h5>
                 <span>
-                  {" "}
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2021 - 2022
+                  <FontAwesomeIcon />
                 </span>
-              </h5> */}
+              </h5>
               <h3>Graduate Certificate</h3>
               <h4>George Brown College, Toronto Canada</h4>
               <ul>
                 <li>
-                  <span className="colorBlue">- </span>
+                  <span className="colorRed">- </span>
                   <span>Blockchain Development</span>
                 </li>
               </ul>
             </div>
             <div className="cardCont">
-              {/* <h5>
+              <h5>
                 <span>
-                  {" "}
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2017 - 2019
+                  <FontAwesomeIcon />
                 </span>
-              </h5> */}
+              </h5>
               <h3>Graduate Certificate</h3>
               <h4>IBT College, Toronto Canada.</h4>
               <ul>
                 <li>
-                  <span className="colorBlue">- </span>
+                  <span className="colorRed">- </span>
                   <span>Network Engineering</span>
                 </li>
               </ul>
             </div>
             <div className="cardCont">
-              {/* <h5>
+              <h5>
                 <span>
-                  {" "}
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2010 - 2015
+                  <FontAwesomeIcon />
                 </span>
-              </h5> */}
+              </h5>
               <h3>Bachelor of Education</h3>
               <h4>University of Technology, Kingston Jamaica</h4>
               <ul>
@@ -59,7 +56,7 @@ export default function Education() {
                 </li>
               </ul>
             </div>
-         </div>
+          </div>
         </div>
       </div>
     </section>

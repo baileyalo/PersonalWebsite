@@ -21,19 +21,19 @@ export default function Experience() {
               <h4>Helios Creator Inc. Toronto, Canada.</h4>
               <ul>
                 <li>
-                  <span className="colorBlue">- </span>
+                  <span className="colorRed">- </span>
                   <span>Maintain and develop application with Solana, React.js, React Native, MongoDB, AWS, Node.js, Python. </span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span> Design the architecture of core components and redesign of existing components to build a maintainable code base.</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Liaise with external venders with integration and implementation of different third party frameworks.</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Enhance code quality by refactoring legacy code base for better reuse-ability.</span>
                 </li>
               </ul>
@@ -48,19 +48,19 @@ export default function Experience() {
               <h4>Rogers Communications Inc. Toronto, Canada.</h4>
               <ul>
                 <li>
-                  <span className="colorBlue">- </span>
+                  <span className="colorRed">- </span>
                   <span>Providing, verifying, and/or modifying network settings (TCP/IP)</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Maintain 90% monthly KPIs on business satisfaction</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Maintain 90% accuracy on ticket escalations across core service areas</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Maintain customer satisfaction rating above 90% through telephone, email and chat.</span>
                 </li>
               </ul>
@@ -75,20 +75,20 @@ export default function Experience() {
               <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica.</h4>
               <ul>
                 <li>
-                  <span className="colorBlue">- </span>
+                  <span className="colorRed">- </span>
                   <span>Maintain 95% in transactions processing</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Maintain and manage branch cash liaising with Bank of Jamaica (BOJ) and other departments</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
+                  <span className="colorRed">- </span>{' '}
                   <span>Cross-trained as Superuser for core system upgrade and exposed to the software lifecycle</span>
                 </li>
                 <li>
-                  <span className="colorBlue">- </span>{' '}
-                  <span>•	Assist with daily branch closures and maintenance of infrastructure</span>
+                  <span className="colorRed">- </span>{' '}
+                  <span>Assist with daily branch closures and maintenance of infrastructure</span>
                 </li>
               </ul>
             </div>
