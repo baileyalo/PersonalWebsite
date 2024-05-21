@@ -8,7 +8,8 @@ import Skills from "../sub/Skills";
 import Modal from "../components/modal";
 import { Contexto } from "../appContext";
 import { useContext } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 export default function Home() {
   const { navResOpen, setNavResOpen } = useContext(Contexto);
@@ -21,14 +22,17 @@ export default function Home() {
     <>
       <Head>
         <title>Alwayne Bailey</title>
-        <link rel="image_src" href="https://franciscopantojag.me/images/ogImage.jpg" />
+        <link
+          rel="image_src"
+          href="https://franciscopantojag.me/images/ogImage.jpg"
+        />
         <meta
           name="description"
           content="This is a website showcasing my Education, Skills and Work Experiences"
         />
         <meta property="og:title" content="Alwayne Bailey" />
         <meta property="og:site_name" content="Alwayne Bailey" />
-      
+
         <meta
           property="og:description"
           content="This is a website showcasing my skills and experiences"
@@ -38,9 +42,12 @@ export default function Home() {
           property="og:image"
           content="https://gateway.pinata.cloud/ipfs/QmVgNRoSLhT5nRdxtpkAEAaXMC5NNdJevENWxe74s6a13s"
         />
-        <meta property="og:image:width" content="1580"/>
-        <meta property="og:image:height" content="790"/>
-        <meta name="twitter:image" content="https://gateway.pinata.cloud/ipfs/QmVgNRoSLhT5nRdxtpkAEAaXMC5NNdJevENWxe74s6a13s"/>
+        <meta property="og:image:width" content="1580" />
+        <meta property="og:image:height" content="790" />
+        <meta
+          name="twitter:image"
+          content="https://gateway.pinata.cloud/ipfs/QmVgNRoSLhT5nRdxtpkAEAaXMC5NNdJevENWxe74s6a13s"
+        />
       </Head>
       <Modal />
       <NavBar />
@@ -56,6 +63,11 @@ export default function Home() {
         <div id="skills" className="target"></div>
 
         <Skills />
+        <div className="footer">
+          <p>
+            <FontAwesomeIcon icon={faCopyright} /> All rights reserved.
+          </p>
+        </div>
       </main>
     </>
   );

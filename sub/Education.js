@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+// import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 export default function Education() {
   return (

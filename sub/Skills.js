@@ -17,11 +17,12 @@ export default function Skills() {
     { name: "GraphQL", progress: "85" },
     { name: "MongoDB", progress: "85" },
     { name: "MySQL", progress: "85" },
+    { name: "PostgreSQL", progress: "80" },
     { name: "Git", progress: "90" },
   ];
   const overallCirSkills = [
-    { name: "Web App Development", progress: "90" },
-    { name: "Mobile App Development", progress: "90" },
+    { name: "Technical & Customer Support", progress: "90" },
+    { name: "Mobile & Web App  Development", progress: "90" },
     { name: "Database Management", progress: "70" },
     { name: "Cloud Management", progress: "70" },
   ];
@@ -43,15 +44,16 @@ export default function Skills() {
     { name: "JIRA", progress: "80" },
     { name: "POSTMAN", progress: "80" },
     { name: "FIGMA", progress: "85" },
-    { name: "MONGODB-COMPASS", progress: "85" },
+    { name: "SALESFORCE", progress: "85" },
+    { name: "ZENDESK", progress: "85" },
     { name: "SOLANA", progress: "80" },
     { name: "ETHEREUM", progress: "65" },
     { name: "HYPERLEDGER-FABRIC", progress: "65" },
     { name: "TRUFFLE", progress: "85" },
     { name: "HARDHAT", progress: "80" },
     { name: "GANACHE", progress: "90" },
-    { name: "PINATA", progress: "90" },
-    { name: "QUICKNODE", progress: "80" },
+    { name: "IPFS", progress: "90" },
+    { name: "WEB3-RPC", progress: "80" },
   ];
   return (
     <section className="container">

@@ -293,7 +293,7 @@ a {
 .sectionContSkills .cardContainer:nth-child(2) .card > ul:nth-child(2) li {
   width: 28%;
   text-align: center;
-  max-width: 140px;
+  max-width: 130px;
 }
 /* prettier-ignore */
 .sectionContSkills .cardContainer:nth-child(2) .card>ul:nth-child(2) li:last-child {
@@ -303,6 +303,10 @@ a {
 .sectionContSkills .cardContainer:nth-child(2) .card>ul:nth-child(2) li>div:last-child{
   margin-top: 0.6em;
   opacity: 0.9;
+}
+
+.footer {
+  margin-left: 50%;
 }
 
 .sectionContSkills
