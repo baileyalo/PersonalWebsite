@@ -40,13 +40,13 @@ export default function Home() {
         <meta property="og:type" content="profile" />
         <meta
           property="og:image"
-          content="https://gateway.pinata.cloud/ipfs/QmVgNRoSLhT5nRdxtpkAEAaXMC5NNdJevENWxe74s6a13s"
+          content="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
         />
         <meta property="og:image:width" content="1580" />
         <meta property="og:image:height" content="790" />
         <meta
           name="twitter:image"
-          content="https://gateway.pinata.cloud/ipfs/QmVgNRoSLhT5nRdxtpkAEAaXMC5NNdJevENWxe74s6a13s"
+          content="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
         />
       </Head>
       <Modal />
@@ -65,7 +65,7 @@ export default function Home() {
         <Skills />
         <div className="footer">
           <p>
-            <FontAwesomeIcon icon={faCopyright} /> All rights reserved.
+            <FontAwesomeIcon icon={faCopyright} /> All rights reserved 2024.
           </p>
         </div>
       </main>
