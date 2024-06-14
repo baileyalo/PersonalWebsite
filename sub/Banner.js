@@ -56,7 +56,7 @@ export default function Banner() {
         </section>
         <a target="_blank" href="https://www.linkedin.com/in/alwayne-bailey/">
           <figure className={styles.bannerContRight}>
-            <img alt="Alwayne Bailey" src="/profile.jpg" />
+            <img alt="Alwayne Bailey" src="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe" />
           </figure>
         </a>
         <div className={`${styles.buttons}`}>
