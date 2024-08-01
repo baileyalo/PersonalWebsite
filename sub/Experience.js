@@ -148,7 +148,7 @@ export default function Experience() {
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    • Client Engagement- Maintain high level of customer
+                    Client Engagement- Maintain high level of customer
                     satisfaction for each client on each interaction.
                   </span>
                 </li>
