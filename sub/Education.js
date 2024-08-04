@@ -17,7 +17,7 @@ export default function Education() {
                   <FontAwesomeIcon />
                 </span>
               </h5>
-              <h3>Graduate Diploma</h3>
+              <h3>Graduate Diploma (Honors)</h3>
               <h4>George Brown College, Toronto Canada</h4>
               <ul>
                 <li>
@@ -91,7 +91,7 @@ export default function Education() {
                   <FontAwesomeIcon />
                 </span>
               </h5>
-              <h3>Graduate Diploma</h3>
+              <h3>Graduate Diploma (Honors)</h3>
               <h4>IBT College, Toronto Canada.</h4>
               <ul>
                 <li>
