@@ -27,7 +27,7 @@ export default function Banner() {
             <span className={styles.brH2}>
               <br />
             </span>{" "}
-            Graduate Certificate
+            Graduate Diploma
           </h2>
           <h3>
             [ REACT.JS / HTML / CSS / JS / TS / GRAPHQL / SOLIDITY / NODE.JS /
