@@ -19,7 +19,7 @@ export default function About() {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-              Front-End Developer | Technical Support Specialist | Web3 | Banker | Educator
+              Front-End Developer | Technical Support Specialist | Customer Support Specialist | Web3 Developer | Banker | Educator
             </span>
           </h3>
         </header>
@@ -28,7 +28,7 @@ export default function About() {
           and developing software solutions. In-depth understanding of web
           technologies with focus on delivering innovative business solutions. With 8 +
           years experience in financial services providing exceptional customer
-          service and cash management and 3 + years experience in Technical Customer
+          service, client and cash management and 3 + years experience in Technical Customer
           Support in a team environment. Excels in fast-paced, high-energy and deadline-driven
           environment with willingness to take on additional tasks.
         </p>
