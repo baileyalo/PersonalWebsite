@@ -19,10 +19,6 @@ export default function Banner() {
         <section className={styles.bannerContLeft}>
           <h1>{name}</h1>
           <h2>
-            Software Engineer |
-            <span className={styles.brH2}>
-              <br />
-            </span>{" "}
             Bachelor of Education |
             <span className={styles.brH2}>
               <br />
