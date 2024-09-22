@@ -24,7 +24,7 @@ export default function Home() {
         <title>Alwayne Bailey</title>
         <link
           rel="image_src"
-          href="https://franciscopantojag.me/images/ogImage.jpg"
+          href="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
         />
         <meta
           name="description"
