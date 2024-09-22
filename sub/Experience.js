@@ -14,7 +14,7 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - Present{" "}
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - 2024{" "}
                 </span>
               </h5>
               <h3>Software Developer</h3>
@@ -77,7 +77,7 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2019 - 2022{" "}
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2020 - 2022{" "}
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
