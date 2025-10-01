@@ -1,118 +1,266 @@
 .navBar {
-    background-color: var(--light-gray);
-    -webkit-box-shadow: 0px 0px 5px 0px black;
-    -moz-box-shadow: 0px 0px 5px 0px black;
-    box-shadow: 0px 0px 5px 0px black;
-    position: sticky;
-    z-index: 2;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+[data-theme="light"] .navBar {
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.navBar.scrolled {
+  background: rgba(10, 10, 10, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .navBar.scrolled {
+  background: rgba(248, 250, 252, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navBarCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+}
+
+.navBarCont > ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  list-style: none;
+}
+
+.navBarCont > ul > li {
+  position: relative;
+}
+
+.navBarCont > ul > li > a {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.navBarCont > ul > li > a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+.navBarCont > ul > li > a:hover {
+  color: var(--accent-color);
+  background: rgba(0, 132, 255, 0.1);
+}
+
+[data-theme="light"] .navBarCont > ul > li > a:hover {
+  background: rgba(0, 132, 255, 0.08);
+}
+
+.navBarCont > ul > li > a:hover::before {
+  width: 80%;
+}
+
+.navBarCont > ul > li > a:active,
+.navBarCont > ul > li > a.active {
+  color: var(--accent-color);
+}
+
+.navBarCont > ul > li > a.active::before {
+  width: 80%;
+}
+
+/* Mobile Navigation */
+.navBarRes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  display: none;
+}
+
+.hamburger {
+  position: fixed;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 1002;
+  width: 48px;
+  height: 48px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.hamburger:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-color);
+}
+
+.navBarResUl {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  transition: left var(--transition-slow);
+  z-index: 1001;
+}
+
+[data-theme="light"] .navBarResUl {
+  background: rgba(248, 250, 252, 0.98);
+}
+
+.navBarResUlOpen {
+  left: 0;
+}
+
+.navBarResUl > li {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .navBarResUl > li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navBarResUl > li > a {
+  display: block;
+  padding: var(--space-lg) var(--space-xl);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.navBarResUl > li > a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--gradient-accent);
+  transition: width var(--transition-normal);
+}
+
+.navBarResUl > li > a:hover,
+.navBarResUl > li > a:active {
+  color: var(--accent-color);
+  background: rgba(0, 132, 255, 0.1);
+}
+
+[data-theme="light"] .navBarResUl > li > a:hover,
+[data-theme="light"] .navBarResUl > li > a:active {
+  background: rgba(0, 132, 255, 0.08);
+}
+
+.navBarResUl > li > a:hover::before {
+  width: 4px;
+}
+
+/* Mobile overlay */
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  z-index: 1000;
+}
+
+[data-theme="light"] .mobileOverlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.mobileOverlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .navBar {
+    display: none;
   }
   
+  .navBarRes {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navBarCont > ul {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 900px) {
   .navBarCont {
-    display: flex;
-    justify-content: flex-end;
-    margin: 0 auto;
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .navBarCont > ul {
+    gap: var(--space-md);
+  }
+  
+  .navBarCont > ul > li > a {
+    padding: var(--space-xs) var(--space-sm);
     font-size: 0.8rem;
   }
-  .navBarCont > ul {
-    display: flex;
-    padding: 1.2em 0;
-    align-items: center;
-  }
-  .navBarCont > ul > li {
-    list-style: none;
-    margin-right: 3em;
-    display: flex;
-  }
-  .navBarCont > ul > li:last-child {
-    margin-right: 0;
-  }
-  .navBarCont > ul > li > a {
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0.9;
-  }
-  
-  @media (hover: hover) {
-    .navBarCont > ul > li > a:hover {
-      color: rgb(190, 39, 49);
-      opacity: 1;
-    }
-  }
-  .navBarCont > ul > li > a:active {
-    color: var(--red);
-  }
-  .navBarRes {
-    display: none;
-    position: fixed;
-    max-width: 0;
-    top: 0;
-    left: 0;
-    z-index: 2;
-  }
-  .navBarResUl {
-    position: absolute;
-    min-height: 100vh;
-    align-items: stretch;
-    padding-top: 4.48rem;
-    background-color: rgba(34, 34, 34, 0.95);
-    z-index: 1;
-    top: 0;
-    left: -10.7rem;
-    display: flex;
-    flex-direction: column;
-    transition: left 0.5s ease;
-  }
-  .navBarResUl > li {
-    width: 100%;
-    display: flex;
-    border-top: 1px solid var(--border);
-  }
-  .navBarResUl > li:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-  
-  .navBarResUl > li > a {
-    padding: 1rem 2rem;
-    width: 100%;
-    height: 100%;
-    text-transform: uppercase;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    text-align: center;
-    color: rgba(233, 233, 233, 0.9);
-  }
-  @media (hover: hover) {
-    .navBarResUl > li > a:hover {
-      color: white;
-      opacity: 1;
-    }
-  }
-  .navBarResUl > li > a:active {
-    color: var(--red);
-    background-color: rgba(34, 34, 34, 1);
-  }
-  @media (orientation: portrait) {
-    .navBar {
-      display: none;
-    }
-    .navBarRes {
-      display: block;
-    }
-  }
-  @media (max-width: 900px) {
-    .navBarCont > ul {
-      padding: 1em 0;
-    }
-    .navBarCont > ul > li {
-      margin-right: 2em;
-    }
-  }
-  
-  .navBarResUlOpen {
-    left: 0;
-  }
+}
+
+/* Smooth scroll indicator */
+.scrollIndicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--gradient-accent);
+  z-index: 1001;
+  transition: width 0.1s ease;
+}

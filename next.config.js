@@ -1,13 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
-
-module.exports = {
-  // other exports
-  // nextConfig,
-  reactStrictMode: true,
-  target: 'serverless', // add this line
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'green-difficult-vulture-434.mypinata.cloud',
+        port: '',
+        pathname: '/ipfs/**',
+      },
+    ],
+  },
+  env: {
+    NEXT_PUBLIC_SERVICE_ID: process.env.NEXT_PUBLIC_SERVICE_ID,
+    NEXT_PUBLIC_TEMPLATE_ID: process.env.NEXT_PUBLIC_TEMPLATE_ID,
+    NEXT_PUBLIC_USER_ID: process.env.NEXT_PUBLIC_USER_ID,
+  },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

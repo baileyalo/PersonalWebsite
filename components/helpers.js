@@ -1,33 +1,37 @@
 export default function scrollIt(destination) {
-    const documentHeight = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
-    );
-    const windowHeight =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.getElementsByTagName("body")[0].clientHeight;
-    const destinationOffset = destination.offsetTop;
-    const destinationOffsetToScroll = Math.round(
-      documentHeight - destinationOffset < windowHeight
-        ? documentHeight - windowHeight
-        : destinationOffset
-    );
+  const documentHeight = Math.max(
+    document.body.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.clientHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight
+  );
+  const windowHeight =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.getElementsByTagName("body")[0].clientHeight;
   
-    function scroll() {
-      window.scroll({
-        top: destinationOffsetToScroll,
-        left: destinationOffsetToScroll,
-        behavior: "smooth",
-      });
-    }
+  // Account for fixed navbar height (approximately 80px)
+  const navbarHeight = 80;
+  const destinationOffset = destination.offsetTop - navbarHeight;
   
-    scroll();
+  const destinationOffsetToScroll = Math.round(
+    documentHeight - destinationOffset < windowHeight
+      ? documentHeight - windowHeight
+      : destinationOffset
+  );
+
+  function scroll() {
+    window.scroll({
+      top: destinationOffsetToScroll,
+      left: 0, // Fixed: should be 0, not destinationOffsetToScroll
+      behavior: "smooth",
+    });
   }
-  
-  export function timeout(s) {
-    return new Promise((resolve) => setTimeout(resolve, s * 1000));
-  }
+
+  scroll();
+}
+
+export function timeout(s) {
+  return new Promise((resolve) => setTimeout(resolve, s * 1000));
+}

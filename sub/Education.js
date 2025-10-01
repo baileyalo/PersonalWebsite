@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 export default function Education() {
   return (
@@ -14,7 +14,7 @@ export default function Education() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon />
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2021
                 </span>
               </h5>
               <h3>Graduate Diploma (Honors)</h3>
@@ -88,7 +88,7 @@ export default function Education() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon />
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2019
                 </span>
               </h5>
               <h3>Graduate Diploma (Honors)</h3>
@@ -148,7 +148,7 @@ export default function Education() {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon />
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2016
                 </span>
               </h5>
               <h3>Bachelor of Education</h3>

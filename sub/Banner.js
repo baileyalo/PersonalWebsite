@@ -3,6 +3,8 @@ import Linkedin from "../svg/linkedin.js";
 import Github from "../svg/github.js";
 import { useContext } from "react";
 import { Contexto } from "../appContext";
+import { motion } from "framer-motion";
+import { slideInLeft, slideInRight, staggerContainer, staggerItem, hoverScale, floatingAnimation } from "../utils/animations";
 
 export default function Banner() {
   const name = "Alwayne Bailey";
@@ -14,62 +16,137 @@ export default function Banner() {
   }
 
   return (
-    <section className={`container ${styles.banner}`}>
-      <div className={`containerCont ${styles.bannerCont}`}>
-        <section className={styles.bannerContLeft}>
-          <h1>{name}</h1>
-          <h2>
-            Bachelor of Education |
-            <span className={styles.brH2}>
-              <br />
-            </span>{" "}
-            Graduate Diploma
-          </h2>
-          <h3>
-            [ REACT.JS / HTML / CSS / JS / TS / GRAPHQL / SOLIDITY / NODE.JS /
-            REACT NATIVE / MONGODB / MYSQL / POSTGRESQL / AWS ]
-          </h3>
-          <h3>
-            📧<a href={`mailto:${email}`}>{email}</a>
-          </h3>
-          <br />
-          <div className={`${styles.buttons}`}>
-            <button onClick={openModal} className={`${styles.but}`}>
-              CONTACT ME
-            </button>
+    <section className={`${styles.banner} section`}>
+      <div className={`${styles.bannerCont} container`}>
+        <motion.div 
+          className={styles.bannerContLeft}
+          variants={slideInLeft}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {name}
+          </motion.h1>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Software Engineer & Blockchain Enthusiast
             <br />
-            <button className={`${styles.but}`}>
+            <span className="gradient-text">Building the Future of Web3</span>
+          </motion.h2>
+          
+          <motion.div 
+            className={styles.techStack}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            [ REACT.JS / JAVASCRIPT / TYPESCRIPT / REACT NATIVE / REST API / NODE.JS / SOLIDITY / GRAPHQL / AWS / WEB3 ]
+          </motion.div>
+          
+          <motion.div 
+            className={styles.contactInfo}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <span>📧</span>
+            <a href={`mailto:${email}`}>{email}</a>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.buttons}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.button 
+              onClick={openModal} 
+              className={`${styles.but} btn btn-primary`}
+              variants={staggerItem}
+              {...hoverScale}
+            >
+              CONTACT ME
+            </motion.button>
+            <motion.button 
+              className={`${styles.but} btn btn-secondary`}
+              variants={staggerItem}
+              {...hoverScale}
+            >
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://github.com/baileyalo"
-                // target="_blank"
-                // href="https://gateway.pinata.cloud/ipfs/QmaqbyaWSkibyX57qSHKPk1GU3m4q5oTY3VygCiHN5bjCJ"
               >
                 VIEW PORTFOLIO
               </a>
-            </button>
-          </div>
-        </section>
-        <a target="_blank" href="https://www.linkedin.com/in/alwayne-bailey/">
-          <figure className={styles.bannerContRight}>
-            <img alt="Alwayne Bailey" src="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmTHXx4dKAZxKsHXPssoWdohD3aChDENH7CsBeHkXAYwFY" />
-          </figure>
-        </a>
-        <div className={`${styles.buttons}`}>
-          <button className={`${styles.svgBut}`}>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/alwayne-bailey/"
+            </motion.button>
+          </motion.div>
+          
+          <motion.div 
+            className={styles.socialButtons}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.button 
+              className={styles.svgBut}
+              variants={staggerItem}
+              {...hoverScale}
             >
-              <Linkedin />
-            </a>
-          </button>
-          <button className={`${styles.svgBut}`}>
-            <a target="_blank" href="https://github.com/baileyalo">
-              <Github />
-            </a>
-          </button>
-        </div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/alwayne-bailey/"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin />
+              </a>
+            </motion.button>
+            <motion.button 
+              className={styles.svgBut}
+              variants={staggerItem}
+              {...hoverScale}
+            >
+              <a 
+                target="_blank" 
+                rel="noopener noreferrer"
+                href="https://github.com/baileyalo"
+                aria-label="GitHub Profile"
+              >
+                <Github />
+              </a>
+            </motion.button>
+          </motion.div>
+        </motion.div>
+        
+        <motion.div 
+          className={styles.bannerContRight}
+          variants={slideInRight}
+          initial="hidden"
+          animate="visible"
+          {...floatingAnimation}
+        >
+          <motion.img 
+            alt="Alwayne Bailey - Software Engineer" 
+            src="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmTHXx4dKAZxKsHXPssoWdohD3aChDENH7CsBeHkXAYwFY"
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/profile_pic.png";
+            }}
+            loading="eager"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.div>
       </div>
     </section>
   );

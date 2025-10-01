@@ -14,6 +14,53 @@ export default function Experience() {
             <div className="cardCont">
               <h5>
                 <span>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> 2024 - 2025{" "}
+                </span>
+              </h5>
+              <h3>Coordinator, Client Services</h3>
+              <h4>RepRisk · Toronto, Ontario, Canada</h4>
+              <ul>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Onboarded and offboarded B2B clients, ensuring a smooth and secure transition process
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Tested and debugged REST API integrations to support seamless client connectivity
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Managed user accounts and permissions within web-based applications
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Wrote and maintained SQL scripts for data extraction, transformation, and reporting
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Configured and maintained SFTP servers for secure file transfers and data integration
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Monitored and maintained automated data feeds to ensure accuracy and consistency
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="cardCont">
+              <h5>
+                <span>
                   <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - 2024{" "}
                 </span>
               </h5>
