@@ -10,24 +10,24 @@ export default function Skills() {
     { name: "HTML", progress: "90" },
     { name: "CSS", progress: "90" },
     { name: "JavaScript", progress: "90" },
-    { name: "TypeScript", progress: "85" },
+    { name: "TypeScript", progress: "90" },
     { name: "Solidity", progress: "85" },
-    { name: "React Js", progress: "85" },
+    { name: "React Js", progress: "90" },
     { name: "React Native", progress: "90" },
-    { name: "Node js", progress: "85" },
-    { name: "Express js", progress: "85" },
+    { name: "Node js", progress: "90" },
+    { name: "Express js", progress: "90" },
     { name: "GraphQL", progress: "85" },
-    { name: "MongoDB", progress: "85" },
-    { name: "MySQL", progress: "85" },
-    { name: "PostgreSQL", progress: "80" },
+    { name: "MongoDB", progress: "90" },
+    { name: "MySQL", progress: "90" },
+    { name: "PostgreSQL", progress: "90" },
     { name: "Git", progress: "90" },
   ];
   
   const overallCirSkills = [
     { name: "Technical & Customer Support", progress: "90" },
     { name: "Mobile & Web App Development", progress: "90" },
-    { name: "Database Management", progress: "70" },
-    { name: "Cloud Management", progress: "70" },
+    { name: "Database Management", progress: "85" },
+    { name: "Cloud Management", progress: "80" },
   ];
   
   const softSkills = [

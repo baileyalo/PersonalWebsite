@@ -19,7 +19,7 @@ export default function About() {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-              Front-End Developer | Technical Support Specialist | Customer Support Specialist | Web3 Developer | Banker | Educator
+              Software Engineer | Technical Support Specialist | Customer Support Specialist | Web3 Developer | Banker | Educator
             </span>
           </h3>
         </header>
