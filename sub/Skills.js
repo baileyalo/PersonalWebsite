@@ -27,7 +27,7 @@ export default function Skills() {
     { name: "Technical & Customer Support", progress: "90" },
     { name: "Mobile & Web App Development", progress: "90" },
     { name: "Database Management", progress: "85" },
-    { name: "Cloud Management", progress: "80" },
+    { name: "Cloud Management", progress: "85" },
   ];
   
   const softSkills = [
@@ -43,22 +43,23 @@ export default function Skills() {
   const softwareSkills = [
     { name: "VS-CODE", progress: "90" },
     { name: "ANDROID-STUDIO", progress: "90" },
-    { name: "AWS", progress: "80" },
+    { name: "AWS", progress: "90" },
     { name: "GITHUB", progress: "90" },
     { name: "CLICK-UP", progress: "90" },
-    { name: "JIRA", progress: "80" },
-    { name: "POSTMAN", progress: "80" },
+    { name: "SLACK", progress: "90" },
+    { name: "JIRA", progress: "90" },
+    { name: "POSTMAN", progress: "90" },
     { name: "FIGMA", progress: "85" },
     { name: "SALESFORCE", progress: "85" },
     { name: "ZENDESK", progress: "85" },
-    { name: "SOLANA", progress: "80" },
-    { name: "ETHEREUM", progress: "65" },
+    { name: "SOLANA", progress: "90" },
+    { name: "ETHEREUM", progress: "85" },
     { name: "HYPERLEDGER-FABRIC", progress: "65" },
     { name: "TRUFFLE", progress: "85" },
     { name: "HARDHAT", progress: "80" },
     { name: "GANACHE", progress: "90" },
     { name: "IPFS", progress: "90" },
-    { name: "WEB3-RPC", progress: "80" },
+    { name: "WEB3-RPC", progress: "90" },
   ];
 
   return (

@@ -1,15 +1,17 @@
+import React, { useContext, useState } from "react";
 import styles from "../styles/banner.module.css";
 import Linkedin from "../svg/linkedin.js";
 import Github from "../svg/github.js";
-import { useContext } from "react";
 import { Contexto } from "../appContext";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { slideInLeft, slideInRight, staggerContainer, staggerItem, hoverScale, floatingAnimation } from "../utils/animations";
 
 export default function Banner() {
   const name = "Alwayne Bailey";
   const email = "baileyalwayne@gmail.com";
   const { setIsOpen } = useContext(Contexto);
+  const [imgSrc, setImgSrc] = useState("https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmTHXx4dKAZxKsHXPssoWdohD3aChDENH7CsBeHkXAYwFY");
 
   function openModal() {
     setIsOpen(true);
@@ -134,13 +136,13 @@ export default function Banner() {
           animate="visible"
           {...floatingAnimation}
         >
-          <motion.img 
-            alt="Alwayne Bailey - Software Engineer" 
-            src="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmTHXx4dKAZxKsHXPssoWdohD3aChDENH7CsBeHkXAYwFY"
-            referrerPolicy="no-referrer"
+          <motion.img
+            alt="Alwayne Bailey - Software Engineer"
+            src={imgSrc}
+            style={{ width: 300, height: 300, objectFit: "cover", borderRadius: "50%" }}
             onError={(e) => {
               e.currentTarget.onerror = null;
-              e.currentTarget.src = "/profile_pic.png";
+              setImgSrc("/profile_pic.png");
             }}
             loading="eager"
             whileHover={{ scale: 1.05 }}
