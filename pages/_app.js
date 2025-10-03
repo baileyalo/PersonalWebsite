@@ -28,7 +28,10 @@ function MyApp({ Component, pageProps }) {
       <ContextoProvider>
         <>
           <Head>
+            {/* Use circular SVG favicon (local) which embeds the existing external image URL */}
             <link rel="icon" href="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe" />
+            {/* Fallback for browsers that don't support SVG favicons can be the original image */}
+            <link rel="alternate icon" href="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"

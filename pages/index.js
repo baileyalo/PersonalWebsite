@@ -23,20 +23,20 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Alwayne Bailey - Full-Stack Developer & Blockchain Enthusiast</title>
+        <title>Mr. Alwayne Bailey - Software Engineer | Educator | Blockchain Enthusiast</title>
         <link
           rel="image_src"
           href="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
         />
         <meta
           name="description"
-          content="Full-Stack Developer & Blockchain Enthusiast specializing in React.js, TypeScript, Node.js, Solidity, and Web3 technologies. Building the future of decentralized applications."
+          content="Full-Sta & Blockchain Enthusiast specializing in React.js, TypeScript, Node.js, Solidity, and Web3 technologies. Building the future of decentralized applications."
         />
         <meta property="og:title" content="Alwayne Bailey - Software Engineer" />
         <meta property="og:site_name" content="Alwayne Bailey Portfolio" />
         <meta
           property="og:description"
-          content="Full-Stack Developer & Blockchain Enthusiast building innovative web3 solutions"
+          content="Software Engineer | Educator | Blockchain Enthusias building innovative web3 solutions"
         />
         <meta property="og:type" content="profile" />
         <meta

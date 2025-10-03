@@ -12,7 +12,6 @@ export default function Banner() {
   const email = "baileyalwayne@gmail.com";
   const { setIsOpen } = useContext(Contexto);
   const [imgSrc, setImgSrc] = useState("https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmTHXx4dKAZxKsHXPssoWdohD3aChDENH7CsBeHkXAYwFY");
-
   function openModal() {
     setIsOpen(true);
   }
@@ -132,22 +131,24 @@ export default function Banner() {
         <motion.div 
           className={styles.bannerContRight}
           variants={slideInRight}
-          initial="hidden"
+          // initial="hidden"
           animate="visible"
           {...floatingAnimation}
         >
-          <motion.img
-            alt="Alwayne Bailey - Software Engineer"
-            src={imgSrc}
-            style={{ width: 300, height: 300, objectFit: "cover", borderRadius: "50%" }}
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              setImgSrc("/profile_pic.png");
-            }}
-            loading="eager"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
+          {/* Use Next.js Image for better external image handling (domain allowed in next.config.js) */}
+          { /* Wrap Next/Image with motion to keep hover animation */ }
+          {React.createElement(motion(Image), {
+            alt: "Alwayne Bailey - Software Engineer",
+            src: imgSrc,
+            // Make the image wider than tall to produce an oval shape
+            width: 380,
+            height: 300,
+            style: { objectFit: "cover", borderRadius: "50%" },
+            onError: () => setImgSrc("/profile_pic.png"),
+            loading: "eager",
+            whileHover: { scale: 1.05 },
+            transition: { duration: 0.3 },
+          })}
         </motion.div>
       </div>
     </section>
