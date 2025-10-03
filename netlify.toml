@@ -5,10 +5,22 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[build.environment]
+  NEXT_PRIVATE_TARGET = "server"
+  NODE_VERSION = "18"
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
   status = 200
 
-[build.environment]
-  NEXT_USE_NETLIFY_EDGE = "true"
+[[redirects]]
+  from = "/static/*"
+  to = "/static/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/nextjs-server"
+  status = 200
+  force = true
