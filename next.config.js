@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // `output: 'export'` removed because Next.js API Routes (pages/api)
-  // are not compatible with static HTML export. Keeping a server
-  // build allows API routes to function during runtime.
+  output: 'export',
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true, // Add trailing slashes to help with Netlify routing
