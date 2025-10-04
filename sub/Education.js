@@ -18,13 +18,15 @@ export default function Education() {
                 </span>
               </h5>
               <h3>Graduate Diploma (Honors)</h3>
-              <h4>George Brown College, Toronto Canada</h4>
+              <h4>
+                <a href="https://www.georgebrown.ca/" target="_blank" rel="noopener noreferrer">
+                  George Brown College, Toronto Canada
+                </a>
+              </h4>
               <ul>
-                <li>
                   <span className="colorRed">
                     Blockchain Development - Software Engineering
                   </span>
-                </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
@@ -94,9 +96,7 @@ export default function Education() {
               <h3>Graduate Diploma (Honors)</h3>
               <h4>IBT College, Toronto Canada.</h4>
               <ul>
-                <li>
                   <span className="colorRed">Network Engineering</span>
-                </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
@@ -152,13 +152,17 @@ export default function Education() {
                 </span>
               </h5>
               <h3>Bachelor of Education</h3>
-              <h4>University of Technology, Kingston Jamaica</h4>
+              <h4>
+                <a href="https://www.utech.edu.jm/" target="_blank" rel="noopener noreferrer">
+                  University of Technology, Kingston Jamaica
+                </a>
+              </h4>
               <ul>
-                <li>
+                
                   <span className="colorRed">
                     Business Administration and Computer Science
                   </span>
-                </li>
+                
                 <li>
                   <span className="colorRed">- </span>
                   <span>
