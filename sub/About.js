@@ -24,11 +24,11 @@ export default function About() {
           </h3>
         </header>
         <p>
-          A meticulous, motivated, hardworking professional with 2 + years of experience designing, testing
+          A meticulous, motivated, hardworking professional with 3 + years of experience designing, testing
           and developing software solutions. In-depth understanding of web
           technologies with focus on delivering innovative business solutions. With 8 +
           years experience in financial services providing exceptional customer
-          service, client and cash management and 3 + years experience in Technical Customer
+          service, client and cash management and 4 + years experience in Technical Customer
           Support in a team environment. Excels in fast-paced, high-energy and deadline-driven
           environment with willingness to take on additional tasks.
         </p>
@@ -40,7 +40,7 @@ export default function About() {
           ; projects that I have worked on{" "}
           <strong>
             <a target="_blank" href="https://github.com/baileyalo">
-              github
+              Github
             </a>
           </strong>{" "}
           and visit my{" "}
