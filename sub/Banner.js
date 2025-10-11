@@ -11,7 +11,7 @@ export default function Banner() {
   const name = "Alwayne Bailey";
   const email = "baileyalwayne@gmail.com";
   const { setIsOpen } = useContext(Contexto);
-  const [imgSrc, setImgSrc] = useState("https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmTHXx4dKAZxKsHXPssoWdohD3aChDENH7CsBeHkXAYwFY");
+  const [imgSrc, setImgSrc] = useState("https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira");
   function openModal() {
     setIsOpen(true);
   }
@@ -140,9 +140,8 @@ export default function Banner() {
           {React.createElement(motion(Image), {
             alt: "Alwayne Bailey - Software Engineer",
             src: imgSrc,
-            // Make the image wider than tall to produce an oval shape
-            width: 380,
-            height: 300,
+            width: 400,
+            height: 400,
             style: { objectFit: "cover", borderRadius: "50%" },
             onError: () => setImgSrc("/profile_pic.png"),
             loading: "eager",

@@ -18,7 +18,24 @@ export default function Skill({ skill, index }) {
       }}
     >
       <div className="rowFlexRes">
-        <span>{skill.name}</span>
+        <span>
+          {skill.url ? (
+            <a 
+              href={skill.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                color: 'inherit', 
+                textDecoration: 'none',
+                borderBottom: '1px dotted currentColor'
+              }}
+            >
+              {skill.name}
+            </a>
+          ) : (
+            skill.name
+          )}
+        </span>
         <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

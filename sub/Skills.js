@@ -7,20 +7,20 @@ import { slideUp, staggerContainer, staggerItem, fadeIn } from "../utils/animati
 
 export default function Skills() {
   const TechSkills = [
-    { name: "HTML", progress: "90" },
-    { name: "CSS", progress: "90" },
-    { name: "JavaScript", progress: "90" },
-    { name: "TypeScript", progress: "90" },
-    { name: "Solidity", progress: "85" },
-    { name: "React Js", progress: "90" },
-    { name: "React Native", progress: "90" },
-    { name: "Node js", progress: "90" },
-    { name: "Express js", progress: "90" },
-    { name: "GraphQL", progress: "85" },
-    { name: "MongoDB", progress: "90" },
-    { name: "MySQL", progress: "90" },
-    { name: "PostgreSQL", progress: "90" },
-    { name: "Git", progress: "90" },
+    { name: "HTML", progress: "90", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+    { name: "CSS", progress: "90", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    { name: "JavaScript", progress: "90", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { name: "TypeScript", progress: "90", url: "https://www.typescriptlang.org/" },
+    { name: "Solidity", progress: "85", url: "https://soliditylang.org/" },
+    { name: "React Js", progress: "90", url: "https://reactjs.org/" },
+    { name: "React Native", progress: "90", url: "https://reactnative.dev/" },
+    { name: "Node js", progress: "90", url: "https://nodejs.org/" },
+    { name: "Express js", progress: "90", url: "https://expressjs.com/" },
+    { name: "GraphQL", progress: "85", url: "https://graphql.org/" },
+    { name: "MongoDB", progress: "90", url: "https://www.mongodb.com/" },
+    { name: "MySQL", progress: "90", url: "https://www.mysql.com/" },
+    { name: "PostgreSQL", progress: "90", url: "https://www.postgresql.org/" },
+    { name: "Git", progress: "90", url: "https://git-scm.com/" },
   ];
   
   const overallCirSkills = [
@@ -41,25 +41,25 @@ export default function Skills() {
   ];
   
   const softwareSkills = [
-    { name: "VS-CODE", progress: "90" },
-    { name: "ANDROID-STUDIO", progress: "90" },
-    { name: "AWS", progress: "90" },
-    { name: "GITHUB", progress: "90" },
-    { name: "CLICK-UP", progress: "90" },
-    { name: "SLACK", progress: "90" },
-    { name: "JIRA", progress: "90" },
-    { name: "POSTMAN", progress: "90" },
-    { name: "FIGMA", progress: "85" },
-    { name: "SALESFORCE", progress: "85" },
-    { name: "ZENDESK", progress: "85" },
-    { name: "SOLANA", progress: "90" },
-    { name: "ETHEREUM", progress: "85" },
-    { name: "HYPERLEDGER-FABRIC", progress: "65" },
-    { name: "TRUFFLE", progress: "85" },
-    { name: "HARDHAT", progress: "80" },
-    { name: "GANACHE", progress: "90" },
-    { name: "IPFS", progress: "90" },
-    { name: "WEB3-RPC", progress: "90" },
+    { name: "VS-CODE", progress: "90", url: "https://code.visualstudio.com/" },
+    { name: "ANDROID-STUDIO", progress: "90", url: "https://developer.android.com/studio" },
+    { name: "AWS", progress: "90", url: "https://aws.amazon.com/" },
+    { name: "GITHUB", progress: "90", url: "https://github.com/" },
+    { name: "CLICK-UP", progress: "90", url: "https://clickup.com/" },
+    { name: "SLACK", progress: "90", url: "https://slack.com/" },
+    { name: "JIRA", progress: "90", url: "https://www.atlassian.com/software/jira" },
+    { name: "POSTMAN", progress: "90", url: "https://www.postman.com/" },
+    { name: "FIGMA", progress: "85", url: "https://www.figma.com/" },
+    { name: "SALESFORCE", progress: "85", url: "https://www.salesforce.com/" },
+    { name: "ZENDESK", progress: "85", url: "https://www.zendesk.com/" },
+    { name: "SOLANA", progress: "90", url: "https://solana.com/" },
+    { name: "ETHEREUM", progress: "85", url: "https://ethereum.org/" },
+    { name: "HYPERLEDGER-FABRIC", progress: "65", url: "https://www.hyperledger.org/use/fabric" },
+    { name: "TRUFFLE", progress: "85", url: "https://trufflesuite.com/" },
+    { name: "HARDHAT", progress: "80", url: "https://hardhat.org/" },
+    { name: "GANACHE", progress: "90", url: "https://trufflesuite.com/ganache/" },
+    { name: "IPFS", progress: "90", url: "https://ipfs.tech/" },
+    { name: "WEB3-RPC", progress: "90", url: "https://web3js.readthedocs.io/" },
   ];
 
   return (
@@ -91,7 +91,7 @@ export default function Skills() {
             transition={{ delay: 0.2 }}
           >
             <div className="card">
-              <h3>Tech | Frameworks</h3>
+              <h3 className="text-center">Tech | Frameworks</h3>
               <motion.ul
                 variants={staggerContainer}
                 initial="hidden"
@@ -114,7 +114,7 @@ export default function Skills() {
             transition={{ delay: 0.4 }}
           >
             <div className="card">
-              <h3>Coverage</h3>
+              <h3 className="text-center">Coverage</h3>
               <motion.ul 
                 className="rowFlexRes breakOverall"
                 variants={staggerContainer}
@@ -189,7 +189,7 @@ export default function Skills() {
           transition={{ delay: 0.6 }}
         >
           <div className="card">
-            <h3>Software Tools</h3>
+            <h3 className="text-center">Software Tools</h3>
             <motion.ul
               variants={staggerContainer}
               initial="hidden"

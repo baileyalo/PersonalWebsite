@@ -26,7 +26,7 @@ export default function Home() {
         <title>Mr. Alwayne Bailey - Software Engineer | Educator | Blockchain Enthusiast</title>
         <link
           rel="image_src"
-          href="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
+          href="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
         />
         <meta
           name="description"
@@ -41,7 +41,7 @@ export default function Home() {
         <meta property="og:type" content="profile" />
         <meta
           property="og:image"
-          content="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
+          content="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
         />
         <meta property="og:image:width" content="1580" />
         <meta property="og:image:height" content="790" />
@@ -51,9 +51,9 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://green-difficult-vulture-434.mypinata.cloud/ipfs/QmbK992cBygK3FSwYMjCGAKD5823k2XD3pceBDCvLowYJe"
+          content="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
         />
-        <meta name="keywords" content="full-stack developer, blockchain, web3, react, typescript, solidity, defi, smart contracts" />
+        <meta name="keywords" content="Software Engineer, blockchain, web3, react, javascript, typescript, solidity, defi, smart contracts" />
       </Head>
       
       <ThemeToggle />
