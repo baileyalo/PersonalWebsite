@@ -143,7 +143,7 @@ export default function Banner() {
             width: 400,
             height: 400,
             style: { objectFit: "cover", borderRadius: "50%" },
-            onError: () => setImgSrc("/profile_pic.png"),
+            onError: () => setImgSrc("https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true"),
             loading: "eager",
             whileHover: { scale: 1.05 },
             transition: { duration: 0.3 },

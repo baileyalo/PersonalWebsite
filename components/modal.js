@@ -31,6 +31,13 @@ export default function Modal() {
 
   const closeModal = () => {
     setIsOpen(false);
+    setSubmitMessage("");
+    setForm({
+      userName: "",
+      userEmail: "",
+      userPhoneNumber: "",
+      userMessage: "",
+    });
   };
   const submitForm = async (e) => {
     e.preventDefault();
@@ -51,7 +58,7 @@ export default function Modal() {
         if (result.status == 200) {
           setSubmitMessage(() => "Sent!");
         } else {
-          setSubmitMessage(() => "Error, try Again");
+          setSubmitMessage(() => "Error, please try Again later");
         }
         await timeout(2);
         closeModal();
@@ -64,7 +71,7 @@ export default function Modal() {
       if (allowSend) {
         setAllowSend(() => false);
         console.error(err);
-        setSubmitMessage(() => "Error, try Again");
+        setSubmitMessage(() => "Error, try Again later");
         await timeout(2);
         closeModal();
         setSubmitMessage(() => "");
@@ -76,25 +83,19 @@ export default function Modal() {
   return (
     <Modal1
       isOpen={modalIsOpen}
+      onAfterOpen={() => {}}
       onRequestClose={closeModal}
-      contentLabel="Example Modal"
+      contentLabel="Contact Form Modal"
       closeTimeoutMS={500}
-      className={{
-        base: `${styles.baseContent}`,
-        afterOpen: `${styles.afterOpenContent}`,
-        beforeClose: `${styles.beforeCloseContent}`,
-      }}
+      className={styles.content}
       overlayClassName={{
-        base: `${styles.baseOverlay}`,
-        afterOpen: `${styles.afterOpenOverlay}`,
-        beforeClose: `${styles.beforeCloseOverlay}`,
+        base: styles.baseOverlay,
+        afterOpen: styles.afterOpenOverlay,
+        beforeClose: styles.beforeCloseOverlay,
       }}
     >
       <h1>
-        Thank you for your time{" "}
-        <span aria-label="Hi there" role="img">
-          👍🏽
-        </span>
+        Thank you for your time
       </h1>
       <h2>Please fill this form, and I'll be in touch with you</h2>
       <form onSubmit={submitForm}>

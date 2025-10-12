@@ -29,9 +29,9 @@ function MyApp({ Component, pageProps }) {
         <>
           <Head>
             {/* Use circular SVG favicon (local) which embeds the existing external image URL */}
-            <link rel="icon" href="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira" />
+            <link rel="icon" href="" />
             {/* Fallback for browsers that don't support SVG favicons can be the original image */}
-            <link rel="alternate icon" href="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira" />
+            <link rel="alternate icon" href="https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"

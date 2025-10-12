@@ -24,13 +24,13 @@ export default function Home() {
     <>
       <Head>
         <title>Mr. Alwayne Bailey - Software Engineer | Educator | Blockchain Enthusiast</title>
-        <link
+        {/* <link
           rel="image_src"
           href="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
-        />
+        /> */}
         <meta
           name="description"
-          content="Full-Sta & Blockchain Enthusiast specializing in React.js, TypeScript, Node.js, Solidity, and Web3 technologies. Building the future of decentralized applications."
+          content="Software Engineer & Blockchain Enthusiast specializing in React.js, TypeScript, Node.js, Solidity, and Web3 technologies. Building the future of decentralized applications."
         />
         <meta property="og:title" content="Alwayne Bailey - Software Engineer" />
         <meta property="og:site_name" content="Alwayne Bailey Portfolio" />
@@ -39,20 +39,20 @@ export default function Home() {
           content="Software Engineer | Educator | Blockchain Enthusias building innovative web3 solutions"
         />
         <meta property="og:type" content="profile" />
-        <meta
+        {/* <meta
           property="og:image"
           content="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
-        />
+        /> */}
         <meta property="og:image:width" content="1580" />
         <meta property="og:image:height" content="790" />
         <meta
           name="twitter:card"
           content="summary_large_image"
         />
-        <meta
+        {/* <meta
           name="twitter:image"
           content="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
-        />
+        /> */}
         <meta name="keywords" content="Software Engineer, blockchain, web3, react, javascript, typescript, solidity, defi, smart contracts" />
       </Head>
       
