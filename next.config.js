@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true, 
   swcMinify: true,
-  trailingSlash: true, // Add trailing slashes to help with Netlify routing
+  trailingSlash: true,
   images: {
     unoptimized: true,
     domains: ["blue-late-parrotfish-488.mypinata.cloud"],
