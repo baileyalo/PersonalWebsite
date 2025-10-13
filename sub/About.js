@@ -11,7 +11,7 @@ export default function About() {
   const email = "baileyalwayne@gmail.com";
   return (
     <section className="container">
-      <div className="containerCont sectionCont sectionContAbout">
+      <div className="sectionCont sectionContAbout">
         <div id="about" className="target"></div>
         <header>
           <h2>About me</h2>

@@ -70,7 +70,7 @@ export default function Skills() {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      <div className="containerCont sectionCont sectionContSkills">
+      <div className="sectionCont sectionContSkills">
         <div id="skills" className="target"></div>
         <motion.header
           variants={slideUp}

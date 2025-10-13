@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import styles from "../styles/banner.module.css";
 import Linkedin from "../svg/linkedin.js";
 import Github from "../svg/github.js";
 import { Contexto } from "../appContext";
@@ -17,10 +16,10 @@ export default function Banner() {
   }
 
   return (
-    <section className={`${styles.banner} section`}>
-      <div className={`${styles.bannerCont} container`}>
+    <section className="min-h-screen flex items-center relative overflow-hidden section before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[radial-gradient(ellipse_at_top,rgba(102,126,234,0.1)_0%,transparent_50%)] before:pointer-events-none">
+      <div className="container flex items-center justify-between gap-16 py-16 relative z-10">
         <motion.div 
-          className={styles.bannerContLeft}
+          className="flex-1 max-w-[600px]"
           variants={slideInLeft}
           initial="hidden"
           animate="visible"
@@ -29,6 +28,7 @@ export default function Banner() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-[clamp(3rem,8vw,6rem)] font-extrabold leading-[1.1] mb-4 bg-gradient-primary bg-clip-text text-transparent relative"
           >
             {name}
           </motion.h1>
@@ -37,6 +37,7 @@ export default function Banner() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-[clamp(1.25rem,3vw,1.75rem)] font-normal text-text-secondary mb-6 leading-[1.4]"
           >
             Software Engineer & Blockchain Enthusiast
             <br />
@@ -44,7 +45,7 @@ export default function Banner() {
           </motion.h2>
           
           <motion.div 
-            className={styles.techStack}
+            className="font-mono text-[clamp(0.875rem,2vw,1rem)] text-accent-color bg-[rgba(0,212,255,0.1)] px-4 py-2 rounded-md border-l-4 border-accent-color mb-6 tracking-wide"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -53,31 +54,31 @@ export default function Banner() {
           </motion.div>
           
           <motion.div 
-            className={styles.contactInfo}
+            className="flex items-center gap-2 text-base text-text-secondary mb-8 transition-colors duration-fast hover:text-accent-color"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <span>📧</span>
-            <a href={`mailto:${email}`}>{email}</a>
+            <a href={`mailto:${email}`} className="transition-colors duration-fast">{email}</a>
           </motion.div>
           
           <motion.div 
-            className={styles.buttons}
+            className="flex gap-4 flex-wrap mb-6"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
             <motion.button 
               onClick={openModal} 
-              className={`${styles.but} btn btn-primary`}
+              className="btn btn-primary"
               variants={staggerItem}
               {...hoverScale}
             >
               CONTACT ME
             </motion.button>
             <motion.button 
-              className={`${styles.but} btn btn-secondary`}
+              className="btn btn-secondary"
               variants={staggerItem}
               {...hoverScale}
             >
@@ -92,13 +93,13 @@ export default function Banner() {
           </motion.div>
           
           <motion.div 
-            className={styles.socialButtons}
+            className="flex gap-4 mt-6"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
             <motion.button 
-              className={styles.svgBut}
+              className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10"
               variants={staggerItem}
               {...hoverScale}
             >
@@ -107,12 +108,13 @@ export default function Banner() {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/alwayne-bailey/"
                 aria-label="LinkedIn Profile"
+                className="flex items-center justify-center w-full h-full text-text-secondary transition-colors duration-fast relative z-10 hover:text-accent-primary"
               >
                 <Linkedin />
               </a>
             </motion.button>
             <motion.button 
-              className={styles.svgBut}
+              className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10"
               variants={staggerItem}
               {...hoverScale}
             >
@@ -121,6 +123,7 @@ export default function Banner() {
                 rel="noopener noreferrer"
                 href="https://github.com/baileyalo"
                 aria-label="GitHub Profile"
+                className="flex items-center justify-center w-full h-full text-text-secondary transition-colors duration-fast relative z-10 hover:text-accent-color"
               >
                 <Github />
               </a>
@@ -129,9 +132,8 @@ export default function Banner() {
         </motion.div>
         
         <motion.div 
-          className={styles.bannerContRight}
+          className="flex-shrink-0 w-80 h-80 relative before:content-[''] before:absolute before:-top-5 before:-left-5 before:-right-5 before:-bottom-5 before:bg-gradient-accent before:rounded-full before:opacity-10 before:animate-pulse"
           variants={slideInRight}
-          // initial="hidden"
           animate="visible"
           {...floatingAnimation}
         >
@@ -147,6 +149,7 @@ export default function Banner() {
             loading: "eager",
             whileHover: { scale: 1.05 },
             transition: { duration: 0.3 },
+            className: "w-full h-full object-cover rounded-full border-4 border-accent-color relative z-10 transition-transform duration-normal hover:scale-105"
           })}
         </motion.div>
       </div>

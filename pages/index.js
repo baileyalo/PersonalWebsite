@@ -65,7 +65,7 @@ export default function Home() {
         <AboutMe />
         
         <section className="container">
-          <div className="containerCont rowFlexRes breakExpEduc">
+          <div className="rowFlexRes breakExpEduc">
             <Experience />
             <Education />
           </div>

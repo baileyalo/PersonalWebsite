@@ -23,8 +23,13 @@ export const ThemeProvider = ({ children }) => {
     setTheme(initialTheme);
     setMounted(true);
     
-    // Apply theme to document
+    // Apply theme to document for both data-theme and Tailwind dark class
     document.documentElement.setAttribute('data-theme', initialTheme);
+    if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, []);
 
   // Save theme to localStorage and apply to document
@@ -32,6 +37,12 @@ export const ThemeProvider = ({ children }) => {
     if (mounted) {
       localStorage.setItem('theme', theme);
       document.documentElement.setAttribute('data-theme', theme);
+      // Apply Tailwind dark class
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
   }, [theme, mounted]);
 
@@ -43,6 +54,12 @@ export const ThemeProvider = ({ children }) => {
         const newTheme = e.matches ? 'dark' : 'light';
         setTheme(newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
+        // Apply Tailwind dark class
+        if (newTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
       }
     };
 
