@@ -60,7 +60,7 @@ export default function NavBar(): JSX.Element {
                 onClick={() => handleResLink(link)}
                 className="block px-8 py-6 text-text-secondary font-medium text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)]"
               >
-                {link.label ?? link.label}
+                {link.label}
               </a>
             </li>
           ))}
