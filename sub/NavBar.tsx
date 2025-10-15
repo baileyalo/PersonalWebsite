@@ -60,26 +60,14 @@ export default function NavBar(): JSX.Element {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 z-[1001] block md:hidden">
-        <Hamburger />
+      <Hamburger />
+      <nav className="fixed top-0 left-0 z-[1001] block md:hidden pointer-events-none">
         <ul
           id="navBarResUl"
-          className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-slow z-[1001] ${
-            navResOpen ? "left-0" : "-left-full"
+          className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-normal z-[1001] ${
+            navResOpen ? "left-0 pointer-events-auto" : "-left-full opacity-0 pointer-events-none"
           }`}
         >
-          {/* Close button */}
-          <div className="flex justify-end p-4">
-            <button
-              onClick={() => setNavResOpen(false)}
-              className="p-2 text-text-secondary hover:text-accent-color transition-colors duration-fast"
-              aria-label="Close menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
           {navLinks.map((link, b) => (
             <li key={b} className="w-full border-b border-white/5">
               <a 
@@ -95,7 +83,11 @@ export default function NavBar(): JSX.Element {
         {navResOpen && (
           <div 
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]"
-            onClick={() => setNavResOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setNavResOpen(false);
+            }}
           />
         )}
       </nav>

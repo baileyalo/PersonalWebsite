@@ -7,13 +7,15 @@ export default function Hamburger(): JSX.Element {
     throw new Error('Hamburger must be used within ContextoProvider');
   }
   const { navResOpen, setNavResOpen } = context;
-  const toggleNavRes = (): void => {
+  const toggleNavRes = (e: React.MouseEvent): void => {
+    e.preventDefault();
+    e.stopPropagation();
     setNavResOpen(!navResOpen);
   };
   return (
     <section 
       onClick={toggleNavRes} 
-      className="fixed top-4 left-4 z-[1002] cursor-pointer hamburger-button"
+      className="fixed top-4 left-4 z-[1003] cursor-pointer hamburger-button block md:hidden pointer-events-auto"
       aria-label="Toggle navigation menu"
     >
       <div className="p-2 border border-text-secondary/30 bg-[hsla(0,0%,100%,0.1)] backdrop-blur-sm rounded-md hover:bg-[hsla(0,0%,100%,0.2)] transition-all duration-fast">
