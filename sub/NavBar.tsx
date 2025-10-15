@@ -2,7 +2,7 @@
 import scrollIt from "../components/helpers";
 import Hamburger from "../components/hamburger";
 import { Contexto } from "../appContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 interface NavLink {
   label: string;
@@ -15,6 +15,20 @@ export default function NavBar(): JSX.Element {
     throw new Error('NavBar must be used within ContextoProvider');
   }
   const { navResOpen, setNavResOpen } = context;
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (navResOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [navResOpen]);
   const handleResLink = (link: NavLink): void => {
     const element = document.querySelector(link.target);
     if (element) {
@@ -46,25 +60,44 @@ export default function NavBar(): JSX.Element {
 
   return (
     <>
-      <nav className="top-0 left-0 z-[1001] block mobile-sm:hidden sm:hidden">
+      <nav className="fixed top-0 left-0 z-[1001] block md:hidden">
         <Hamburger />
         <ul
           id="navBarResUl"
-          className={`fixed top-0 left-0 w-[280px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-20 transition-all duration-slow z-[1001] ${
+          className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-slow z-[1001] ${
             navResOpen ? "left-0" : "-left-full"
           }`}
         >
+          {/* Close button */}
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setNavResOpen(false)}
+              className="p-2 text-text-secondary hover:text-accent-color transition-colors duration-fast"
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
           {navLinks.map((link, b) => (
             <li key={b} className="w-full border-b border-white/5">
               <a 
                 onClick={() => handleResLink(link)}
-                className="block px-8 py-6 text-text-secondary font-medium text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)]"
+                className="block px-6 sm:px-8 py-4 sm:py-6 text-text-secondary font-medium text-sm sm:text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] active:bg-[rgba(0,132,255,0.2)]"
               >
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
+        {/* Overlay to close menu when clicking outside */}
+        {navResOpen && (
+          <div 
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]"
+            onClick={() => setNavResOpen(false)}
+          />
+        )}
       </nav>
       <nav className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(10,10,10,0.95)] backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block">
         <div className="container flex justify-center items-center py-4">

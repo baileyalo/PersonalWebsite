@@ -11,12 +11,30 @@ export default function Hamburger(): JSX.Element {
     setNavResOpen(!navResOpen);
   };
   return (
-    <section onClick={toggleNavRes} className="flex">
-      <ul className="m-[0.86rem] z-[3] border-[0.86px] border-text p-0 px-[0.344rem] cursor-pointer bg-[hsla(0,0%,100%,0.2)] rounded-[0.172rem]">
-        <li className={`m-[0.344rem] w-[1.978rem] h-[0.215rem] bg-text rounded-[0.43rem] transition-transform duration-500 ${navResOpen ? 'translate-y-[0.552206rem] rotate-45' : ''}`}></li>
-        <li className={`m-[0.344rem] w-[1.978rem] h-[0.215rem] bg-text rounded-[0.43rem] transition-transform duration-500 ${navResOpen ? '-translate-x-[3.44rem]' : ''}`}></li>
-        <li className={`m-[0.344rem] w-[1.978rem] h-[0.215rem] bg-text rounded-[0.43rem] transition-transform duration-500 ${navResOpen ? '-translate-y-[0.552206rem] -rotate-45' : ''}`}></li>
-      </ul>
+    <section 
+      onClick={toggleNavRes} 
+      className="fixed top-4 left-4 z-[1002] cursor-pointer hamburger-button"
+      aria-label="Toggle navigation menu"
+    >
+      <div className="p-2 border border-text-secondary/30 bg-[hsla(0,0%,100%,0.1)] backdrop-blur-sm rounded-md hover:bg-[hsla(0,0%,100%,0.2)] transition-all duration-fast">
+        <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+          <span 
+            className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
+              navResOpen ? 'rotate-45 translate-y-1.5' : ''
+            }`}
+          ></span>
+          <span 
+            className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
+              navResOpen ? 'opacity-0' : ''
+            }`}
+          ></span>
+          <span 
+            className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
+              navResOpen ? '-rotate-45 -translate-y-1.5' : ''
+            }`}
+          ></span>
+        </div>
+      </div>
     </section>
   );
 }
