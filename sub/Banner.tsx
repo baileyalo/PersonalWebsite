@@ -22,9 +22,33 @@ export default function Banner(): JSX.Element {
 
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden section before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[radial-gradient(ellipse_at_top,rgba(102,126,234,0.1)_0%,transparent_50%)] before:pointer-events-none">
-      <div className="container flex items-center justify-between gap-16 py-16 relative z-10">
+      <div className="container flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 py-16 relative z-10">
+        {/* Image - appears first on mobile (top), second on desktop (right) */}
         <motion.div 
-          className="flex-1 max-w-[600px]"
+          className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 relative before:content-[''] before:absolute before:-top-5 before:-left-5 before:-right-5 before:-bottom-5 before:bg-gradient-accent before:rounded-full before:opacity-10 before:animate-pulse order-1 md:order-2"
+          variants={slideInRight}
+          animate="visible"
+          {...floatingAnimation}
+        >
+          {/* Use Next.js Image for better external image handling (domain allowed in next.config.js) */}
+          { /* Wrap Next/Image with motion to keep hover animation */ }
+          {React.createElement(motion(Image), {
+            alt: "Alwayne Bailey - Software Engineer",
+            src: imgSrc,
+            width: 400,
+            height: 400,
+            style: { objectFit: "cover", borderRadius: "50%" },
+            onError: () => setImgSrc("https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true"),
+            loading: "eager",
+            whileHover: { scale: 1.05 },
+            transition: { duration: 0.3 },
+            className: "w-full h-full object-cover rounded-full border-4 border-accent-color relative z-10 transition-transform duration-normal hover:scale-105"
+          })}
+        </motion.div>
+
+        {/* Text content - appears second on mobile (bottom), first on desktop (left) */}
+        <motion.div 
+          className="flex-1 max-w-[600px] order-2 md:order-1"
           variants={slideInLeft}
           initial="hidden"
           animate="visible"
@@ -134,28 +158,6 @@ export default function Banner(): JSX.Element {
               </a>
             </motion.button>
           </motion.div>
-        </motion.div>
-        
-        <motion.div 
-          className="flex-shrink-0 w-80 h-80 relative before:content-[''] before:absolute before:-top-5 before:-left-5 before:-right-5 before:-bottom-5 before:bg-gradient-accent before:rounded-full before:opacity-10 before:animate-pulse"
-          variants={slideInRight}
-          animate="visible"
-          {...floatingAnimation}
-        >
-          {/* Use Next.js Image for better external image handling (domain allowed in next.config.js) */}
-          { /* Wrap Next/Image with motion to keep hover animation */ }
-          {React.createElement(motion(Image), {
-            alt: "Alwayne Bailey - Software Engineer",
-            src: imgSrc,
-            width: 400,
-            height: 400,
-            style: { objectFit: "cover", borderRadius: "50%" },
-            onError: () => setImgSrc("https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true"),
-            loading: "eager",
-            whileHover: { scale: 1.05 },
-            transition: { duration: 0.3 },
-            className: "w-full h-full object-cover rounded-full border-4 border-accent-color relative z-10 transition-transform duration-normal hover:scale-105"
-          })}
         </motion.div>
       </div>
     </section>
