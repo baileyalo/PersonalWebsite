@@ -46,7 +46,7 @@ export default function NavBar(): JSX.Element {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 z-[1001] block md:hidden">
+      <nav className="top-0 left-0 z-[1001] block block mobile-sm:hidden">
         <Hamburger />
         <ul
           id="navBarResUl"

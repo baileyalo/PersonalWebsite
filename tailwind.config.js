@@ -134,6 +134,15 @@ module.exports = {
       backdropBlur: {
         'xs': '2px',
       },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        // you can add custom breakpoints here
+        'mobile-sm': '400px', // example: for very small phones
+      },
     },
   },
   plugins: [],
