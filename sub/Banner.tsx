@@ -79,7 +79,7 @@ export default function Banner(): JSX.Element {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            [ REACT.JS / JAVASCRIPT / TYPESCRIPT / REACT NATIVE / REST API / NODE.JS / SOLIDITY / GRAPHQL / AWS / WEB3 ]
+            [ REACT.JS / JAVASCRIPT / TYPESCRIPT / REACT NATIVE / REST API / NODE.JS / SOLIDITY / GRAPHQL / AWS / WEB3 / ETHEREUM / SOLANA  ]
           </motion.div>
           
           <motion.div 
@@ -104,7 +104,7 @@ export default function Banner(): JSX.Element {
               variants={staggerItem}
               {...hoverScale}
             >
-              CONTACT ME
+              CONTACT ME 
             </motion.button>
             <motion.button 
               className="btn btn-secondary"
@@ -116,7 +116,7 @@ export default function Banner(): JSX.Element {
                 rel="noopener noreferrer"
                 href="https://github.com/baileyalo"
               >
-                VIEW PORTFOLIO
+                VIEW PORTFOLIO 
               </a>
             </motion.button>
           </motion.div>

@@ -327,12 +327,8 @@
     width: 100%;
     display: flex;
   }
-  .card {
-    width: 100%;
-    padding: 1.2em;
-    border-radius: 0.9rem;
-    background-color: var(--light-gray);
-  }
+  /* Note: base .card styles are defined earlier under @layer components; avoid re-defining global .card here which caused conflicts.
+     If you need section-specific card tweaks, add a more specific selector like .sectionContExperience .card or .card--compact */
   .sectionContExperience,
   .sectionContEducation {
     width: 100%;
@@ -853,12 +849,6 @@
     }
   }
 
-  .target {
-    height: 3.58625rem;
-    width: 100%;
-    margin-top: -3.58625rem;
-    visibility: hidden;
-  }
 
   /* Mobile Navigation Improvements */
   @media (max-width: 767px) {
