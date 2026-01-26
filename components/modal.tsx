@@ -109,7 +109,7 @@ export default function Modal(): JSX.Element {
         Thank you for your time
       </h1>
       <h2 className="text-[1.12rem] leading-normal text-center text-text-secondary opacity-90 font-semibold">
-        Please fill this form, and I'll be in touch with you
+        Please fill this form, and I'll be in touch with you as soon as possible.
       </h2>
       <form onSubmit={submitForm} className="w-full max-w-[400px] mx-auto mt-5">
         <ul className="mb-2">
