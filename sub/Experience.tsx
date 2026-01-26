@@ -23,13 +23,13 @@ export default function Experience(): JSX.Element {
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Onboarded and offboarded B2B clients, ensuring a smooth and secure transition process
+                    Onboarded and offboarded B2B clients, ensuring a smooth and secure transition process.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Tested and debugged REST API integrations to support seamless client connectivity
+                    Tested and debugged REST API integrations to support seamless client connectivity.
                   </span>
                 </li>
                 <li>

@@ -39,6 +39,7 @@ export default function Skills(): JSX.Element {
     { name: "Mobile & Web App Development", progress: 90 },
     { name: "Database Management", progress: 85 },
     { name: "Cloud Management", progress: 85 },
+    { name: "Web3 Development", progress: 90 }
   ];
   
   const softSkills: string[] = [
@@ -61,7 +62,7 @@ export default function Skills(): JSX.Element {
     { name: "JIRA", progress: "90", url: "https://www.atlassian.com/software/jira" },
     { name: "POSTMAN", progress: "90", url: "https://www.postman.com/" },
     { name: "FIGMA", progress: "85", url: "https://www.figma.com/" },
-    { name: "SALESFORCE", progress: "85", url: "https://www.salesforce.com/" },
+    { name: "SALESFORCE", progress: "90", url: "https://www.salesforce.com/" },
     { name: "ZENDESK", progress: "85", url: "https://www.zendesk.com/" },
     { name: "SOLANA", progress: "90", url: "https://solana.com/" },
     { name: "ETHEREUM", progress: "85", url: "https://ethereum.org/" },

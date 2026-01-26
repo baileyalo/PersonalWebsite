@@ -68,7 +68,7 @@ export default function Banner(): JSX.Element {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-[clamp(1.25rem,3vw,1.75rem)] font-normal text-text-secondary mb-6 leading-[1.4]"
           >
-            Software Engineer & Blockchain Enthusiast
+            Software Engineer , Educatior & Web3 Developer
             <br />
             <span className="gradient-text">Building the Future of Web3</span>
           </motion.h2>

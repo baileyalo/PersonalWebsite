@@ -47,7 +47,7 @@ export default function Education(): JSX.Element {
                   <span className="colorRed">- </span>
                   <span>
                     Web Development using the MERN stack (MongoDB, Express,
-                    React, Nodejs).
+                    React, Nodejs) for building decentralized applications (dApps).
                   </span>
                 </li>
                 <li>

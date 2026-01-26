@@ -23,18 +23,22 @@ export default function About(): JSX.Element {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-              Software Engineer | Technical Support Specialist | Customer Support Specialist | Web3 Developer | Banker | Educator
+              Software Engineer | TechOps Engineer |Technical Support Specialist | Customer Support Specialist | Web3 Developer | Banker | Educator
             </span>
           </h3>
         </header>
         <p>
-          A meticulous, motivated, hardworking professional with 3 + years of experience designing, testing
+          A meticulous, motivated, hardworking professional with 4 + years of experience designing, testing
           and developing software solutions. In-depth understanding of web
           technologies with focus on delivering innovative business solutions. With 8 +
           years experience in financial services providing exceptional customer
           service, client and cash management and 4 + years experience in Technical Customer
           Support in a team environment. Excels in fast-paced, high-energy and deadline-driven
-          environment with willingness to take on additional tasks.
+          environment with willingness to take on additional tasks. Adept at
+          troubleshooting and resolving complex technical issues. Strong
+          communication skills with ability to explain technical information to
+          non-technical users. Proven ability to work independently as well as
+          collaboratively in a team setting. 
         </p>
         <p>
           Email:
