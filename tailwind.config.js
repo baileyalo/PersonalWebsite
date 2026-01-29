@@ -10,33 +10,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Dark theme colors (default)
-        'primary-bg': '#0a0a0a',
-        'secondary-bg': '#111111',
-        'card-bg': '#1a1a1a',
-        'accent-bg': '#222222',
-        'text-primary': '#ffffff',
-        'text-secondary': '#b4b4b4',
-        'text-muted': '#888888',
-        'accent-color': '#00d4ff',
-        'accent-hover': '#00a8cc',
-        'border-color': '#333333',
-        'shadow-light': 'rgba(255, 255, 255, 0.1)',
-        'shadow-dark': 'rgba(0, 0, 0, 0.3)',
-        
-        // Light theme colors
-        'light-primary-bg': '#ffffff',
-        'light-secondary-bg': '#f8fafc',
-        'light-card-bg': '#ffffff',
-        'light-accent-bg': '#f1f5f9',
-        'light-text-primary': '#1a202c',
-        'light-text-secondary': '#4a5568',
-        'light-text-muted': '#718096',
-        'light-accent-color': '#0084ff',
-        'light-accent-hover': '#0066cc',
-        'light-border-color': '#e2e8f0',
-        'light-shadow-light': 'rgba(0, 0, 0, 0.05)',
-        'light-shadow-dark': 'rgba(0, 0, 0, 0.1)',
+        // Theme-aware tokens (wired to CSS variables in `styles/globals.css`)
+        'primary-bg': 'var(--primary-bg)',
+        'secondary-bg': 'var(--secondary-bg)',
+        'card-bg': 'var(--card-bg)',
+        'accent-bg': 'var(--accent-bg)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
+        'accent-color': 'var(--accent-color)',
+        'accent-hover': 'var(--accent-hover)',
+        'border-color': 'var(--border-color)',
+        'shadow-light': 'var(--shadow-light)',
+        'shadow-dark': 'var(--shadow-dark)',
       },
       spacing: {
         'xs': '0.25rem',
@@ -64,9 +50,8 @@ module.exports = {
         'slow': '350ms',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
-        'gradient-accent-light': 'linear-gradient(135deg, #0084ff 0%, #0066cc 100%)',
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-accent': 'var(--gradient-accent)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

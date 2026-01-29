@@ -98,7 +98,7 @@ export default function Modal(): JSX.Element {
       onRequestClose={closeModal}
       contentLabel="Contact Form Modal"
       closeTimeoutMS={500}
-      className="bg-[rgba(0,0,0,0.85)] text-text-primary p-6 rounded-xl w-[90%] max-w-[500px] relative shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modal-appear border-2 border-transparent bg-clip-padding before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:bg-gradient-accent before:rounded-xl before:-z-10 before:opacity-60 before:animate-border-glow"
+      className="bg-[rgba(0,0,0,0.85)] text-[var(--text-primary)] p-6 rounded-xl w-[90%] max-w-[500px] relative shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modal-appear border-2 border-transparent bg-clip-padding before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:bg-gradient-accent before:rounded-xl before:-z-10 before:opacity-60 before:animate-border-glow"
       overlayClassName={{
         base: "opacity-0 transition-opacity duration-500 ease-in-out fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.85)] flex items-center justify-center z-[1000] backdrop-blur-[5px] text-base",
         afterOpen: "opacity-100 transition-opacity duration-500 ease-in-out",
@@ -114,7 +114,7 @@ export default function Modal(): JSX.Element {
       <form onSubmit={submitForm} className="w-full max-w-[400px] mx-auto mt-5">
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="name" className="mb-1 text-[1.04rem] text-white">Name:</label>
+            <label htmlFor="name" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Name:</label>
           </li>
           <li>
             <input
@@ -123,13 +123,13 @@ export default function Modal(): JSX.Element {
               name="name"
               onChange={handleForm}
               required
-              className="w-full h-8 bg-white text-black border-3 border-black rounded px-1 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
+              className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
             />
           </li>
         </ul>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="email" className="mb-1 text-[1.04rem] text-white">Email:</label>
+            <label htmlFor="email" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Email:</label>
           </li>
           <li>
             <input
@@ -138,13 +138,13 @@ export default function Modal(): JSX.Element {
               name="email"
               onChange={handleForm}
               required
-              className="w-full h-8 bg-white text-black border-3 border-black rounded px-1 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
+              className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
             />
           </li>
         </ul>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="number" className="mb-1 text-[1.04rem] text-white">Phone Number:</label>
+            <label htmlFor="number" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Phone Number:</label>
           </li>
           <li>
             <input
@@ -152,13 +152,13 @@ export default function Modal(): JSX.Element {
               id="userPhoneNumber"
               name="phoneNumber"
               onChange={handleForm}
-              className="w-full h-8 bg-white text-black border-3 border-black rounded px-1 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
+              className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
             />
           </li>
         </ul>
         <ul className="mb-0">
           <li className="flex items-center">
-            <label htmlFor="message" className="mb-1 text-[1.04rem] text-white">Your message:</label>
+            <label htmlFor="message" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Your message:</label>
           </li>
           <li>
             <textarea
@@ -166,7 +166,7 @@ export default function Modal(): JSX.Element {
               name="message"
               onChange={handleForm}
               required
-              className="w-full h-[4.5em] bg-white text-black border border-black rounded px-1 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold resize-none"
+              className="w-full h-[4.5em] bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold resize-none"
             />
           </li>
         </ul>

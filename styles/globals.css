@@ -20,6 +20,7 @@
     --border-color: #333333;
     --shadow-light: rgba(255, 255, 255, 0.1);
     --shadow-dark: rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
   }
 
   /* Light Theme */
@@ -38,6 +39,7 @@
     --border-color: #e2e8f0;
     --shadow-light: rgba(0, 0, 0, 0.05);
     --shadow-dark: rgba(0, 0, 0, 0.1);
+    color-scheme: light;
   }
 
   /* Theme transition for smooth switching */
@@ -61,6 +63,30 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     transition: background-color 250ms ease, color 250ms ease;
+  }
+
+  /* Form controls: ensure readable colors in dark mode (and autofill) */
+  input,
+  textarea,
+  select {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: var(--text-primary) !important;
+    caret-color: var(--text-primary);
+    box-shadow: 0 0 0px 1000px var(--card-bg) inset !important;
+    transition: background-color 999999s ease-in-out 0s;
   }
 
   /* Improved Typography */
@@ -309,7 +335,7 @@
   }
   .sectionContAbout p > strong {
     font-weight: 600;
-    color: white;
+    color: var(--text-primary);
     cursor: pointer;
   }
 
