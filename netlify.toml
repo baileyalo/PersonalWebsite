@@ -1,19 +1,10 @@
+# Static export (Next.js output: 'export') — no server, no Next.js plugin
 [build]
   command = "npm run build"
   publish = "out"
 
-[[redirects]]
-  from = "/_next/static/*"
-  to = "/_next/static/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/static/*"
-  to = "/static/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/nextjs-server"
-  status = 200
-  force = true
+# Use Node 18 to match local / avoid build issues
+[build.environment]
+  NODE_VERSION = "18"
+  # Skip @netlify/plugin-nextjs (for SSR); this site is static-only
+  NETLIFY_NEXT_PLUGIN_SKIP = "1"

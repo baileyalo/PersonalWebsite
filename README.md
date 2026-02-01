@@ -58,6 +58,17 @@ npm run build
 
 Output is in the `out/` directory. Deploy `out/` to any static host (e.g. Netlify, Vercel).
 
+### Deploying to Netlify
+
+This site uses **static export** (no Node server). Use the repo’s `netlify.toml`:
+
+- **Build command:** `npm run build`
+- **Publish directory:** `out`
+- **Node version:** 18 (set in `netlify.toml`; optional in Netlify UI)
+- **Next.js plugin:** Disabled via `NETLIFY_NEXT_PLUGIN_SKIP=1` in `netlify.toml` so Netlify treats the build as static only.
+
+Add the EmailJS env vars in Netlify **Site settings → Environment variables** if you want the contact form to work.
+
 ### Other scripts
 
 - `npm run start` – run production server (after build)
