@@ -1,6 +1,7 @@
 # Static export (Next.js output: 'export') — no server, no Next.js plugin
+# npm ci = clean install from lockfile (avoids cached Next 16 from previous builds)
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "out"
 
 # Node 22 for Netlify (Agent Runners work best with 22+)
