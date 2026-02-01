@@ -61,7 +61,7 @@ export default function NavBar(): JSX.Element {
   return (
     <>
       <Hamburger />
-      <nav className="fixed top-0 left-0 z-[1001] block md:hidden pointer-events-none">
+      <nav className="fixed top-0 left-0 z-[1001] block md:hidden pointer-events-none" aria-label="Main navigation">
         <ul
           id="navBarResUl"
           className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-normal z-[1001] ${
@@ -70,8 +70,12 @@ export default function NavBar(): JSX.Element {
         >
           {navLinks.map((link, b) => (
             <li key={b} className="w-full border-b border-white/5">
-              <a 
-                onClick={() => handleResLink(link)}
+              <a
+                href={link.target}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleResLink(link);
+                }}
                 className="block px-6 sm:px-8 py-4 sm:py-6 text-text-secondary font-medium text-sm sm:text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] active:bg-[rgba(0,132,255,0.2)]"
               >
                 {link.label}
@@ -81,8 +85,10 @@ export default function NavBar(): JSX.Element {
         </ul>
         {/* Overlay to close menu when clicking outside */}
         {navResOpen && (
-          <div 
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]"
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000] cursor-default"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -91,21 +97,21 @@ export default function NavBar(): JSX.Element {
           />
         )}
       </nav>
-      <nav className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(10,10,10,0.95)] backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block">
+      <nav className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(10,10,10,0.95)] backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block" aria-label="Main navigation">
         <div className="container flex justify-center items-center py-4">
           <ul className="flex items-center gap-12">
             {navLinks.map((link, b) => (
               <li key={b} className="relative">
                 <a
-                  onClick={() => {
+                  href={link.target}
+                  onClick={(e) => {
+                    e.preventDefault();
                     const element = document.querySelector(link.target);
-                    if (element) {
-                      scrollIt(element as HTMLElement);
-                    }
+                    if (element) scrollIt(element as HTMLElement);
                   }}
                   className="flex items-center px-4 py-2 font-medium text-sm uppercase tracking-wide text-text-secondary cursor-pointer transition-all duration-fast rounded-md relative overflow-hidden hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-gradient-accent before:transition-all before:duration-normal before:-translate-x-1/2 hover:before:w-4/5"
                 >
-                  {link.label ?? link.label}
+                  {link.label}
                 </a>
               </li>
             ))}

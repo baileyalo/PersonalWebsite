@@ -66,7 +66,7 @@ export default function Modal(): JSX.Element {
           form as unknown as Record<string, unknown>,
           emailjsObj.userId
         );
-        if (result.status == 200) {
+        if (result.status === 200) {
           setSubmitMessage(() => "Sent!");
         } else {
           setSubmitMessage(() => "Error, please try Again later");
@@ -111,10 +111,10 @@ export default function Modal(): JSX.Element {
       <h2 className="text-[1.12rem] leading-normal text-center text-text-secondary opacity-90 font-semibold">
         Please fill this form, and I'll be in touch with you as soon as possible.
       </h2>
-      <form onSubmit={submitForm} className="w-full max-w-[400px] mx-auto mt-5">
+      <form onSubmit={submitForm} className="w-full max-w-[400px] mx-auto mt-5 focus-within-ring rounded-lg" aria-label="Contact form">
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="name" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Name:</label>
+            <label htmlFor="userName" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Name:</label>
           </li>
           <li>
             <input
@@ -129,11 +129,11 @@ export default function Modal(): JSX.Element {
         </ul>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="email" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Email:</label>
+            <label htmlFor="userEmail" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Email:</label>
           </li>
           <li>
             <input
-              type="text"
+              type="email"
               id="userEmail"
               name="email"
               onChange={handleForm}
@@ -144,11 +144,11 @@ export default function Modal(): JSX.Element {
         </ul>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="number" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Phone Number:</label>
+            <label htmlFor="userPhoneNumber" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Phone Number:</label>
           </li>
           <li>
             <input
-              type="text"
+              type="tel"
               id="userPhoneNumber"
               name="phoneNumber"
               onChange={handleForm}
@@ -158,7 +158,7 @@ export default function Modal(): JSX.Element {
         </ul>
         <ul className="mb-0">
           <li className="flex items-center">
-            <label htmlFor="message" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Your message:</label>
+            <label htmlFor="userMessage" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Your message:</label>
           </li>
           <li>
             <textarea
@@ -173,8 +173,10 @@ export default function Modal(): JSX.Element {
         <div className="text-[1.12rem] flex mt-5">
           <div className="flex items-center mx-auto relative">
             <button
-              disabled={allowSend ? false : true}
+              disabled={!allowSend}
               type="submit"
+              aria-busy={!allowSend}
+              aria-live="polite"
               className={`bg-accent-color outline-none rounded-[0.2em] w-full mx-auto px-4 py-1 cursor-pointer text-base border border-accent-color text-text-secondary font-semibold font-inherit transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,212,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed ${
                 allowSend ? "" : "opacity-50 cursor-not-allowed"
               }`}
@@ -185,12 +187,14 @@ export default function Modal(): JSX.Element {
           </div>
         </div>
       </form>
-      <div 
-        onClick={closeModal} 
-        className="text-[1.12rem] absolute top-2.5 right-2.5 bg-transparent h-6 w-6 rounded-full flex cursor-pointer text-text-primary transition-all duration-200 hover:bg-[rgba(0,212,255,0.1)] hover:scale-110"
+      <button
+        type="button"
+        onClick={closeModal}
+        aria-label="Close contact form"
+        className="text-[1.12rem] absolute top-2.5 right-2.5 bg-transparent h-9 w-9 rounded-full flex items-center justify-center cursor-pointer text-[var(--text-primary)] transition-all duration-200 hover:bg-[rgba(0,212,255,0.1)] hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color"
       >
-        <FontAwesomeIcon color="rgba(34, 34, 34, 0.9)" icon={faTimes} className="m-auto" />
-      </div>
+        <FontAwesomeIcon icon={faTimes} className="m-auto text-current" />
+      </button>
     </Modal1>
   );
 }

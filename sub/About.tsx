@@ -14,11 +14,11 @@ export default function About(): JSX.Element {
 
   const email: string = "baileyalwayne@gmail.com";
   return (
-    <section className="container">
+    <section className="container" aria-labelledby="about-heading">
       <div className="sectionCont sectionContAbout">
-        <div id="about" className="target"></div>
+        <div id="about" className="target" aria-hidden="true"></div>
         <header>
-          <h2>About me</h2>
+          <h2 id="about-heading">About me</h2>
           <h3>
             My name is Alwayne Bailey,
             <br />

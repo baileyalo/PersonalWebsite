@@ -3,10 +3,10 @@ import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 export default function Experience(): JSX.Element {
   return (
-    <section className="sectionCont sectionContExperience">
-      <div id="experience" className="target"></div>
+    <section className="sectionCont sectionContExperience" aria-labelledby="experience-heading">
+      <div id="experience" className="target" aria-hidden="true"></div>
       <header>
-        <h2>Experience</h2>
+        <h2 id="experience-heading">Experience</h2>
       </header>
       <div className="cardContainer">
         <div className="card">

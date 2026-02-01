@@ -3,10 +3,10 @@ import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 export default function Education(): JSX.Element {
   return (
-    <section className="sectionCont sectionContEducation">
-      <div id="education" className="target"></div>
+    <section className="sectionCont sectionContEducation" aria-labelledby="education-heading">
+      <div id="education" className="target" aria-hidden="true"></div>
       <header>
-        <h2>Education</h2>
+        <h2 id="education-heading">Education</h2>
       </header>
       <div className="cardContainer">
         <div className="card">

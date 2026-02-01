@@ -40,7 +40,7 @@ export default function Home(): JSX.Element {
         <meta property="og:site_name" content="Alwayne Bailey Portfolio" />
         <meta
           property="og:description"
-          content="Software Engineer | Educator | Blockchain Enthusias building innovative web3 solutions"
+          content="Software Engineer | Educator | Blockchain Enthusiast building innovative web3 solutions"
         />
         <meta property="og:type" content="profile" />
         {/* <meta
@@ -60,25 +60,27 @@ export default function Home(): JSX.Element {
         <meta name="keywords" content="Software Engineer, blockchain, web3, react, javascript, typescript, solidity, defi, smart contracts" />
       </Head>
       
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <ThemeToggle />
       <Modal />
       <NavBar />
-      
-      <main onClick={closeNavRes}>
+
+      <main id="main-content" onClick={closeNavRes}>
         <Banner />
         <AboutMe />
-        
-        <section className="container">
+
+        <section className="container" aria-label="Experience and education">
           <div className="rowFlexRes breakExpEduc">
             <Experience />
             <Education />
           </div>
         </section>
-        
-        <div id="skills" className="target"></div>
+
         <Skills />
-        
-        <footer className="footer">
+
+        <footer className="footer" aria-label="Site footer">
           <p>
             <FontAwesomeIcon icon={faCopyright} /> {new Date().getFullYear()} A.B. All rights reserved
           </p>

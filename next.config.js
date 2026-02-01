@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  reactStrictMode: true, 
-  swcMinify: true,
+  reactStrictMode: true,
   trailingSlash: true,
   images: {
     unoptimized: true,
-    domains: ["blue-late-parrotfish-488.mypinata.cloud"],
     remotePatterns: [
       {
         protocol: 'https',

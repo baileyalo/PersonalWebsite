@@ -5,30 +5,34 @@ import { Contexto } from "../appContext";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { slideInLeft, slideInRight, staggerContainer, staggerItem, hoverScale, floatingAnimation } from "../utils/animations";
+import { useReducedMotion } from "../utils/useReducedMotion";
 
 export default function Banner(): JSX.Element {
   const name: string = "Alwayne Bailey";
   const email: string = "baileyalwayne@gmail.com";
   const context = useContext(Contexto);
+  const reducedMotion = useReducedMotion();
   if (!context) {
     throw new Error('Banner must be used within ContextoProvider');
   }
   const { setIsOpen } = context;
   const [imgSrc, setImgSrc] = useState<string>("https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira");
-  
+  const motionTransition = reducedMotion ? { duration: 0 } : undefined;
+
   function openModal(): void {
     setIsOpen(true);
   }
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden section before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[radial-gradient(ellipse_at_top,rgba(102,126,234,0.1)_0%,transparent_50%)] before:pointer-events-none">
+    <header aria-label="Profile introduction" className="min-h-screen flex items-center relative overflow-hidden section before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[radial-gradient(ellipse_at_top,rgba(102,126,234,0.1)_0%,transparent_50%)] before:pointer-events-none">
       <div className="container flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 py-16 relative z-10">
         {/* Image - appears first on mobile (top), second on desktop (right) */}
-        <motion.div 
+        <motion.div
           className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 relative before:content-[''] before:absolute before:-top-5 before:-left-5 before:-right-5 before:-bottom-5 before:bg-gradient-accent before:rounded-full before:opacity-10 before:animate-pulse order-1 md:order-2"
           variants={slideInRight}
           animate="visible"
-          {...floatingAnimation}
+          transition={motionTransition}
+          {...(reducedMotion ? {} : floatingAnimation)}
         >
           {/* Use Next.js Image for better external image handling (domain allowed in next.config.js) */}
           { /* Wrap Next/Image with motion to keep hover animation */ }
@@ -40,23 +44,24 @@ export default function Banner(): JSX.Element {
             style: { objectFit: "cover", borderRadius: "50%" },
             onError: () => setImgSrc("https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true"),
             loading: "eager",
-            whileHover: { scale: 1.05 },
-            transition: { duration: 0.3 },
+            whileHover: reducedMotion ? undefined : { scale: 1.05 },
+            transition: motionTransition ?? { duration: 0.3 },
             className: "w-full h-full object-cover rounded-full border-4 border-accent-color relative z-10 transition-transform duration-normal hover:scale-105"
           })}
         </motion.div>
 
         {/* Text content - appears second on mobile (bottom), first on desktop (left) */}
-        <motion.div 
+        <motion.div
           className="flex-1 max-w-[600px] order-2 md:order-1"
           variants={slideInLeft}
           initial="hidden"
           animate="visible"
+          transition={motionTransition}
         >
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={motionTransition ?? { duration: 0.8, delay: 0.2 }}
             className="text-[clamp(3rem,8vw,6rem)] font-extrabold leading-[1.1] mb-4 bg-gradient-primary bg-clip-text text-transparent relative"
           >
             {name}
@@ -65,51 +70,54 @@ export default function Banner(): JSX.Element {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={motionTransition ?? { duration: 0.8, delay: 0.4 }}
             className="text-[clamp(1.25rem,3vw,1.75rem)] font-normal text-text-secondary mb-6 leading-[1.4]"
           >
-            Software Engineer , Educatior & Web3 Developer
+            Software Engineer, Educator & Web3 Developer
             <br />
             <span className="gradient-text">Building the Future of Web3</span>
           </motion.h2>
           
-          <motion.div 
+          <motion.div
             className="font-mono text-[clamp(0.875rem,2vw,1rem)] text-accent-color bg-[rgba(0,212,255,0.1)] px-4 py-2 rounded-md border-l-4 border-accent-color mb-6 tracking-wide"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={motionTransition ?? { duration: 0.8, delay: 0.6 }}
           >
             [ REACT.JS / JAVASCRIPT / TYPESCRIPT / REACT NATIVE / REST API / NODE.JS / SOLIDITY / GRAPHQL / AWS / WEB3 / ETHEREUM / SOLANA  ]
           </motion.div>
           
-          <motion.div 
+          <motion.div
             className="flex items-center gap-2 text-base text-text-secondary mb-8 transition-colors duration-fast hover:text-accent-color"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={motionTransition ?? { duration: 0.6, delay: 0.8 }}
           >
             <span>📧</span>
             <a href={`mailto:${email}`} className="transition-colors duration-fast">{email}</a>
           </motion.div>
           
-          <motion.div 
+          <motion.div
             className="flex gap-4 flex-wrap mb-6"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
+            transition={motionTransition}
           >
-            <motion.button 
-              onClick={openModal} 
+            <motion.button
+              onClick={openModal}
               className="btn btn-primary"
               variants={staggerItem}
-              {...hoverScale}
+              transition={motionTransition}
+              {...(reducedMotion ? {} : hoverScale)}
             >
               CONTACT ME 
             </motion.button>
-            <motion.button 
+            <motion.button
               className="btn btn-secondary"
               variants={staggerItem}
-              {...hoverScale}
+              transition={motionTransition}
+              {...(reducedMotion ? {} : hoverScale)}
             >
               <a
                 target="_blank"
@@ -121,16 +129,18 @@ export default function Banner(): JSX.Element {
             </motion.button>
           </motion.div>
           
-          <motion.div 
+          <motion.div
             className="flex gap-4 mt-6"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
+            transition={motionTransition}
           >
-            <motion.button 
+            <motion.button
               className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10"
               variants={staggerItem}
-              {...hoverScale}
+              transition={motionTransition}
+              {...(reducedMotion ? {} : hoverScale)}
             >
               <a
                 target="_blank"
@@ -142,10 +152,11 @@ export default function Banner(): JSX.Element {
                 <Linkedin />
               </a>
             </motion.button>
-            <motion.button 
+            <motion.button
               className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10"
               variants={staggerItem}
-              {...hoverScale}
+              transition={motionTransition}
+              {...(reducedMotion ? {} : hoverScale)}
             >
               <a 
                 target="_blank" 
@@ -160,6 +171,6 @@ export default function Banner(): JSX.Element {
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </header>
   );
 }

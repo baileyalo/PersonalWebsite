@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer, staggerItem, fadeIn } from "../utils/animations";
+import { useReducedMotion } from "../utils/useReducedMotion";
 
 interface SkillData {
   name: string;
@@ -74,33 +75,39 @@ export default function Skills(): JSX.Element {
     { name: "WEB3-RPC", progress: "90", url: "https://web3js.readthedocs.io/" },
   ];
 
+  const reducedMotion = useReducedMotion();
+  const motionTransition = reducedMotion ? { duration: 0 } : undefined;
+
   return (
-    <motion.section 
+    <motion.section
       className="container"
       variants={fadeIn}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
+      transition={motionTransition}
+      aria-labelledby="skills-heading"
     >
       <div className="sectionCont sectionContSkills">
-        <div id="skills" className="target"></div>
+        <div id="skills" className="target" aria-hidden="true"></div>
         <motion.header
           variants={slideUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          transition={motionTransition}
         >
-          <h2>Skills</h2>
+          <h2 id="skills-heading">Skills</h2>
         </motion.header>
         
         <div className="rowFlexRes breakMainTechOverall">
-          <motion.div 
+          <motion.div
             className="cardContainer"
             variants={slideUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={motionTransition ?? { delay: 0.2 }}
           >
             <div className="card">
               <h3 className="text-center">Tech | Frameworks</h3>
@@ -117,13 +124,13 @@ export default function Skills(): JSX.Element {
             </div>
           </motion.div>
           
-          <motion.div 
+          <motion.div
             className="cardContainer"
             variants={slideUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            transition={motionTransition ?? { delay: 0.4 }}
           >
             <div className="card">
               <h3 className="text-center">Coverage</h3>
@@ -148,10 +155,11 @@ export default function Skills(): JSX.Element {
                 <li>
                   <ul className="rowFlexRes">
                     {softSkills.slice(0, 2).map((skill, index) => (
-                      <motion.li 
+                      <motion.li
                         key={index}
                         variants={staggerItem}
-                        whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                        transition={motionTransition}
+                        whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
                       >
                         <FontAwesomeIcon color="var(--accent-color)" icon={faCheck} />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
@@ -162,10 +170,11 @@ export default function Skills(): JSX.Element {
                 <li>
                   <ul className="rowFlexRes">
                     {softSkills.slice(3, 5).map((skill, index) => (
-                      <motion.li 
+                      <motion.li
                         key={index}
                         variants={staggerItem}
-                        whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                        transition={motionTransition}
+                        whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
                       >
                         <FontAwesomeIcon color="var(--accent-color)" icon={faCheck} />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
@@ -176,10 +185,11 @@ export default function Skills(): JSX.Element {
                 <li>
                   <ul className="rowFlexRes">
                     {softSkills.slice(5, 8).map((skill, index) => (
-                      <motion.li 
+                      <motion.li
                         key={index}
                         variants={staggerItem}
-                        whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                        transition={motionTransition}
+                        whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
                       >
                         <FontAwesomeIcon color="var(--accent-color)" icon={faCheck} />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
@@ -192,13 +202,13 @@ export default function Skills(): JSX.Element {
           </motion.div>
         </div>
         
-        <motion.div 
+        <motion.div
           className="cardContainer"
           variants={slideUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={motionTransition ?? { delay: 0.6 }}
         >
           <div className="card">
             <h3 className="text-center">Software Tools</h3>
