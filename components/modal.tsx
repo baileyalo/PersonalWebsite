@@ -1,10 +1,8 @@
 import Modal1 from "react-modal";
 import { Contexto } from "../appContext";
 import { useState, useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { X } from "lucide-react";
 import { timeout } from "./helpers";
-import emailjs from "emailjs-com";
 import SpinningWheel from "../components/spinningWheel";
 
 interface ContactFormData {
@@ -13,6 +11,8 @@ interface ContactFormData {
   userPhoneNumber: string;
   userMessage: string;
 }
+
+const FORM_NAME = "contact";
 
 export default function Modal(): JSX.Element {
   const context = useContext(Contexto);
@@ -28,7 +28,7 @@ export default function Modal(): JSX.Element {
     userPhoneNumber: "",
     userMessage: "",
   });
-  
+
   const handleForm = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setForm({
       ...form,
@@ -49,24 +49,25 @@ export default function Modal(): JSX.Element {
       userMessage: "",
     });
   };
-  
+
   const submitForm = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const emailjsObj = {
-      serviceId: process.env.NEXT_PUBLIC_SERVICE_ID as string,
-      templateId: process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
-      userId: process.env.NEXT_PUBLIC_USER_ID as string,
-    };
     try {
       if (allowSend) {
         setAllowSend(() => false);
-        const result = await emailjs.send(
-          emailjsObj.serviceId,
-          emailjsObj.templateId,
-          form as unknown as Record<string, unknown>,
-          emailjsObj.userId
-        );
-        if (result.status === 200) {
+        const body = new URLSearchParams({
+          "form-name": FORM_NAME,
+          name: form.userName,
+          email: form.userEmail,
+          phoneNumber: form.userPhoneNumber,
+          message: form.userMessage,
+        }).toString();
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body,
+        });
+        if (res.ok) {
           setSubmitMessage(() => "Sent!");
         } else {
           setSubmitMessage(() => "Error, please try Again later");
@@ -81,7 +82,6 @@ export default function Modal(): JSX.Element {
       console.error(err);
       if (allowSend) {
         setAllowSend(() => false);
-        console.error(err);
         setSubmitMessage(() => "Error, try Again later");
         await timeout(2);
         closeModal();
@@ -91,6 +91,7 @@ export default function Modal(): JSX.Element {
       }
     }
   };
+
   return (
     <Modal1
       isOpen={modalIsOpen}
@@ -111,7 +112,20 @@ export default function Modal(): JSX.Element {
       <h2 className="text-[1.12rem] leading-normal text-center text-text-secondary opacity-90 font-semibold">
         Please fill this form, and I&apos;ll be in touch with you as soon as possible.
       </h2>
-      <form onSubmit={submitForm} className="w-full max-w-[400px] mx-auto mt-5 focus-within-ring rounded-lg" aria-label="Contact form">
+      <form
+        name={FORM_NAME}
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={submitForm}
+        className="w-full max-w-[400px] mx-auto mt-5 focus-within-ring rounded-lg"
+        aria-label="Contact form"
+      >
+        <input type="hidden" name="form-name" value={FORM_NAME} />
+        <p className="hidden" aria-hidden="true">
+          <label htmlFor="bot-field">Don’t fill this out</label>
+          <input id="bot-field" name="bot-field" type="text" />
+        </p>
         <ul className="mb-2">
           <li className="flex items-center">
             <label htmlFor="userName" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Name:</label>
@@ -123,6 +137,7 @@ export default function Modal(): JSX.Element {
               name="name"
               onChange={handleForm}
               required
+              value={form.userName}
               className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
             />
           </li>
@@ -138,6 +153,7 @@ export default function Modal(): JSX.Element {
               name="email"
               onChange={handleForm}
               required
+              value={form.userEmail}
               className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
             />
           </li>
@@ -152,6 +168,7 @@ export default function Modal(): JSX.Element {
               id="userPhoneNumber"
               name="phoneNumber"
               onChange={handleForm}
+              value={form.userPhoneNumber}
               className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
             />
           </li>
@@ -166,6 +183,7 @@ export default function Modal(): JSX.Element {
               name="message"
               onChange={handleForm}
               required
+              value={form.userMessage}
               className="w-full h-[4.5em] bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold resize-none"
             />
           </li>
@@ -193,7 +211,7 @@ export default function Modal(): JSX.Element {
         aria-label="Close contact form"
         className="text-[1.12rem] absolute top-2.5 right-2.5 bg-transparent h-9 w-9 rounded-full flex items-center justify-center cursor-pointer text-[var(--text-primary)] transition-all duration-200 hover:bg-[rgba(0,212,255,0.1)] hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color"
       >
-        <FontAwesomeIcon icon={faTimes} className="m-auto text-current" />
+        <X className="m-auto w-5 h-5" aria-hidden />
       </button>
     </Modal1>
   );

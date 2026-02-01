@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { Calendar } from "lucide-react";
 
 export default function Education(): JSX.Element {
   return (
@@ -14,7 +13,7 @@ export default function Education(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2021
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2021
                 </span>
               </h5>
               <h3>Graduate Diploma (Honors)</h3>
@@ -90,7 +89,7 @@ export default function Education(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2019
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2019
                 </span>
               </h5>
               <h3>Graduate Diploma (Honors)</h3>
@@ -148,7 +147,7 @@ export default function Education(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2016
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2016
                 </span>
               </h5>
               <h3>Bachelor of Education</h3>

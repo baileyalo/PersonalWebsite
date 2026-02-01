@@ -9,8 +9,7 @@ import Modal from "../components/modal";
 import ThemeToggle from "../components/ThemeToggle";
 import { Contexto } from "../appContext";
 import { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopyright } from "@fortawesome/free-regular-svg-icons";
+import { Copyright } from "lucide-react";
 
 export default function Home(): JSX.Element {
   const context = useContext(Contexto);
@@ -67,6 +66,15 @@ export default function Home(): JSX.Element {
       <Modal />
       <NavBar />
 
+      {/* Hidden form so Netlify Forms detects it at build time (modal form is client-rendered) */}
+      <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" className="hidden" aria-hidden="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="phoneNumber" />
+        <textarea name="message" />
+      </form>
+
       <main id="main-content" onClick={closeNavRes}>
         <Banner />
         <AboutMe />
@@ -82,7 +90,7 @@ export default function Home(): JSX.Element {
 
         <footer className="footer" aria-label="Site footer">
           <p>
-            <FontAwesomeIcon icon={faCopyright} /> {new Date().getFullYear()} A.B. All rights reserved
+            <Copyright className="inline w-4 h-4 mr-1" aria-hidden /> {new Date().getFullYear()} A.B. All rights reserved
           </p>
         </footer>
       </main>

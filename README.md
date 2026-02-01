@@ -13,7 +13,7 @@ Personal portfolio site for **Alwayne Bailey** (Software Engineer, Educator, Web
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/), custom CSS variables (light/dark theme)
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Contact form:** [EmailJS](https://www.emailjs.com/)
-- **Icons:** Font Awesome, custom SVG (GitHub, LinkedIn)
+- **Icons:** [Lucide React](https://lucide.dev/), custom SVG (GitHub, LinkedIn)
 
 ---
 
@@ -67,7 +67,7 @@ This site uses **static export** (no Node server). Use the repo’s `netlify.tom
 - **Node version:** 18 (set in `netlify.toml`; optional in Netlify UI)
 - **Next.js plugin:** Disabled via `NETLIFY_NEXT_PLUGIN_SKIP=1` in `netlify.toml` so Netlify treats the build as static only.
 
-Add the EmailJS env vars in Netlify **Site settings → Environment variables** if you want the contact form to work.
+Contact form submissions are handled by **Netlify Forms** (no env vars needed). Enable Forms in Netlify **Site configuration → Forms** and check the Forms tab in the deploy dashboard for submissions.
 
 ### Other scripts
 
@@ -77,22 +77,10 @@ Add the EmailJS env vars in Netlify **Site settings → Environment variables** 
 
 ---
 
-## Environment variables
-
-For the contact form (EmailJS), create a `.env` (or configure in your host):
-
-| Variable | Description |
-|----------|-------------|
-| `NEXT_PUBLIC_SERVICE_ID` | EmailJS service ID |
-| `NEXT_PUBLIC_TEMPLATE_ID` | EmailJS template ID |
-| `NEXT_PUBLIC_USER_ID` | EmailJS user ID |
-
----
-
 ## Features
 
 - **Light / dark theme** – ThemeContext + CSS variables, persisted in `localStorage`
-- **Contact modal** – Form sent via EmailJS
+- **Contact modal** – Submissions via Netlify Forms (no third-party email package)
 - **Responsive layout** – Mobile hamburger nav, desktop nav bar
 - **Accessibility** – Skip link, focus styles, `prefers-reduced-motion`, semantic landmarks and ARIA
 - **Static export** – No Node server required; deploy `out/` to Netlify or similar

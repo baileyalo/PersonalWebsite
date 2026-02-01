@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { Calendar } from "lucide-react";
 
 export default function Experience(): JSX.Element {
   return (
@@ -14,7 +13,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2024 - 2025{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2024 - 2025{" "}
                 </span>
               </h5>
               <h3>Coordinator, Client Services</h3>
@@ -61,7 +60,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2022 - 2024{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2022 - 2024{" "}
                 </span>
               </h5>
               <h3>Software Developer</h3>
@@ -124,7 +123,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2020 - 2022{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2020 - 2022{" "}
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
@@ -183,7 +182,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> 2010 -2016{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2010 -2016{" "}
                 </span>
               </h5>
               <h3>Lead Bank Teller</h3>

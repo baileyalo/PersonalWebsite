@@ -1,14 +1,10 @@
 import "../styles/globals.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import { ContextoProvider } from "../appContext";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import Modal from "react-modal";
 import { AppProps } from "next/app";
-
-config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

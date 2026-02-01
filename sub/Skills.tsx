@@ -1,7 +1,6 @@
 import Skill from "../components/skill";
 import CircularProg from "../components/circularProg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer, staggerItem, fadeIn } from "../utils/animations";
 import { useReducedMotion } from "../utils/useReducedMotion";
@@ -161,7 +160,7 @@ export default function Skills(): JSX.Element {
                         transition={motionTransition}
                         whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
                       >
-                        <FontAwesomeIcon color="var(--accent-color)" icon={faCheck} />{" "}
+                        <Check className="inline w-4 h-4 shrink-0 text-[var(--accent-color)]" aria-hidden />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
                       </motion.li>
                     ))}
@@ -176,7 +175,7 @@ export default function Skills(): JSX.Element {
                         transition={motionTransition}
                         whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
                       >
-                        <FontAwesomeIcon color="var(--accent-color)" icon={faCheck} />{" "}
+                        <Check className="inline w-4 h-4 shrink-0 text-[var(--accent-color)]" aria-hidden />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
                       </motion.li>
                     ))}
@@ -191,7 +190,7 @@ export default function Skills(): JSX.Element {
                         transition={motionTransition}
                         whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
                       >
-                        <FontAwesomeIcon color="var(--accent-color)" icon={faCheck} />{" "}
+                        <Check className="inline w-4 h-4 shrink-0 text-[var(--accent-color)]" aria-hidden />{" "}
                         <span style={{ opacity: "0.9" }}>{skill}</span>
                       </motion.li>
                     ))}
