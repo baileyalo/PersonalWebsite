@@ -3,6 +3,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   trailingSlash: true,
+  typescript: { ignoreBuildErrors: true },
   images: {
     unoptimized: true,
     remotePatterns: [

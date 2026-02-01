@@ -3,8 +3,8 @@
   command = "npm run build"
   publish = "out"
 
-# Use Node 18 to match local / avoid build issues
+# Node 22 for Netlify (Agent Runners work best with 22+)
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
   # Skip @netlify/plugin-nextjs (for SSR); this site is static-only
   NETLIFY_NEXT_PLUGIN_SKIP = "1"
