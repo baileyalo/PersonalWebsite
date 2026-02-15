@@ -68,8 +68,8 @@ export default function NavBar(): JSX.Element {
             navResOpen ? "left-0 pointer-events-auto" : "-left-full opacity-0 pointer-events-none"
           }`}
         >
-          {navLinks.map((link, b) => (
-            <li key={b} className="w-full border-b border-white/5">
+          {navLinks.map((link) => (
+            <li key={link.target} className="w-full border-b border-white/5">
               <a
                 href={link.target}
                 onClick={(e) => {
@@ -100,8 +100,8 @@ export default function NavBar(): JSX.Element {
       <nav className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(10,10,10,0.95)] backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block" aria-label="Main navigation">
         <div className="container flex justify-center items-center py-4">
           <ul className="flex items-center gap-12">
-            {navLinks.map((link, b) => (
-              <li key={b} className="relative">
+            {navLinks.map((link) => (
+              <li key={link.target} className="relative">
                 <a
                   href={link.target}
                   onClick={(e) => {

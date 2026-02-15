@@ -1,15 +1,18 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import NavBar from "../sub/NavBar";
 import Banner from "../sub/Banner";
 import AboutMe from "../sub/About";
 import Education from "../sub/Education";
 import Experience from "../sub/Experience";
 import Skills from "../sub/Skills";
-import Modal from "../components/modal";
 import ThemeToggle from "../components/ThemeToggle";
 import { Contexto } from "../appContext";
 import { useContext } from "react";
 import { Copyright } from "lucide-react";
+import NetlifyFormHidden from "../components/NetlifyFormHidden";
+
+const Modal = dynamic(() => import("../components/modal"), { ssr: false });
 
 export default function Home(): JSX.Element {
   const context = useContext(Contexto);
@@ -66,14 +69,7 @@ export default function Home(): JSX.Element {
       <Modal />
       <NavBar />
 
-      {/* Hidden form so Netlify Forms detects it at build time (modal form is client-rendered) */}
-      <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" className="hidden" aria-hidden="true">
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="phoneNumber" />
-        <textarea name="message" />
-      </form>
+      <NetlifyFormHidden />
 
       <main id="main-content" onClick={closeNavRes}>
         <Banner />

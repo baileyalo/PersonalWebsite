@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+/* Fonts loaded via next/font in _app.tsx (no render-blocking @import) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -48,11 +48,10 @@
     color-scheme: light;
   }
 
-  /* Theme transition for smooth switching (respect reduced motion) */
-  * {
-    transition: background-color 250ms ease,
-                color 250ms ease,
-                border-color 250ms ease;
+  /* Theme transition only on theme-aware elements (avoids costly * transitions) */
+  body,
+  [data-theme] {
+    transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -75,7 +74,7 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     background: var(--primary-bg);
     color: var(--text-primary);
     line-height: 1.6;
@@ -799,7 +798,7 @@
     fill: var(--text-primary) !important;
     font-size: 1rem !important;
     font-weight: 600 !important;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif !important;
   }
 
   /* Light theme adjustments for circular progress */
@@ -858,7 +857,7 @@
   .sectionContSkills .rowFlexRes > span:last-child {
     font-weight: 600;
     color: var(--accent-color);
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: var(--font-jetbrains-mono), 'Fira Code', monospace;
   }
 
   /* Checkmark styling for soft skills */

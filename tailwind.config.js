@@ -41,8 +41,8 @@ module.exports = {
         'full': '9999px',
       },
       fontFamily: {
-        'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'Fira Code', 'monospace'],
+        'body': ['var(--font-inter)', 'system-ui', '-apple-system', 'sans-serif'],
+        'mono': ['var(--font-jetbrains-mono)', 'Fira Code', 'monospace'],
       },
       transitionDuration: {
         'fast': '150ms',

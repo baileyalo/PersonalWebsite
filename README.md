@@ -8,11 +8,12 @@ Personal portfolio site for **Alwayne Bailey** (Software Engineer, Educator, Web
 
 ## Tech stack
 
-- **Framework:** [Next.js 16](https://nextjs.org/) (Pages Router, static export)
+- **Runtime:** Node.js 22+
+- **Framework:** [Next.js 15](https://nextjs.org/) (Pages Router, static export)
 - **Language:** TypeScript
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/), custom CSS variables (light/dark theme)
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Contact form:** [EmailJS](https://www.emailjs.com/)
+- **Contact form:** [Netlify Forms](https://docs.netlify.com/forms/setup/) (no third-party SDK)
 - **Icons:** [Lucide React](https://lucide.dev/), custom SVG (GitHub, LinkedIn)
 
 ---
@@ -28,9 +29,17 @@ Personal portfolio site for **Alwayne Bailey** (Software Engineer, Educator, Web
 ├── svg/             # Inline SVG components (github, linkedin)
 ├── utils/           # animations (Framer variants), useReducedMotion
 ├── appContext.tsx   # Global state (modal, mobile nav)
-├── next.config.js   # Static export, image remotePatterns, env
+├── next.config.js   # Static export, image remotePatterns
+├── netlify.toml     # Netlify build (Node 22, npm ci, publish out)
+├── .nvmrc           # Node 22 (for local dev / Netlify)
 └── tailwind.config.js
 ```
+
+---
+
+## Requirements
+
+- **Node.js 22** or higher (see [nodejs.org](https://nodejs.org/)). Use `.nvmrc` or `nvm use` if you use nvm.
 
 ---
 
@@ -40,6 +49,12 @@ Personal portfolio site for **Alwayne Bailey** (Software Engineer, Educator, Web
 
 ```bash
 npm install
+```
+
+For CI or a clean install from the lockfile:
+
+```bash
+npm ci
 ```
 
 ### Run locally
@@ -58,22 +73,27 @@ npm run build
 
 Output is in the `out/` directory. Deploy `out/` to any static host (e.g. Netlify, Vercel).
 
-### Deploying to Netlify
-
-This site uses **static export** (no Node server). Use the repo’s `netlify.toml`:
-
-- **Build command:** `npm run build`
-- **Publish directory:** `out`
-- **Node version:** 18 (set in `netlify.toml`; optional in Netlify UI)
-- **Next.js plugin:** Disabled via `NETLIFY_NEXT_PLUGIN_SKIP=1` in `netlify.toml` so Netlify treats the build as static only.
-
-Contact form submissions are handled by **Netlify Forms** (no env vars needed). Enable Forms in Netlify **Site configuration → Forms** and check the Forms tab in the deploy dashboard for submissions.
-
 ### Other scripts
 
 - `npm run start` – run production server (after build)
 - `npm run type-check` – TypeScript check
 - `npm run lint` – ESLint
+
+---
+
+## Deploying to Netlify
+
+This site uses **static export** (no Node server). The repo’s `netlify.toml` and `.nvmrc` are already set for Netlify:
+
+| Setting            | Value                    |
+|--------------------|--------------------------|
+| **Node version**   | 22 (via `netlify.toml` and `.nvmrc`) |
+| **Build command**  | `npm ci && npm run build` |
+| **Publish directory** | `out`                 |
+| **Next.js plugin** | Disabled (`NETLIFY_NEXT_PLUGIN_SKIP=1`) |
+
+- Use **Node.js 22** so Netlify Agent Runners and features work as expected.
+- Contact form submissions are handled by **Netlify Forms**. Enable Forms in **Site configuration → Forms** and check the Forms tab in the deploy dashboard for submissions.
 
 ---
 

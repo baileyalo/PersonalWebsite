@@ -41,6 +41,7 @@ export default function Banner(): JSX.Element {
             src: imgSrc,
             width: 400,
             height: 400,
+            priority: true,
             style: { objectFit: "cover", borderRadius: "50%" },
             onError: () => setImgSrc("https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true"),
             loading: "eager",
@@ -113,20 +114,17 @@ export default function Banner(): JSX.Element {
             >
               CONTACT ME 
             </motion.button>
-            <motion.button
+            <motion.a
+              href="https://github.com/baileyalo"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-secondary"
               variants={staggerItem}
               transition={motionTransition}
               {...(reducedMotion ? {} : hoverScale)}
             >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/baileyalo"
-              >
-                VIEW PORTFOLIO 
-              </a>
-            </motion.button>
+              VIEW PORTFOLIO
+            </motion.a>
           </motion.div>
           
           <motion.div
