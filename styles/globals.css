@@ -587,6 +587,51 @@
   .sectionContSkills .cardContainer:nth-child(3) {
     margin-top: 0;
   }
+
+  /* Software Tools row: full width with tools grid + Workflow column */
+  .cardContainerSoftwareTools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 100% !important;
+    align-items: stretch;
+  }
+  .cardContainerSoftwareTools .cardSoftwareToolsList {
+    flex: 1 1  min(100%, 720px);
+    min-width: 0;
+  }
+  .cardContainerSoftwareTools .cardWorkflowEnv {
+    flex: 0 1 280px;
+    min-width: 240px;
+  }
+  .cardContainerSoftwareTools .cardWorkflowEnv ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .cardContainerSoftwareTools .cardWorkflowEnv li {
+    margin-bottom: 0.65em;
+    font-size: 1rem;
+  }
+  .cardContainerSoftwareTools .cardWorkflowEnv li:last-child {
+    margin-bottom: 0;
+  }
+  .softwareToolsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 1.5rem;
+  }
+  @media (min-width: 700px) {
+    .softwareToolsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1100px) {
+    .softwareToolsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   @media (max-width: 1223px) {
     .sectionContExperience .card,
     .sectionContEducation .card {
@@ -638,6 +683,9 @@
       margin-right: auto;
       margin-left: auto;
     }
+    .cardContainerSoftwareTools {
+      max-width: 100%;
+    }
   }
   @media (max-width: 984px) {
     .sectionContExperience {
@@ -688,8 +736,13 @@
       padding: 1.2em 1.67em;
     }
     .sectionContSkills .cardContainer:first-child,
-    .sectionContSkills .cardContainer:nth-child(3) {
+    .sectionContSkills .cardContainer:nth-child(3):not(.cardContainerSoftwareTools) {
       max-width: 395px;
+    }
+    .cardContainerSoftwareTools .cardSoftwareToolsList,
+    .cardContainerSoftwareTools .cardWorkflowEnv {
+      flex: 1 1 100%;
+      min-width: 0;
     }
 
     .sectionContSkills .cardContainer:first-child li,

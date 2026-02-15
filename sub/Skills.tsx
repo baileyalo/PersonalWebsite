@@ -52,6 +52,15 @@ export default function Skills(): JSX.Element {
     "Time Management",
   ];
   
+  const workflowEnv: { name: string; url: string }[] = [
+    { name: "Agile / Scrum", url: "https://www.scrum.org/" },
+    { name: "CI/CD", url: "https://www.redhat.com/en/topics/devops/what-is-ci-cd" },
+    { name: "Docker", url: "https://www.docker.com/" },
+    { name: "REST APIs", url: "https://restfulapi.net/" },
+    { name: "Linux / Bash", url: "https://www.gnu.org/software/bash/" },
+    { name: "Netlify / Vercel", url: "https://www.netlify.com/" },
+  ];
+
   const softwareSkills: SkillData[] = [
     { name: "VS-CODE", progress: "90", url: "https://code.visualstudio.com/" },
     { name: "ANDROID-STUDIO", progress: "90", url: "https://developer.android.com/studio" },
@@ -202,23 +211,52 @@ export default function Skills(): JSX.Element {
         </div>
         
         <motion.div
-          className="cardContainer"
+          className="cardContainer cardContainerSoftwareTools"
           variants={slideUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           transition={motionTransition ?? { delay: 0.6 }}
         >
-          <div className="card">
+          <div className="card cardSoftwareToolsList">
             <h3 className="text-center">Software Tools</h3>
             <motion.ul
+              className="softwareToolsGrid"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
               {softwareSkills.map((skill, index) => (
-                <Skill key={index} skill={skill} index={index} />
+                <Skill key={skill.url} skill={skill} index={index} />
+              ))}
+            </motion.ul>
+          </div>
+          <div className="card cardWorkflowEnv">
+            <h3 className="text-center">Workflow & environment</h3>
+            <motion.ul
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {workflowEnv.map((item, index) => (
+                <motion.li
+                  key={item.url}
+                  variants={staggerItem}
+                  transition={motionTransition}
+                  whileHover={reducedMotion ? undefined : { x: 4, transition: { duration: 0.2 } }}
+                >
+                  <Check className="inline w-4 h-4 shrink-0 text-[var(--accent-color)]" aria-hidden />{" "}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--text-primary)] no-underline border-b border-dotted border-current hover:opacity-90"
+                  >
+                    {item.name}
+                  </a>
+                </motion.li>
               ))}
             </motion.ul>
           </div>
