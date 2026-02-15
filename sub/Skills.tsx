@@ -59,6 +59,12 @@ export default function Skills(): JSX.Element {
     { name: "REST APIs", url: "https://restfulapi.net/" },
     { name: "Linux / Bash", url: "https://www.gnu.org/software/bash/" },
     { name: "Netlify / Vercel", url: "https://www.netlify.com/" },
+    { name: "Render", url: "https://render.com/" },
+    { name: "Upstash", url: "https://upstash.com/" },
+    { name: "Eukpay", url: "https://eukpay.com/" },
+    { name: "CloudWatch", url: "https://aws.amazon.com/cloudwatch/" },
+    { name: "Coralogix", url: "https://coralogix.com/" },
+    { name: "incident.io", url: "https://incident.io/" },
   ];
 
   const softwareSkills: SkillData[] = [
@@ -233,7 +239,7 @@ export default function Skills(): JSX.Element {
             </motion.ul>
           </div>
           <div className="card cardWorkflowEnv">
-            <h3 className="text-center">Workflow & environment</h3>
+            <h3 className="text-center">Platforms & Tooling</h3>
             <motion.ul
               variants={staggerContainer}
               initial="hidden"
