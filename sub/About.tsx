@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { ExternalLink } from "lucide-react";
 import { Contexto } from "../appContext";
 
 export default function About(): JSX.Element {
@@ -47,17 +48,21 @@ export default function About(): JSX.Element {
           </strong>
           ; projects that I have worked on{" "}
           <strong>
-            <a target="_blank" href="https://github.com/baileyalo">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/baileyalo" className="inline-flex items-center gap-1">
               Github
+              <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
             </a>
           </strong>{" "}
           and visit my{" "}
           <strong>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href="https://www.linkedin.com/in/alwayne-bailey/"
+              className="inline-flex items-center gap-1"
             >
               linkedin
+              <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
             </a>
           </strong>{" "}
           profile.

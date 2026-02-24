@@ -2,13 +2,14 @@ import scrollIt from "../components/helpers";
 import Hamburger from "../components/hamburger";
 import { Contexto } from "../appContext";
 import { useContext, useEffect, useRef, useState } from "react";
-
-const SECTION_IDS = ["about", "experience", "education", "skills"];
-
-interface NavLink {
-  label: string;
-  target: string;
-}
+import {
+  SECTION_IDS,
+  NAV_LINKS,
+  CONTACT_TARGET,
+  INTERSECTION_OBSERVER_ROOT_MARGIN,
+  INTERSECTION_OBSERVER_THRESHOLDS,
+  type NavLink,
+} from "../constants";
 
 export default function NavBar(): JSX.Element {
   const context = useContext(Contexto);
@@ -37,7 +38,7 @@ export default function NavBar(): JSX.Element {
         const best = entries_.reduce((a, b) => (a[1] >= b[1] ? a : b));
         setActiveSection(best[1] > 0 ? `#${best[0]}` : "");
       },
-      { rootMargin: "-80px 0px -60% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
+      { rootMargin: INTERSECTION_OBSERVER_ROOT_MARGIN, threshold: [...INTERSECTION_OBSERVER_THRESHOLDS] }
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -58,7 +59,7 @@ export default function NavBar(): JSX.Element {
     };
   }, [navResOpen]);
   const handleResLink = (link: NavLink): void => {
-    if (link.target === "#contact") {
+    if (link.target === CONTACT_TARGET) {
       setIsOpen(true);
       if (navResOpen) setNavResOpen(false);
       return;
@@ -73,7 +74,7 @@ export default function NavBar(): JSX.Element {
 
   const handleDeskLink = (e: React.MouseEvent<HTMLAnchorElement>, link: NavLink): void => {
     e.preventDefault();
-    if (link.target === "#contact") {
+    if (link.target === CONTACT_TARGET) {
       setIsOpen(true);
       return;
     }
@@ -83,14 +84,6 @@ export default function NavBar(): JSX.Element {
       scrollIt(element as HTMLElement);
     }
   };
-
-  const navLinks: NavLink[] = [
-    { label: "about me", target: "#about" },
-    { label: "experience", target: "#experience" },
-    { label: "education", target: "#education" },
-    { label: "skills", target: "#skills" },
-    { label: "contact", target: "#contact" },
-  ];
 
   return (
     <>
@@ -102,7 +95,7 @@ export default function NavBar(): JSX.Element {
             navResOpen ? "left-0 pointer-events-auto" : "-left-full opacity-0 pointer-events-none"
           }`}
         >
-          {navLinks.map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link.target} className="w-full border-b border-white/5">
               <a
                 href={link.target}
@@ -136,7 +129,7 @@ export default function NavBar(): JSX.Element {
       <nav className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(10,10,10,0.95)] backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block" aria-label="Main navigation">
         <div className="container flex justify-center items-center py-4">
           <ul className="flex items-center gap-12">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <li key={link.target} className="relative">
                 <a
                   href={link.target}

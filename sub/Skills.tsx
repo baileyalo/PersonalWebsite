@@ -1,6 +1,6 @@
 import Skill from "../components/skill";
 import CircularProg from "../components/circularProg";
-import { Check } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer, staggerItem, fadeIn } from "../utils/animations";
 import { useReducedMotion } from "../utils/useReducedMotion";
@@ -258,9 +258,10 @@ export default function Skills(): JSX.Element {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--text-primary)] no-underline border-b border-dotted border-current hover:opacity-90"
+                    className="text-[var(--text-primary)] no-underline border-b border-dotted border-current hover:opacity-90 inline-flex items-center gap-1"
                   >
                     {item.name}
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
                   </a>
                 </motion.li>
               ))}

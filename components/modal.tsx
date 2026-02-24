@@ -4,6 +4,12 @@ import { useState, useContext } from "react";
 import { X } from "lucide-react";
 import { timeout } from "./helpers";
 import SpinningWheel from "../components/spinningWheel";
+import {
+  FORM_NAME,
+  EMAIL_REGEX,
+  VALIDATION,
+  SUBMIT_MESSAGES,
+} from "../constants";
 
 interface ContactFormData {
   userName: string;
@@ -14,28 +20,24 @@ interface ContactFormData {
 
 type FieldErrors = Partial<Record<keyof ContactFormData, string>>;
 
-const FORM_NAME = "contact";
-
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 function validateName(value: string): string {
   const t = value.trim();
-  if (!t) return "Name is required.";
-  if (t.length < 2) return "Please enter at least 2 characters.";
+  if (!t) return VALIDATION.NAME_REQUIRED;
+  if (t.length < VALIDATION.NAME_MIN_LENGTH) return VALIDATION.NAME_MIN;
   return "";
 }
 
 function validateEmail(value: string): string {
   const t = value.trim();
-  if (!t) return "Email is required.";
-  if (!EMAIL_REGEX.test(t)) return "Please enter a valid email address.";
+  if (!t) return VALIDATION.EMAIL_REQUIRED;
+  if (!EMAIL_REGEX.test(t)) return VALIDATION.EMAIL_INVALID;
   return "";
 }
 
 function validateMessage(value: string): string {
   const t = value.trim();
-  if (!t) return "Message is required.";
-  if (t.length < 10) return "Please enter at least 10 characters.";
+  if (!t) return VALIDATION.MESSAGE_REQUIRED;
+  if (t.length < VALIDATION.MESSAGE_MIN_LENGTH) return VALIDATION.MESSAGE_MIN;
   return "";
 }
 
@@ -117,9 +119,9 @@ export default function Modal(): JSX.Element {
           body,
         });
         if (res.ok) {
-          setSubmitMessage(() => "Sent!");
+          setSubmitMessage(() => SUBMIT_MESSAGES.SUCCESS);
         } else {
-          setSubmitMessage(() => "Error, please try Again later");
+          setSubmitMessage(() => SUBMIT_MESSAGES.ERROR);
         }
         await timeout(2);
         closeModal();
@@ -131,7 +133,7 @@ export default function Modal(): JSX.Element {
       console.error(err);
       if (allowSend) {
         setAllowSend(() => false);
-        setSubmitMessage(() => "Error, try Again later");
+        setSubmitMessage(() => SUBMIT_MESSAGES.ERROR_FALLBACK);
         await timeout(2);
         closeModal();
         setSubmitMessage(() => "");
@@ -273,7 +275,7 @@ export default function Modal(): JSX.Element {
             role="status"
             aria-live="polite"
             className={`mt-4 w-full rounded px-3 py-2 text-center text-[1rem] font-semibold ${
-              submitMessage === "Sent!"
+              submitMessage === SUBMIT_MESSAGES.SUCCESS
                 ? "bg-[rgba(0,212,255,0.15)] text-[var(--accent-color)] border border-[var(--accent-color)]"
                 : "bg-red-500/15 text-red-400 border border-red-500/50"
             }`}

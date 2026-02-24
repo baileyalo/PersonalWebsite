@@ -1,3 +1,5 @@
+import { NAVBAR_HEIGHT_PX } from "../constants";
+
 export default function scrollIt(destination: HTMLElement): void {
   const documentHeight = Math.max(
     document.body.scrollHeight,
@@ -10,11 +12,10 @@ export default function scrollIt(destination: HTMLElement): void {
     window.innerHeight ||
     document.documentElement.clientHeight ||
     document.getElementsByTagName("body")[0].clientHeight;
-  const navbarHeight = 80;
   // Use getBoundingClientRect + scroll position so it works regardless of offsetParent
   const rect = destination.getBoundingClientRect();
   const scrollTop = window.pageYOffset ?? document.documentElement.scrollTop;
-  const destinationOffset = scrollTop + rect.top - navbarHeight;
+  const destinationOffset = scrollTop + rect.top - NAVBAR_HEIGHT_PX;
   const destinationOffsetToScroll = Math.round(
     Math.min(
       Math.max(0, destinationOffset),

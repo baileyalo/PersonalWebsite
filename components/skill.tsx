@@ -1,6 +1,7 @@
 import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import { staggerItem } from "../utils/animations";
 
 interface SkillData {
@@ -35,6 +36,7 @@ export default function Skill({ skill, index }: SkillProps): JSX.Element {
               href={skill.url} 
               target="_blank" 
               rel="noopener noreferrer"
+              className="inline-flex items-center gap-1"
               style={{ 
                 color: 'inherit', 
                 textDecoration: 'none',
@@ -42,6 +44,7 @@ export default function Skill({ skill, index }: SkillProps): JSX.Element {
               }}
             >
               {skill.name}
+              <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
             </a>
           ) : (
             skill.name

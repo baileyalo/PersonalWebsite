@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useReducedMotion } from "../utils/useReducedMotion";
-
-const SHOW_AFTER_PX = 400;
+import { BACK_TO_TOP_SHOW_AFTER_PX } from "../constants";
 
 export default function BackToTop(): JSX.Element | null {
   const [show, setShow] = useState(false);
@@ -9,7 +8,7 @@ export default function BackToTop(): JSX.Element | null {
 
   useEffect(() => {
     const onScroll = (): void => {
-      setShow(window.scrollY > SHOW_AFTER_PX);
+      setShow(window.scrollY > BACK_TO_TOP_SHOW_AFTER_PX);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

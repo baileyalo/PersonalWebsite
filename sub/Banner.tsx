@@ -4,6 +4,7 @@ import Github from "../svg/github";
 import { Contexto } from "../appContext";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import { slideInLeft, slideInRight, staggerContainer, staggerItem, hoverScale, floatingAnimation } from "../utils/animations";
 import { useReducedMotion } from "../utils/useReducedMotion";
 
@@ -118,12 +119,13 @@ export default function Banner(): JSX.Element {
               href="https://github.com/baileyalo"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary"
+              className="btn btn-secondary inline-flex items-center gap-1.5"
               variants={staggerItem}
               transition={motionTransition}
               {...(reducedMotion ? {} : hoverScale)}
             >
               VIEW PORTFOLIO
+              <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-80" aria-hidden />
             </motion.a>
           </motion.div>
           
@@ -138,25 +140,27 @@ export default function Banner(): JSX.Element {
               href="https://www.linkedin.com/in/alwayne-bailey/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
+              aria-label="LinkedIn Profile (opens in new tab)"
               className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10 text-text-secondary hover:text-accent-color"
               variants={staggerItem}
               transition={motionTransition}
               {...(reducedMotion ? {} : hoverScale)}
             >
               <span className="relative z-10 flex items-center justify-center" aria-hidden><Linkedin /></span>
+              <ExternalLink className="absolute bottom-1 right-1 w-3 h-3 opacity-70 pointer-events-none" aria-hidden />
             </motion.a>
             <motion.a
               href="https://github.com/baileyalo"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Profile"
+              aria-label="GitHub Profile (opens in new tab)"
               className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10 text-text-secondary hover:text-accent-color"
               variants={staggerItem}
               transition={motionTransition}
               {...(reducedMotion ? {} : hoverScale)}
             >
               <span className="relative z-10 flex items-center justify-center" aria-hidden><Github /></span>
+              <ExternalLink className="absolute bottom-1 right-1 w-3 h-3 opacity-70 pointer-events-none" aria-hidden />
             </motion.a>
           </motion.div>
         </motion.div>
