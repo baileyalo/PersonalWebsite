@@ -11,6 +11,7 @@ import { Contexto } from "../appContext";
 import { useContext } from "react";
 import { Copyright } from "lucide-react";
 import NetlifyFormHidden from "../components/NetlifyFormHidden";
+import BackToTop from "../components/BackToTop";
 
 const Modal = dynamic(() => import("../components/modal"), { ssr: false });
 
@@ -19,11 +20,9 @@ export default function Home(): JSX.Element {
   if (!context) {
     throw new Error('Home must be used within ContextoProvider');
   }
-  const { navResOpen, setNavResOpen } = context;
+  const { navResOpen, setNavResOpen, setIsOpen } = context;
   const closeNavRes = (): void => {
-    if (navResOpen) {
-      setNavResOpen(false);
-    }
+    if (navResOpen) setNavResOpen(false);
   };
   
   return (
@@ -68,6 +67,7 @@ export default function Home(): JSX.Element {
       <ThemeToggle />
       <Modal />
       <NavBar />
+      <BackToTop />
 
       <NetlifyFormHidden />
 
@@ -85,6 +85,15 @@ export default function Home(): JSX.Element {
         <Skills />
 
         <footer className="footer" aria-label="Site footer">
+          <p className="mb-2">
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              className="text-accent-color font-medium underline underline-offset-2 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-color focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary-bg)] rounded"
+            >
+              Get in touch
+            </button>
+          </p>
           <p>
             <Copyright className="inline w-4 h-4 mr-1" aria-hidden /> {new Date().getFullYear()} A.B. All rights reserved
           </p>

@@ -12,7 +12,32 @@ interface ContactFormData {
   userMessage: string;
 }
 
+type FieldErrors = Partial<Record<keyof ContactFormData, string>>;
+
 const FORM_NAME = "contact";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateName(value: string): string {
+  const t = value.trim();
+  if (!t) return "Name is required.";
+  if (t.length < 2) return "Please enter at least 2 characters.";
+  return "";
+}
+
+function validateEmail(value: string): string {
+  const t = value.trim();
+  if (!t) return "Email is required.";
+  if (!EMAIL_REGEX.test(t)) return "Please enter a valid email address.";
+  return "";
+}
+
+function validateMessage(value: string): string {
+  const t = value.trim();
+  if (!t) return "Message is required.";
+  if (t.length < 10) return "Please enter at least 10 characters.";
+  return "";
+}
 
 export default function Modal(): JSX.Element {
   const context = useContext(Contexto);
@@ -28,30 +53,54 @@ export default function Modal(): JSX.Element {
     userPhoneNumber: "",
     userMessage: "",
   });
+  const [errors, setErrors] = useState<FieldErrors>({});
 
   const handleForm = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    setForm({
-      ...form,
-      [event.target.id]:
-        typeof event.target.value === "string"
-          ? event.target.value
-          : JSON.stringify(event.target.value),
-    });
+    const id = event.target.id as keyof ContactFormData;
+    const value = typeof event.target.value === "string" ? event.target.value : String(event.target.value);
+    setForm((prev) => ({ ...prev, [id]: value }));
+    if (errors[id]) {
+      const fn = id === "userName" ? validateName : id === "userEmail" ? validateEmail : id === "userMessage" ? validateMessage : () => "";
+      setErrors((prev) => ({ ...prev, [id]: fn(value) || undefined }));
+    }
+  };
+
+  const validateField = (id: keyof ContactFormData, value: string): string => {
+    switch (id) {
+      case "userName": return validateName(value);
+      case "userEmail": return validateEmail(value);
+      case "userMessage": return validateMessage(value);
+      default: return "";
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const id = event.target.id as keyof ContactFormData;
+    const value = form[id];
+    const error = validateField(id, value);
+    setErrors((prev) => (error ? { ...prev, [id]: error } : { ...prev, [id]: undefined }));
   };
 
   const closeModal = (): void => {
     setIsOpen(false);
     setSubmitMessage("");
-    setForm({
-      userName: "",
-      userEmail: "",
-      userPhoneNumber: "",
-      userMessage: "",
-    });
+    setForm({ userName: "", userEmail: "", userPhoneNumber: "", userMessage: "" });
+    setErrors({});
   };
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+    const nameError = validateName(form.userName);
+    const emailError = validateEmail(form.userEmail);
+    const messageError = validateMessage(form.userMessage);
+    const nextErrors: FieldErrors = {
+      userName: nameError || undefined,
+      userEmail: emailError || undefined,
+      userMessage: messageError || undefined,
+    };
+    setErrors(nextErrors);
+    if (nameError || emailError || messageError) return;
+
     try {
       if (allowSend) {
         setAllowSend(() => false);
@@ -136,10 +185,20 @@ export default function Modal(): JSX.Element {
               id="userName"
               name="name"
               onChange={handleForm}
+              onBlur={handleBlur}
               required
               value={form.userName}
-              className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
+              aria-invalid={Boolean(errors.userName)}
+              aria-describedby={errors.userName ? "userName-error" : undefined}
+              className={`w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold ${
+                errors.userName ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
+              }`}
             />
+            {errors.userName && (
+              <p id="userName-error" role="alert" className="mt-1 text-sm text-red-400">
+                {errors.userName}
+              </p>
+            )}
           </li>
         </ul>
         <ul className="mb-2">
@@ -152,10 +211,20 @@ export default function Modal(): JSX.Element {
               id="userEmail"
               name="email"
               onChange={handleForm}
+              onBlur={handleBlur}
               required
               value={form.userEmail}
-              className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
+              aria-invalid={Boolean(errors.userEmail)}
+              aria-describedby={errors.userEmail ? "userEmail-error" : undefined}
+              className={`w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold ${
+                errors.userEmail ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
+              }`}
             />
+            {errors.userEmail && (
+              <p id="userEmail-error" role="alert" className="mt-1 text-sm text-red-400">
+                {errors.userEmail}
+              </p>
+            )}
           </li>
         </ul>
         <ul className="mb-2">
@@ -182,14 +251,39 @@ export default function Modal(): JSX.Element {
               id="userMessage"
               name="message"
               onChange={handleForm}
+              onBlur={handleBlur}
               required
               value={form.userMessage}
-              className="w-full h-[4.5em] bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold resize-none"
+              aria-invalid={Boolean(errors.userMessage)}
+              aria-describedby={errors.userMessage ? "userMessage-error" : undefined}
+              className={`w-full h-[4.5em] bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold resize-none ${
+                errors.userMessage ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
+              }`}
             />
+            {errors.userMessage && (
+              <p id="userMessage-error" role="alert" className="mt-1 text-sm text-red-400">
+                {errors.userMessage}
+              </p>
+            )}
           </li>
         </ul>
+
+        {submitMessage && (
+          <div
+            role="status"
+            aria-live="polite"
+            className={`mt-4 w-full rounded px-3 py-2 text-center text-[1rem] font-semibold ${
+              submitMessage === "Sent!"
+                ? "bg-[rgba(0,212,255,0.15)] text-[var(--accent-color)] border border-[var(--accent-color)]"
+                : "bg-red-500/15 text-red-400 border border-red-500/50"
+            }`}
+          >
+            {submitMessage}
+          </div>
+        )}
+
         <div className="text-[1.12rem] flex mt-5">
-          <div className="flex items-center mx-auto relative">
+          <div className="flex items-center mx-auto w-full max-w-[200px]">
             <button
               disabled={!allowSend}
               type="submit"
@@ -201,7 +295,6 @@ export default function Modal(): JSX.Element {
             >
               {allowSend ? "SUBMIT" : <SpinningWheel />}
             </button>
-            <span className="font-semibold absolute text-[1.12rem] text-accent-color left-[calc(100%+1em)] top-0">{submitMessage}</span>
           </div>
         </div>
       </form>

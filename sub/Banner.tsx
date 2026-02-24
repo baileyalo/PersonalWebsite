@@ -134,38 +134,30 @@ export default function Banner(): JSX.Element {
             animate="visible"
             transition={motionTransition}
           >
-            <motion.button
-              className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10"
+            <motion.a
+              href="https://www.linkedin.com/in/alwayne-bailey/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10 text-text-secondary hover:text-accent-color"
               variants={staggerItem}
               transition={motionTransition}
               {...(reducedMotion ? {} : hoverScale)}
             >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/alwayne-bailey/"
-                aria-label="LinkedIn Profile"
-                className="flex items-center justify-center w-full h-full text-text-secondary transition-colors duration-fast relative z-10 hover:text-accent-color"
-              >
-                <Linkedin />
-              </a>
-            </motion.button>
-            <motion.button
-              className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10"
+              <span className="relative z-10 flex items-center justify-center" aria-hidden><Linkedin /></span>
+            </motion.a>
+            <motion.a
+              href="https://github.com/baileyalo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="flex items-center justify-center w-12 h-12 bg-card-bg border border-border-color rounded-full cursor-pointer transition-all duration-normal relative overflow-hidden hover:-translate-y-0.5 hover:border-accent-color hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-accent before:opacity-0 before:transition-opacity before:duration-normal before:rounded-full hover:before:opacity-10 text-text-secondary hover:text-accent-color"
               variants={staggerItem}
               transition={motionTransition}
               {...(reducedMotion ? {} : hoverScale)}
             >
-              <a 
-                target="_blank" 
-                rel="noopener noreferrer"
-                href="https://github.com/baileyalo"
-                aria-label="GitHub Profile"
-                className="flex items-center justify-center w-full h-full text-text-secondary transition-colors duration-fast relative z-10 hover:text-accent-color"
-              >
-                <Github />
-              </a>
-            </motion.button>
+              <span className="relative z-10 flex items-center justify-center" aria-hidden><Github /></span>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

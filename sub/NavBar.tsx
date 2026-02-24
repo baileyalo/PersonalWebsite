@@ -1,8 +1,9 @@
-
 import scrollIt from "../components/helpers";
 import Hamburger from "../components/hamburger";
 import { Contexto } from "../appContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+
+const SECTION_IDS = ["about", "experience", "education", "skills"];
 
 interface NavLink {
   label: string;
@@ -14,7 +15,34 @@ export default function NavBar(): JSX.Element {
   if (!context) {
     throw new Error('NavBar must be used within ContextoProvider');
   }
-  const { navResOpen, setNavResOpen } = context;
+  const { navResOpen, setNavResOpen, setIsOpen } = context;
+  const [activeSection, setActiveSection] = useState<string>("");
+  const ratiosRef = useRef<Record<string, number>>({});
+
+  // Intersection Observer: highlight nav link for the section currently in view
+  useEffect(() => {
+    SECTION_IDS.forEach((id) => {
+      ratiosRef.current[id] = 0;
+    });
+    const elements = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = entry.target.id;
+          if (id) ratiosRef.current[id] = entry.intersectionRatio;
+        }
+        const entries_ = Object.entries(ratiosRef.current);
+        const best = entries_.reduce((a, b) => (a[1] >= b[1] ? a : b));
+        setActiveSection(best[1] > 0 ? `#${best[0]}` : "");
+      },
+      { rootMargin: "-80px 0px -60% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -30,18 +58,25 @@ export default function NavBar(): JSX.Element {
     };
   }, [navResOpen]);
   const handleResLink = (link: NavLink): void => {
+    if (link.target === "#contact") {
+      setIsOpen(true);
+      if (navResOpen) setNavResOpen(false);
+      return;
+    }
     const element = document.querySelector(link.target);
     if (element) {
       window.history.replaceState(null, "", link.target);
       scrollIt(element as HTMLElement);
     }
-    if (navResOpen) {
-      setNavResOpen(false);
-    }
+    if (navResOpen) setNavResOpen(false);
   };
 
   const handleDeskLink = (e: React.MouseEvent<HTMLAnchorElement>, link: NavLink): void => {
     e.preventDefault();
+    if (link.target === "#contact") {
+      setIsOpen(true);
+      return;
+    }
     const element = document.querySelector(link.target);
     if (element) {
       window.history.replaceState(null, "", link.target);
@@ -50,22 +85,11 @@ export default function NavBar(): JSX.Element {
   };
 
   const navLinks: NavLink[] = [
-    {
-      label: "about me",
-      target: "#about",
-    },
-    {
-      label: "experience",
-      target: "#experience",
-    },    
-    {
-      label: "education",
-      target: "#education",
-    },        
-    {
-      label: "skills",
-      target: "#skills",
-    },
+    { label: "about me", target: "#about" },
+    { label: "experience", target: "#experience" },
+    { label: "education", target: "#education" },
+    { label: "skills", target: "#skills" },
+    { label: "contact", target: "#contact" },
   ];
 
   return (
@@ -86,7 +110,9 @@ export default function NavBar(): JSX.Element {
                   e.preventDefault();
                   handleResLink(link);
                 }}
-                className="block px-6 sm:px-8 py-4 sm:py-6 text-text-secondary font-medium text-sm sm:text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] active:bg-[rgba(0,132,255,0.2)]"
+                className={`block px-6 sm:px-8 py-4 sm:py-6 font-medium text-sm sm:text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] active:bg-[rgba(0,132,255,0.2)] ${
+                  activeSection === link.target ? "text-accent-color font-semibold" : "text-text-secondary"
+                }`}
               >
                 {link.label}
               </a>
@@ -115,7 +141,11 @@ export default function NavBar(): JSX.Element {
                 <a
                   href={link.target}
                   onClick={(e) => handleDeskLink(e, link)}
-                  className="flex items-center px-4 py-2 font-medium text-sm uppercase tracking-wide text-text-secondary cursor-pointer transition-all duration-fast rounded-md relative overflow-hidden hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-gradient-accent before:transition-all before:duration-normal before:-translate-x-1/2 hover:before:w-4/5"
+                  className={`flex items-center px-4 py-2 font-medium text-sm uppercase tracking-wide cursor-pointer transition-all duration-fast rounded-md relative overflow-hidden hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:h-0.5 before:bg-gradient-accent before:transition-all before:duration-normal before:-translate-x-1/2 hover:before:w-4/5 ${
+                    activeSection === link.target
+                      ? "text-accent-color before:w-4/5"
+                      : "text-text-secondary before:w-0"
+                  }`}
                 >
                   {link.label}
                 </a>
