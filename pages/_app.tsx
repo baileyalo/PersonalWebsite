@@ -1,11 +1,13 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ContextoProvider } from "../appContext";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import Modal from "react-modal";
 import { AppProps } from "next/app";
+import scrollIt from "../components/helpers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,12 +22,29 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   useEffect(() => {
     Modal.setAppElement("#__next");
     const touchHandler = () => {};
     document.addEventListener("touchstart", touchHandler, { passive: true });
     return () => document.removeEventListener("touchstart", touchHandler);
   }, []);
+
+  // Scroll to section when page loads or route changes with a hash (e.g. #skills)
+  useEffect(() => {
+    const hash = router.asPath.split("#")[1];
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) {
+      const id = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          scrollIt(el);
+        });
+      });
+      return () => cancelAnimationFrame(id);
+    }
+  }, [router.asPath]);
 
   return (
     <ThemeProvider>

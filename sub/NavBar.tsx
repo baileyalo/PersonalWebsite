@@ -32,10 +32,20 @@ export default function NavBar(): JSX.Element {
   const handleResLink = (link: NavLink): void => {
     const element = document.querySelector(link.target);
     if (element) {
+      window.history.replaceState(null, "", link.target);
       scrollIt(element as HTMLElement);
     }
     if (navResOpen) {
       setNavResOpen(false);
+    }
+  };
+
+  const handleDeskLink = (e: React.MouseEvent<HTMLAnchorElement>, link: NavLink): void => {
+    e.preventDefault();
+    const element = document.querySelector(link.target);
+    if (element) {
+      window.history.replaceState(null, "", link.target);
+      scrollIt(element as HTMLElement);
     }
   };
 
@@ -104,11 +114,7 @@ export default function NavBar(): JSX.Element {
               <li key={link.target} className="relative">
                 <a
                   href={link.target}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.querySelector(link.target);
-                    if (element) scrollIt(element as HTMLElement);
-                  }}
+                  onClick={(e) => handleDeskLink(e, link)}
                   className="flex items-center px-4 py-2 font-medium text-sm uppercase tracking-wide text-text-secondary cursor-pointer transition-all duration-fast rounded-md relative overflow-hidden hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-gradient-accent before:transition-all before:duration-normal before:-translate-x-1/2 hover:before:w-4/5"
                 >
                   {link.label}

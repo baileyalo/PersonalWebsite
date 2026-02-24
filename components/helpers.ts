@@ -10,26 +10,23 @@ export default function scrollIt(destination: HTMLElement): void {
     window.innerHeight ||
     document.documentElement.clientHeight ||
     document.getElementsByTagName("body")[0].clientHeight;
-  
-  // Account for fixed navbar height (approximately 80px)
   const navbarHeight = 80;
-  const destinationOffset = destination.offsetTop - navbarHeight;
-  
+  // Use getBoundingClientRect + scroll position so it works regardless of offsetParent
+  const rect = destination.getBoundingClientRect();
+  const scrollTop = window.pageYOffset ?? document.documentElement.scrollTop;
+  const destinationOffset = scrollTop + rect.top - navbarHeight;
   const destinationOffsetToScroll = Math.round(
-    documentHeight - destinationOffset < windowHeight
-      ? documentHeight - windowHeight
-      : destinationOffset
+    Math.min(
+      Math.max(0, destinationOffset),
+      documentHeight - windowHeight
+    )
   );
 
-  function scroll() {
-    window.scroll({
-      top: destinationOffsetToScroll,
-      left: 0, // Fixed: should be 0, not destinationOffsetToScroll
-      behavior: "smooth",
-    });
-  }
-
-  scroll();
+  window.scroll({
+    top: destinationOffsetToScroll,
+    left: 0,
+    behavior: "smooth",
+  });
 }
 
 export function timeout(s: number): Promise<void> {
