@@ -3,7 +3,7 @@
  */
 
 // ─── Navigation ─────────────────────────────────────────────────────────────
-export const SECTION_IDS = ["about", "experience", "education", "skills"] as const;
+export const SECTION_IDS = ["about", "experience", "education", "skills", "projects"] as const;
 
 export const CONTACT_TARGET = "#contact";
 
@@ -17,6 +17,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "experience", target: "#experience" },
   { label: "education", target: "#education" },
   { label: "skills", target: "#skills" },
+  { label: "projects", target: "#projects" },
   { label: "contact", target: CONTACT_TARGET },
 ];
 

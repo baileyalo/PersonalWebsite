@@ -6,6 +6,7 @@ import AboutMe from "../sub/About";
 import Education from "../sub/Education";
 import Experience from "../sub/Experience";
 import Skills from "../sub/Skills";
+import Projects from "../sub/Projects";
 import ThemeToggle from "../components/ThemeToggle";
 import { Contexto } from "../appContext";
 import { useContext } from "react";
@@ -83,6 +84,8 @@ export default function Home(): JSX.Element {
         </section>
 
         <Skills />
+
+        <Projects />
 
         <footer className="footer" aria-label="Site footer">
           <p className="mb-2">
