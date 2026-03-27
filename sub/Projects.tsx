@@ -35,9 +35,12 @@ export default function Projects(): JSX.Element {
               className="block group bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-normal hover:border-accent-color hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,212,255,0.15)]"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-color transition-colors duration-fast">
-                  {project.title}
-                </h3>
+                <div className="flex items-center gap-2">
+                  <img src="/icon.png" alt="Bot Platform Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color" />
+                  <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-color transition-colors duration-fast">
+                    {project.title}
+                  </h3>
+                </div>
                 <ExternalLink className="w-4 h-4 shrink-0 text-text-secondary group-hover:text-accent-color transition-colors duration-fast mt-1" aria-hidden />
               </div>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
