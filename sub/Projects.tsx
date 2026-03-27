@@ -13,7 +13,7 @@ const PROJECTS: Project[] = [
     description:
       "Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — currently sandbox version.",
     url: "https://d39c8b0zoc8fe5.cloudfront.net/",
-    tags: ["Crypto", "Binance", "Coinbase", "Stripe", "React", "TypeScript", "Node.js"],
+    tags: ["Crypto", "Binance", "Coinbase", "Stripe", "React", "TypeScript", "Node.js", "AWS", "PostgreSQL", "Docker"],
   },
 ];
 
