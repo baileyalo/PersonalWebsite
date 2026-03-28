@@ -11,10 +11,18 @@ const PROJECTS: Project[] = [
   {
     title: "Bot Platform",
     description:
-      "Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — currently sandbox version.",
+      "Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [STAGING ENV.].",
     url: "https://d39c8b0zoc8fe5.cloudfront.net/",
     tags: ["Crypto", "Binance", "Coinbase", "Stripe", "React", "TypeScript", "Node.js", "AWS", "PostgreSQL", "Docker"],
   },
+  {
+    title: "European Football League Table",
+    description:
+      "European Football League Table displaying real-time scores and standings",
+    url: "https://euleague.netlify.app/",
+    tags: ["Football", "React", "TypeScript", "Netlify", "API Integration",],
+  },
+
 ];
 
 export default function Projects(): JSX.Element {
@@ -36,10 +44,19 @@ export default function Projects(): JSX.Element {
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <img src="/icon.png" alt="Bot Platform Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color" />
                   <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-color transition-colors duration-fast">
                     {project.title}
                   </h3>
+                {project.tags.includes("Crypto") && (
+                  <img src="/icon.png" alt="Bot Platform Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
+                )}
+                  {project.tags.includes("Football") && (
+                    <>
+                    <img src="/PremierLeague.png" alt="Football League Table Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
+                    <img src="/LaLiga.png" alt="Football League Table Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
+                    <img src="/SerieA.png" alt="Football League Table Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
+                    </>
+                  )}
                 </div>
                 <ExternalLink className="w-4 h-4 shrink-0 text-text-secondary group-hover:text-accent-color transition-colors duration-fast mt-1" aria-hidden />
               </div>
