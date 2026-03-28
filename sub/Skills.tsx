@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { slideUp, staggerContainer, staggerItem, fadeIn } from "../utils/animations";
 import { useReducedMotion } from "../utils/useReducedMotion";
 
-interface SkillData {
+export interface SkillData {
   name: string;
-  progress: string;
-  url: string;
+  progress: number | string;
+  url?: string;
 }
 
 interface CircularSkillData {

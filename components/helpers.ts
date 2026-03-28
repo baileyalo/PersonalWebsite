@@ -29,7 +29,3 @@ export default function scrollIt(destination: HTMLElement): void {
     behavior: "smooth",
   });
 }
-
-export function timeout(s: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, s * 1000));
-}
