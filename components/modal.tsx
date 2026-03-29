@@ -131,14 +131,16 @@ export default function Modal(): JSX.Element {
           netlifyOk = false;
         }
         try {
+          // IMPORTANT: The keys in this object (name, email, phoneNumber, message) must match the variable names in your EmailJS template.
+          // If your template uses variables like {{from_name}}, {{from_email}}, etc., update the keys below to match exactly.
           await emailjs.send(
             process.env.NEXT_PUBLIC_SERVICE_ID as string,
             process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
             {
-              name: form.userName,
-              email: form.userEmail,
-              phoneNumber: form.userPhoneNumber,
+              from_name: form.userName, 
               message: form.userMessage,
+              phone: form.userPhoneNumber,
+              from_email: form.userEmail, 
             },
             process.env.NEXT_PUBLIC_USER_ID as string
           );
