@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 function ErrorBoundary({ children }: { children: React.ReactNode }) {
-  const [error, setError] = React.useState<Error | null>(null);
+  const [error] = React.useState<Error | null>(null);
   // Optionally, use componentDidCatch in a class for more advanced error handling
   if (error) {
     return (

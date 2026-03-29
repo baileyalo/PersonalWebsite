@@ -1,5 +1,5 @@
 import Modal1 from 'react-modal';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { Contexto } from '../appContext';
 import { useState, useContext } from 'react';
 import emailjs from 'emailjs-com';
@@ -87,7 +87,7 @@ export default function Modal(): JSX.Element {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [modalIsOpen]);
+  }, [modalIsOpen, closeModal]);
 
   const handleForm = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const id = event.target.id as keyof ContactFormData;
@@ -127,12 +127,12 @@ export default function Modal(): JSX.Element {
     setErrors((prev) => (error ? { ...prev, [id]: error } : { ...prev, [id]: undefined }));
   };
 
-  const closeModal = (): void => {
+  const closeModal = useCallback((): void => {
     setIsOpen(false);
     setSubmitMessage('');
     setForm({ userName: '', userEmail: '', userPhoneNumber: '', userMessage: '' });
     setErrors({});
-  };
+  }, [setIsOpen]);
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
