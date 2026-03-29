@@ -43,12 +43,23 @@ export default function About(): JSX.Element {
           where I’ve worked on building secure and efficient decentralized applications. Before
           transitioning into tech, I spent over 8 years in financial services, giving me strong
           domain knowledge in fintech environments and a deep understanding of customer experience.
-          Core Skills: • JavaScript / Typescript (React, Node.js, React Native) • AWS, MongoDB,
-          PostgreSQL • REST APIs • Web3 / Blockchain (Solana, Ethereum, Binance, Coinbase) • Client
-          solutions & technical support ( Monitoring, Debugging, Data Patch, Optimization ) I’m
-          passionate about building impactful technology and continuously learning. I’m open to
-          opportunities where I can contribute to innovative teams across technical support,
-          engineering, fintech, and Web3.
+          <span className="font-semibold">Core Skills:</span>{' '}
+          <span className="text-accent-color">
+            • <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80">JavaScript</a> /
+            <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> Typescript</a> (
+            <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80">React</a>,
+            <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> Node.js</a>,
+            <a href="https://reactnative.dev/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> React Native</a>) •
+            <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> AWS</a>,
+            <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> MongoDB</a>,
+            <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> PostgreSQL</a> •
+            <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> REST APIs</a> • Web3 / Blockchain (
+            <a href="https://solana.com/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80">Solana</a>,
+            <a href="https://ethereum.org/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> Ethereum</a>,
+            <a href="https://www.binance.com/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> Binance</a>,
+            <a href="https://www.coinbase.com/" target="_blank" rel="noopener noreferrer" className="text-accent-color underline hover:opacity-80"> Coinbase</a>)
+          </span>
+          • Client solutions & technical support ( Monitoring, Debugging, Data Patch, Optimization ) I’m passionate about building impactful technology and continuously learning. I’m open to opportunities where I can contribute to innovative teams across technical support, engineering, fintech, and Web3.
         </p>
         <p>
           Email:
