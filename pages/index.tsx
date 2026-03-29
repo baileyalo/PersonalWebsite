@@ -62,7 +62,8 @@ export default function Home(): JSX.Element {
         <meta name="keywords" content="Software Engineer, blockchain, web3, react, javascript, typescript, solidity, defi, smart contracts" />
       </Head>
       
-      <a href="#main-content" className="skip-link">
+      {/* Skip to main content link for accessibility */}
+      <a href="#main-content" className="skip-link focus:top-0 focus:left-0 focus:absolute focus:z-[2000] focus:bg-accent-color focus:text-white focus:p-2 focus:rounded transition-all duration-200 -top-10 left-0 absolute">
         Skip to main content
       </a>
       <ThemeToggle />
@@ -72,7 +73,7 @@ export default function Home(): JSX.Element {
 
       <NetlifyFormHidden />
 
-      <main id="main-content" onClick={closeNavRes}>
+      <main id="main-content" onClick={closeNavRes} tabIndex={-1}>
         <Banner />
         <AboutMe />
 
@@ -84,6 +85,7 @@ export default function Home(): JSX.Element {
         </section>
 
         <Skills />
+
 
         <Projects />
 
@@ -98,7 +100,9 @@ export default function Home(): JSX.Element {
             </button>
           </p>
           <p>
-            <Copyright className="inline w-4 h-4 mr-1" aria-hidden /> {new Date().getFullYear()} ABTech. All rights reserved
+            <Copyright className="inline w-4 h-4 mr-1" aria-hidden />
+            <span>{new Date().getFullYear()} </span>
+            <span className="font-semibold">ABTech.</span> All rights reserved
           </p>
         </footer>
       </main>

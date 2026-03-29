@@ -1,4 +1,5 @@
 import Modal1 from "react-modal";
+import { useRef, useEffect } from "react";
 import { Contexto } from "../appContext";
 import { useState, useContext } from "react";
 import emailjs from "emailjs-com";
@@ -60,6 +61,14 @@ export default function Modal(): JSX.Element {
     userMessage: "",
   });
   const [errors, setErrors] = useState<FieldErrors>({});
+
+  // Focus trap for accessibility
+  const firstInputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (modalIsOpen && firstInputRef.current) {
+      firstInputRef.current.focus();
+    }
+  }, [modalIsOpen]);
 
   const handleForm = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const id = event.target.id as keyof ContactFormData;
@@ -184,28 +193,37 @@ export default function Modal(): JSX.Element {
       onAfterOpen={() => {}}
       onRequestClose={closeModal}
       contentLabel="Contact Form Modal"
-      closeTimeoutMS={500}
-      className="bg-[rgba(0,0,0,0.85)] text-[var(--text-primary)] p-6 rounded-xl w-[90%] max-w-[500px] relative shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modal-appear border-2 border-transparent bg-clip-padding before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:bg-gradient-accent before:rounded-xl before:-z-10 before:opacity-60 before:animate-border-glow"
+      closeTimeoutMS={400}
+      aria-modal="true"
+      role="dialog"
+      className="bg-[rgba(0,0,0,0.85)] text-[var(--text-primary)] p-6 rounded-xl w-[90%] max-w-[500px] relative shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modal-appear border-2 border-transparent bg-clip-padding before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:bg-gradient-accent before:rounded-xl before:-z-10 before:opacity-60 before:animate-border-glow transition-all duration-400"
       overlayClassName={{
-        base: "opacity-0 transition-opacity duration-500 ease-in-out fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.85)] flex items-center justify-center z-[1000] backdrop-blur-[5px] text-base",
-        afterOpen: "opacity-100 transition-opacity duration-500 ease-in-out",
-        beforeClose: "opacity-0 transition-opacity duration-500 ease-in-out",
+        base: "opacity-0 transition-opacity duration-400 ease-in-out fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.85)] flex items-center justify-center z-[1000] backdrop-blur-[5px] text-base",
+        afterOpen: "opacity-100 transition-opacity duration-400 ease-in-out",
+        beforeClose: "opacity-0 transition-opacity duration-400 ease-in-out",
       }}
     >
       <h1 className="text-[2.16rem] leading-normal text-center font-bold mb-3">
         Thank you for your time
       </h1>
-      <h2 className="text-[1.12rem] leading-normal text-center text-text-secondary opacity-90 font-semibold">
+      <h2 className="text-[1.12rem] leading-normal text-center text-text-secondary opacity-90 font-semibold mb-2">
         Please fill this form, and I&apos;ll be in touch with you as soon as possible.
       </h2>
+      {/* Error summary for accessibility */}
+      {Object.values(errors).some(Boolean) && (
+        <div className="mb-3 p-2 rounded bg-red-500/10 border border-red-400 text-red-400 text-center text-sm" role="alert">
+          Please fix the highlighted errors below.
+        </div>
+      )}
       <form
         name={FORM_NAME}
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={submitForm}
-        className="w-full max-w-[400px] mx-auto mt-5 focus-within-ring rounded-lg"
+        className="w-full max-w-[400px] mx-auto mt-5 focus-within:ring-2 focus-within:ring-accent-color rounded-lg"
         aria-label="Contact form"
+        autoComplete="on"
       >
         <input type="hidden" name="form-name" value={FORM_NAME} />
         <p className="hidden" aria-hidden="true">
@@ -218,6 +236,7 @@ export default function Modal(): JSX.Element {
           </li>
           <li>
             <input
+              ref={firstInputRef}
               type="text"
               id="userName"
               name="name"
@@ -230,6 +249,7 @@ export default function Modal(): JSX.Element {
               className={`w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold ${
                 errors.userName ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
               }`}
+              autoComplete="name"
             />
             {errors.userName && (
               <p id="userName-error" role="alert" className="mt-1 text-sm text-red-400">
@@ -256,6 +276,7 @@ export default function Modal(): JSX.Element {
               className={`w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold ${
                 errors.userEmail ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
               }`}
+              autoComplete="email"
             />
             {errors.userEmail && (
               <p id="userEmail-error" role="alert" className="mt-1 text-sm text-red-400">
@@ -276,7 +297,12 @@ export default function Modal(): JSX.Element {
               onChange={handleForm}
               value={form.userPhoneNumber}
               className="w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-color)] rounded px-2 outline-none focus:outline-accent-color focus:border-accent-color focus:rounded-none font-semibold"
+              autoComplete="tel"
+              pattern="[0-9\-\+\s]*"
+              inputMode="tel"
+              aria-describedby="phone-hint"
             />
+            <span id="phone-hint" className="block text-xs text-text-secondary opacity-70 mt-1">Format: numbers only, e.g. 1234567890</span>
           </li>
         </ul>
         <ul className="mb-0">
@@ -296,6 +322,7 @@ export default function Modal(): JSX.Element {
               className={`w-full h-[4.5em] bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold resize-none ${
                 errors.userMessage ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
               }`}
+              autoComplete="on"
             />
             {errors.userMessage && (
               <p id="userMessage-error" role="alert" className="mt-1 text-sm text-red-400">
@@ -329,6 +356,7 @@ export default function Modal(): JSX.Element {
               className={`bg-accent-color outline-none rounded-[0.2em] w-full mx-auto px-4 py-1 cursor-pointer text-base border border-accent-color text-text-secondary font-semibold font-inherit transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,212,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed ${
                 allowSend ? "" : "opacity-50 cursor-not-allowed"
               }`}
+              tabIndex={0}
             >
               {allowSend ? "SUBMIT" : <SpinningWheel />}
             </button>
