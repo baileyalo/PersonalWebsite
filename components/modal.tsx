@@ -5,27 +5,12 @@ import emailjs from "emailjs-com";
 import { X } from "lucide-react";
 import { delay } from "./helpers";
 
-// Helper to get env vars for both SSR and client
-function getEnvVar(key: string): string {
-  if (typeof process !== 'undefined' && process.env && process.env[key]) {
-    return process.env[key] as string;
-  }
-  if (
-    typeof window !== 'undefined' &&
-    typeof (window as unknown as Record<string, unknown>).env === 'object' &&
-    (window as unknown as Record<string, { [k: string]: string }>).env &&
-    typeof (window as unknown as Record<string, { [k: string]: string }>).env[key] === 'string'
-  ) {
-    return (window as unknown as Record<string, { [k: string]: string }>).env[key];
-  }
-  return '';
-}
 
 // TEMP DEBUG: Log the value of NEXT_PUBLIC_USER_ID at runtime
 if (typeof window !== 'undefined') {
   // Only log on client side
   // eslint-disable-next-line no-console
-  console.log('DEBUG: NEXT_PUBLIC_USER_ID at runtime:', getEnvVar('NEXT_PUBLIC_USER_ID'));
+  console.log('DEBUG: NEXT_PUBLIC_USER_ID at runtime:', process.env.NEXT_PUBLIC_USER_ID );
 }
 import SpinningWheel from "../components/spinningWheel";
 import {
@@ -152,15 +137,15 @@ export default function Modal(): JSX.Element {
         }
         try {
           await emailjs.send(
-            getEnvVar('NEXT_PUBLIC_SERVICE_ID'),
-            getEnvVar('NEXT_PUBLIC_TEMPLATE_ID'),
+            process.env.NEXT_PUBLIC_SERVICE_ID as string,
+            process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
             {
               name: form.userName,
               email: form.userEmail,
               phoneNumber: form.userPhoneNumber,
               message: form.userMessage,
             },
-            getEnvVar('NEXT_PUBLIC_USER_ID')
+            process.env.NEXT_PUBLIC_USER_ID as string
           );
           emailjsOk = true;
         } catch (emailErr: unknown) {
