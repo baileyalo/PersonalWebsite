@@ -10,8 +10,13 @@ function getEnvVar(key: string): string {
   if (typeof process !== 'undefined' && process.env && process.env[key]) {
     return process.env[key] as string;
   }
-  if (typeof window !== 'undefined' && (window as any).env && (window as any).env[key]) {
-    return (window as any).env[key];
+  if (
+    typeof window !== 'undefined' &&
+    typeof (window as unknown as Record<string, unknown>).env === 'object' &&
+    (window as unknown as Record<string, { [k: string]: string }>).env &&
+    typeof (window as unknown as Record<string, { [k: string]: string }>).env[key] === 'string'
+  ) {
+    return (window as unknown as Record<string, { [k: string]: string }>).env[key];
   }
   return '';
 }
@@ -121,7 +126,6 @@ export default function Modal(): JSX.Element {
         // Send to Netlify Forms
         let netlifyOk = false;
         let emailjsOk = false;
-        let emailjsError: any = null;
         const body = new URLSearchParams({
           "form-name": FORM_NAME,
           name: form.userName,
@@ -136,7 +140,7 @@ export default function Modal(): JSX.Element {
             body,
           });
           netlifyOk = res.ok;
-        } catch (err) {
+        } catch {
           netlifyOk = false;
         }
         try {
@@ -152,10 +156,13 @@ export default function Modal(): JSX.Element {
             getEnvVar('NEXT_PUBLIC_USER_ID')
           );
           emailjsOk = true;
-        } catch (emailErr) {
+        } catch (emailErr: unknown) {
           emailjsOk = false;
-          emailjsError = emailErr;
-          console.error('EmailJS error:', emailErr);
+          if (emailErr instanceof Error) {
+            console.error('EmailJS error:', emailErr.message);
+          } else {
+            console.error('EmailJS error:', emailErr);
+          }
         }
         if (emailjsOk || netlifyOk) {
           setSubmitMessage(() => SUBMIT_MESSAGES.SUCCESS);
