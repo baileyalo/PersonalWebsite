@@ -2,7 +2,7 @@ import Modal1 from 'react-modal';
 import { useRef, useEffect, useCallback } from 'react';
 import { Contexto } from '../appContext';
 import { useState, useContext } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { X } from 'lucide-react';
 import { delay } from './helpers';
 
