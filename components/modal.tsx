@@ -1,8 +1,9 @@
 import Modal1 from "react-modal";
 import { Contexto } from "../appContext";
 import { useState, useContext } from "react";
+import emailjs from "emailjs-com";
 import { X } from "lucide-react";
-import { timeout } from "./helpers";
+import { delay } from "./helpers";
 import SpinningWheel from "../components/spinningWheel";
 import {
   FORM_NAME,
@@ -106,6 +107,7 @@ export default function Modal(): JSX.Element {
     try {
       if (allowSend) {
         setAllowSend(() => false);
+        // Send to Netlify Forms
         const body = new URLSearchParams({
           "form-name": FORM_NAME,
           name: form.userName,
@@ -118,26 +120,42 @@ export default function Modal(): JSX.Element {
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body,
         });
+        // Send email via emailjs
+        try {
+          await emailjs.send(
+            process.env.NEXT_PUBLIC_SERVICE_ID || '',
+            process.env.NEXT_PUBLIC_TEMPLATE_ID || '',
+            {
+              name: form.userName,
+              email: form.userEmail,
+              phoneNumber: form.userPhoneNumber,
+              message: form.userMessage,
+            },
+            process.env.NEXT_PUBLIC_USER_ID || ''
+          );
+        } catch (emailErr) {
+          console.error('EmailJS error:', emailErr);
+        }
         if (res.ok) {
           setSubmitMessage(() => SUBMIT_MESSAGES.SUCCESS);
         } else {
           setSubmitMessage(() => SUBMIT_MESSAGES.ERROR);
         }
-        await timeout(2);
+        await delay(2);
         closeModal();
         setSubmitMessage(() => "");
-        await timeout(0.5);
+        await delay(0.5);
         setAllowSend(() => true);
       }
     } catch (err: unknown) {
       console.error(err);
       if (allowSend) {
         setAllowSend(() => false);
-        setSubmitMessage(() => SUBMIT_MESSAGES.ERROR_FALLBACK);
-        await timeout(2);
+        setSubmitMessage(() => SUBMIT_MESSAGES.ERROR);
+        await delay(2);
         closeModal();
         setSubmitMessage(() => "");
-        await timeout(0.5);
+        await delay(0.5);
         setAllowSend(() => true);
       }
     }

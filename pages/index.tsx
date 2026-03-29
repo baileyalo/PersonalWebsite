@@ -98,7 +98,7 @@ export default function Home(): JSX.Element {
             </button>
           </p>
           <p>
-            <Copyright className="inline w-4 h-4 mr-1" aria-hidden /> {new Date().getFullYear()} ABTech All rights reserved
+            <Copyright className="inline w-4 h-4 mr-1" aria-hidden /> {new Date().getFullYear()} ABTech. All rights reserved
           </p>
         </footer>
       </main>
