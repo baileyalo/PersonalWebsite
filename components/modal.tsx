@@ -55,12 +55,38 @@ export default function Modal(): JSX.Element {
   });
   const [errors, setErrors] = useState<FieldErrors>({});
 
-  // Focus trap for accessibility
+  // Focus trap and Escape key for modal accessibility
   const firstInputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    if (modalIsOpen && firstInputRef.current) {
-      firstInputRef.current.focus();
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+      if (e.key === 'Tab' && modalIsOpen && firstInputRef.current) {
+        // Trap focus inside modal
+        const focusable = document.querySelectorAll(
+          '.ReactModal__Content input, .ReactModal__Content textarea, .ReactModal__Content button, .ReactModal__Content a, .ReactModal__Content select, .ReactModal__Content [tabindex]:not([tabindex="-1"])'
+        );
+        const focusableArr = Array.from(focusable) as HTMLElement[];
+        if (focusableArr.length === 0) return;
+        const first = focusableArr[0];
+        const last = focusableArr[focusableArr.length - 1];
+        if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        } else if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      }
     }
+    if (modalIsOpen) {
+      if (firstInputRef.current) firstInputRef.current.focus();
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [modalIsOpen]);
 
   const handleForm = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {

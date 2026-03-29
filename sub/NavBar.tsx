@@ -116,6 +116,7 @@ export default function NavBar(): JSX.Element {
                     ? 'text-accent-color font-semibold'
                     : 'text-text-secondary'
                 }`}
+                aria-current={activeSection === link.target ? 'page' : undefined}
               >
                 {link.label}
               </a>
@@ -152,6 +153,7 @@ export default function NavBar(): JSX.Element {
                       ? 'text-accent-color before:w-4/5'
                       : 'text-text-secondary before:w-0'
                   }`}
+                  aria-current={activeSection === link.target ? 'page' : undefined}
                 >
                   {link.label}
                 </a>

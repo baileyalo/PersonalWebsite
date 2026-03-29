@@ -11,7 +11,7 @@ const PROJECTS: Project[] = [
   {
     title: 'Bot Platform',
     description:
-      'Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [STAGING ENV.].',
+      'Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [SANDBOX].',
     url: 'https://d39c8b0zoc8fe5.cloudfront.net/',
     tags: [
       'Crypto',

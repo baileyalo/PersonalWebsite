@@ -1,3 +1,8 @@
+/* Always show focus outlines for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-color, #00d4ff) !important;
+  outline-offset: 2px;
+}
 /* Fonts loaded via next/font in _app.tsx (no render-blocking @import) */
 @tailwind base;
 @tailwind components;
