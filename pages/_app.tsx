@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => document.removeEventListener('touchstart', touchHandler);
   }, []);
 
-  // Scroll to section when page loads or route changes with a hash (e.g. #skills)
+  // Scroll to section when page loads or route changes 
   useEffect(() => {
     const hash = router.asPath.split('#')[1];
     if (!hash) return;
