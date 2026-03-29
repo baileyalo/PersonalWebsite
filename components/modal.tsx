@@ -4,6 +4,17 @@ import { useState, useContext } from "react";
 import emailjs from "emailjs-com";
 import { X } from "lucide-react";
 import { delay } from "./helpers";
+
+// Helper to get env vars for both SSR and client
+function getEnvVar(key: string): string {
+  if (typeof process !== 'undefined' && process.env && process.env[key]) {
+    return process.env[key] as string;
+  }
+  if (typeof window !== 'undefined' && (window as any).env && (window as any).env[key]) {
+    return (window as any).env[key];
+  }
+  return '';
+}
 import SpinningWheel from "../components/spinningWheel";
 import {
   FORM_NAME,
@@ -108,6 +119,9 @@ export default function Modal(): JSX.Element {
       if (allowSend) {
         setAllowSend(() => false);
         // Send to Netlify Forms
+        let netlifyOk = false;
+        let emailjsOk = false;
+        let emailjsError: any = null;
         const body = new URLSearchParams({
           "form-name": FORM_NAME,
           name: form.userName,
@@ -115,28 +129,35 @@ export default function Modal(): JSX.Element {
           phoneNumber: form.userPhoneNumber,
           message: form.userMessage,
         }).toString();
-        const res = await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body,
-        });
-        // Send email via emailjs
+        try {
+          const res = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body,
+          });
+          netlifyOk = res.ok;
+        } catch (err) {
+          netlifyOk = false;
+        }
         try {
           await emailjs.send(
-            process.env.NEXT_PUBLIC_SERVICE_ID || '',
-            process.env.NEXT_PUBLIC_TEMPLATE_ID || '',
+            getEnvVar('NEXT_PUBLIC_SERVICE_ID'),
+            getEnvVar('NEXT_PUBLIC_TEMPLATE_ID'),
             {
               name: form.userName,
               email: form.userEmail,
               phoneNumber: form.userPhoneNumber,
               message: form.userMessage,
             },
-            process.env.NEXT_PUBLIC_USER_ID || ''
+            getEnvVar('NEXT_PUBLIC_USER_ID')
           );
+          emailjsOk = true;
         } catch (emailErr) {
+          emailjsOk = false;
+          emailjsError = emailErr;
           console.error('EmailJS error:', emailErr);
         }
-        if (res.ok) {
+        if (emailjsOk || netlifyOk) {
           setSubmitMessage(() => SUBMIT_MESSAGES.SUCCESS);
         } else {
           setSubmitMessage(() => SUBMIT_MESSAGES.ERROR);
