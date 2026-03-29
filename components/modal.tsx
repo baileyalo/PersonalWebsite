@@ -55,6 +55,13 @@ export default function Modal(): JSX.Element {
   });
   const [errors, setErrors] = useState<FieldErrors>({});
 
+  const closeModal = useCallback((): void => {
+    setIsOpen(false);
+    setSubmitMessage('');
+    setForm({ userName: '', userEmail: '', userPhoneNumber: '', userMessage: '' });
+    setErrors({});
+  }, [setIsOpen]);
+
   // Focus trap and Escape key for modal accessibility
   const firstInputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -127,12 +134,7 @@ export default function Modal(): JSX.Element {
     setErrors((prev) => (error ? { ...prev, [id]: error } : { ...prev, [id]: undefined }));
   };
 
-  const closeModal = useCallback((): void => {
-    setIsOpen(false);
-    setSubmitMessage('');
-    setForm({ userName: '', userEmail: '', userPhoneNumber: '', userMessage: '' });
-    setErrors({});
-  }, [setIsOpen]);
+  // ...existing code...
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
