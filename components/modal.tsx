@@ -20,6 +20,13 @@ function getEnvVar(key: string): string {
   }
   return '';
 }
+
+// TEMP DEBUG: Log the value of NEXT_PUBLIC_USER_ID at runtime
+if (typeof window !== 'undefined') {
+  // Only log on client side
+  // eslint-disable-next-line no-console
+  console.log('DEBUG: NEXT_PUBLIC_USER_ID at runtime:', getEnvVar('NEXT_PUBLIC_USER_ID'));
+}
 import SpinningWheel from "../components/spinningWheel";
 import {
   FORM_NAME,
