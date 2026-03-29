@@ -29,7 +29,7 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Mr. Alwayne Bailey - Software Engineer | Educator | Blockchain Enthusiast</title>
+        <title>Mr. Alwayne Bailey - TechOps / Software Engineer | Teacher | Web 3</title>
         {/* <link
           rel="image_src"
           href="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
