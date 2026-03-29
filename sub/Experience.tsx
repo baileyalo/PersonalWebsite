@@ -1,4 +1,4 @@
-import { Calendar } from "lucide-react";
+import { Calendar } from 'lucide-react';
 
 export default function Experience(): JSX.Element {
   return (
@@ -13,7 +13,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2024 - 2025{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2024 - 2025{' '}
                 </span>
               </h5>
               <h3>Coordinator, Client Services</h3>
@@ -22,31 +22,33 @@ export default function Experience(): JSX.Element {
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Onboarded and offboarded B2B clients, ensuring a smooth and secure transition process.
+                    Onboarded and offboarded B2B clients, ensuring a smooth and secure transition
+                    process.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Tested and debugged REST API integrations to support seamless client connectivity.
+                    Tested and debugged REST API integrations to support seamless client
+                    connectivity.
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>Managed user accounts and permissions within web-based applications</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Wrote and maintained SQL scripts for data extraction, transformation, and
+                    reporting
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Managed user accounts and permissions within web-based applications
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Wrote and maintained SQL scripts for data extraction, transformation, and reporting
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Configured and maintained SFTP servers for secure file transfers and data integration
+                    Configured and maintained SFTP servers for secure file transfers and data
+                    integration
                   </span>
                 </li>
                 <li>
@@ -60,7 +62,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2022 - 2024{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2022 - 2024{' '}
                 </span>
               </h5>
               <h3>Software Developer</h3>
@@ -69,53 +71,50 @@ export default function Experience(): JSX.Element {
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Maintain and develop application with Solana, React.js,
-                    React Native, MongoDB, PostgreSQL, AWS, Node.js, Python.{" "}
+                    Maintain and develop application with Solana, React.js, React Native, MongoDB,
+                    PostgreSQL, AWS, Node.js, Python.{' '}
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    {" "}
-                    Design the architecture of core components and redesign of
-                    existing components to build a maintainable code base.
+                    {' '}
+                    Design the architecture of core components and redesign of existing components
+                    to build a maintainable code base.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    {" "}
-                    Lead in the building and design of API routes structure for
-                    both web and mobile for web3.
+                    {' '}
+                    Lead in the building and design of API routes structure for both web and mobile
+                    for web3.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Spearheaded deploying updates to Appstore , Play store and
-                    Solana Dapp store.
+                    Spearheaded deploying updates to Appstore , Play store and Solana Dapp store.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Liaise with external venders with integration and
-                    implementation of different third party frameworks.
+                    Liaise with external venders with integration and implementation of different
+                    third party frameworks.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Collaborate closely and be responsive to inquiries from
-                    internal providers to handle and ensure the timeliness and
-                    quality of outputs
+                    Collaborate closely and be responsive to inquiries from internal providers to
+                    handle and ensure the timeliness and quality of outputs
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Enhance code quality by refactoring legacy code base for
-                    better reuse-ability.
+                    Enhance code quality by refactoring legacy code base for better reuse-ability.
                   </span>
                 </li>
               </ul>
@@ -123,7 +122,7 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2020 - 2022{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2020 - 2022{' '}
                 </span>
               </h5>
               <h3>Technical Support Specialist</h3>
@@ -131,50 +130,41 @@ export default function Experience(): JSX.Element {
               <ul>
                 <li>
                   <span className="colorRed">- </span>
+                  <span>Providing, verifying, and/or modifying network settings (TCP/IP)</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>{' '}
+                  <span>Maintain 90% monthly KPIs on business satisfaction</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Providing, verifying, and/or modifying network settings
-                    (TCP/IP)
+                    Recommending solutions- Connect customers with the right self serve tools
+                    proactively suggest other options.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
+                  <span>Empowering customers to understand and utilize Roger’s product suite.</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Maintain 90% monthly KPIs on business satisfaction
+                    Track and document all dispatch transactions in tracking tool and follow-up with
+                    internal teams.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Recommending solutions- Connect customers with the right
-                    self serve tools proactively suggest other options.
+                    Leveraging Rogers reporting to assist internal teams with data collection.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Empowering customers to understand and utilize Roger’s
-                    product suite.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{" "}
-                  <span>
-                    Track and document all dispatch transactions in tracking
-                    tool and follow-up with internal teams.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{" "}
-                  <span>
-                    Leveraging Rogers reporting to assist internal teams with
-                    data collection.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{" "}
-                  <span>
-                    Maintain customer satisfaction rating above 90% through
-                    telephone, email and chat.
+                    Maintain customer satisfaction rating above 90% through telephone, email and
+                    chat.
                   </span>
                 </li>
               </ul>
@@ -182,55 +172,48 @@ export default function Experience(): JSX.Element {
             <div className="cardCont">
               <h5>
                 <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2010 -2016{" "}
+                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2010 -2016{' '}
                 </span>
               </h5>
               <h3>Lead Bank Teller</h3>
-              <h4>
-                Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston,
-                Jamaica.
-              </h4>
+              <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica.</h4>
               <ul>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Client Engagement- Maintain high level of customer
-                    satisfaction for each client on each interaction.
+                    Client Engagement- Maintain high level of customer satisfaction for each client
+                    on each interaction.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Maintain and manage branch cash liaising with Bank of
-                    Jamaica (BOJ) and other departments
+                    Maintain and manage branch cash liaising with Bank of Jamaica (BOJ) and other
+                    departments
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Completes complex & diverse tasks within given rules/limits
-                    and may include handling escalations from other employees.
+                    Completes complex & diverse tasks within given rules/limits and may include
+                    handling escalations from other employees.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
+                  <span>Assist with daily branch closures and maintenance of infrastructure</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Assist with daily branch closures and maintenance of
-                    infrastructure
+                    Product Knowledge- Expert in Banks comprehensive financial products and
+                    services.
                   </span>
                 </li>
                 <li>
-                  <span className="colorRed">- </span>{" "}
+                  <span className="colorRed">- </span>{' '}
                   <span>
-                    Product Knowledge- Expert in Banks comprehensive financial
-                    products and services.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{" "}
-                  <span>
-                    Assists in processing more complex transactions and customer
-                    requests.
+                    Assists in processing more complex transactions and customer requests.
                   </span>
                 </li>
               </ul>

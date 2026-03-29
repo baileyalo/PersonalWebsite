@@ -1,13 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Github: React.FC = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="45"
-      height="45"
-      viewBox="0 0 45 45"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
       <path
         id="Trazado_3"
         data-name="Trazado 3"

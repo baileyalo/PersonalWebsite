@@ -1,4 +1,4 @@
-import { Calendar } from "lucide-react";
+import { Calendar } from 'lucide-react';
 
 export default function Education(): JSX.Element {
   return (
@@ -23,65 +23,56 @@ export default function Education(): JSX.Element {
                 </a>
               </h4>
               <ul>
-                  <span className="colorRed">
-                    Blockchain Development - Software Engineering
-                  </span>
+                <span className="colorRed">Blockchain Development - Software Engineering</span>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Blockchain Fundamentals: Understanding the principles of
-                    blockchain technology, Knowledge of how blockchain works,
-                    including concepts like decentralization, consensus
-                    algorithms, and cryptographic hashing.
+                    Blockchain Fundamentals: Understanding the principles of blockchain technology,
+                    Knowledge of how blockchain works, including concepts like decentralization,
+                    consensus algorithms, and cryptographic hashing.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Technical Writing: Skills in documenting technical
-                    information clearly and concisely.
+                    Technical Writing: Skills in documenting technical information clearly and
+                    concisely.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Web Development using the MERN stack (MongoDB, Express,
-                    React, Nodejs) for building decentralized applications (dApps).
+                    Web Development using the MERN stack (MongoDB, Express, React, Nodejs) for
+                    building decentralized applications (dApps).
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Systems Analysis and Design: Skills in analyzing
-                    requirements and designing information systems.
+                    Systems Analysis and Design: Skills in analyzing requirements and designing
+                    information systems.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Software Development: Knowledge of software development life
-                    cycles, methodologies (like Agile), and project management.
+                    Software Development: Knowledge of software development life cycles,
+                    methodologies (like Agile), and project management.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
-                  <span>
-                    Project Management: Ability to plan, execute, and oversee
-                    projects.
-                  </span>
+                  <span>Project Management: Ability to plan, execute, and oversee projects.</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>Development of ERC-721 token deployed and minted to Ethereum network.</span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Development of ERC-721 token deployed and minted to Ethereum
-                    network.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Create and Deploy Smart Contracts Solidity and using Truffle
-                    and Hardhat frameworks.
+                    Create and Deploy Smart Contracts Solidity and using Truffle and Hardhat
+                    frameworks.
                   </span>
                 </li>
               </ul>
@@ -95,51 +86,45 @@ export default function Education(): JSX.Element {
               <h3>Graduate Diploma (Honors)</h3>
               <h4>IBT College, Toronto Canada.</h4>
               <ul>
-                  <span className="colorRed">Network Engineering</span>
+                <span className="colorRed">Network Engineering</span>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Install and configure Windows server 2012 and Manage Windows
-                    Group Policy.
+                    Install and configure Windows server 2012 and Manage Windows Group Policy.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Network Design and Architecture: Designing and planning
-                    network infrastructure, Understanding network topologies,
-                    including star, mesh, and hybrid.
+                    Network Design and Architecture: Designing and planning network infrastructure,
+                    Understanding network topologies, including star, mesh, and hybrid.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Wireless Networking: Setting up and securing wireless
-                    networks, Understanding wireless standards (e.g.,
-                    802.11a/b/g/n/ac).
+                    Wireless Networking: Setting up and securing wireless networks, Understanding
+                    wireless standards (e.g., 802.11a/b/g/n/ac).
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Network Troubleshooting and Maintenance: Diagnosing and
-                    resolving network issues using tools like ping, traceroute,
-                    and network analyzers, Performing network performance
-                    monitoring and optimization.
+                    Network Troubleshooting and Maintenance: Diagnosing and resolving network issues
+                    using tools like ping, traceroute, and network analyzers, Performing network
+                    performance monitoring and optimization.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
-                  <span>
-                    Configure routing and switching for basic network topology.
-                  </span>
+                  <span>Configure routing and switching for basic network topology.</span>
                 </li>
 
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Configure multiple operating systems and servers on virtual
-                    machines using Ubuntu.
+                    Configure multiple operating systems and servers on virtual machines using
+                    Ubuntu.
                   </span>
                 </li>
               </ul>
@@ -157,66 +142,59 @@ export default function Education(): JSX.Element {
                 </a>
               </h4>
               <ul>
-                
-                  <span className="colorRed">
-                    Business Administration and Computer Science
-                  </span>
-                
+                <span className="colorRed">Business Administration and Computer Science</span>
+
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Finance and Accounting: Basics of financial reporting,
-                    budgeting, and accounting principles.
+                    Finance and Accounting: Basics of financial reporting, budgeting, and accounting
+                    principles.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Management and Leadership: Understanding of organizational
-                    behavior, leadership styles, and management principles
+                    Management and Leadership: Understanding of organizational behavior, leadership
+                    styles, and management principles
                   </span>
                 </li>
 
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Business Ethics: Awareness of ethical issues in business and
-                    corporate social responsibility.
+                    Business Ethics: Awareness of ethical issues in business and corporate social
+                    responsibility.
+                  </span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>Entrepreneurship: Skills in starting and managing new ventures.</span>
+                </li>
+                <li>
+                  <span className="colorRed">- </span>
+                  <span>
+                    Programming: Proficiency in programming languages such as Java, C++, JavaScript,
+                    and SQL.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Entrepreneurship: Skills in starting and managing new
-                    ventures.
+                    Networking: Basics of computer networks, network security, and protocols.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Programming: Proficiency in programming languages such as
-                    Java, C++, JavaScript, and SQL.
+                    Data Structures and Algorithms: Understanding of fundamental data structures and
+                    algorithms and their applications.
                   </span>
                 </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
-                    Networking: Basics of computer networks, network security,
-                    and protocols.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Data Structures and Algorithms: Understanding of fundamental
-                    data structures and algorithms and their applications.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Web Development: Ability to design and develop websites
-                    using HTML, CSS, JavaScript, and other web technologies.
+                    Web Development: Ability to design and develop websites using HTML, CSS,
+                    JavaScript, and other web technologies.
                   </span>
                 </li>
               </ul>

@@ -1,5 +1,5 @@
-declare module "react-circular-progressbar" {
-  import { FC } from "react";
+declare module 'react-circular-progressbar' {
+  import { FC } from 'react';
 
   export interface CircularProgressbarProps {
     value: number;

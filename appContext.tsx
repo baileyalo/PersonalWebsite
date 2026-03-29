@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode } from 'react';
 
 interface AppContextType {
   modalIsOpen: boolean;
@@ -16,11 +16,9 @@ interface ContextoProviderProps {
 const ContextoProvider: React.FC<ContextoProviderProps> = ({ children }) => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [navResOpen, setNavResOpen] = useState<boolean>(false);
-  
+
   return (
-    <Contexto.Provider
-      value={{ modalIsOpen, setIsOpen, navResOpen, setNavResOpen }}
-    >
+    <Contexto.Provider value={{ modalIsOpen, setIsOpen, navResOpen, setNavResOpen }}>
       {children}
     </Contexto.Provider>
   );

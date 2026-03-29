@@ -1,20 +1,13 @@
-import Modal1 from "react-modal";
-import { useRef, useEffect } from "react";
-import { Contexto } from "../appContext";
-import { useState, useContext } from "react";
-import emailjs from "emailjs-com";
-import { X } from "lucide-react";
-import { delay } from "./helpers";
+import Modal1 from 'react-modal';
+import { useRef, useEffect } from 'react';
+import { Contexto } from '../appContext';
+import { useState, useContext } from 'react';
+import emailjs from 'emailjs-com';
+import { X } from 'lucide-react';
+import { delay } from './helpers';
 
-
-
-import SpinningWheel from "../components/spinningWheel";
-import {
-  FORM_NAME,
-  EMAIL_REGEX,
-  VALIDATION,
-  SUBMIT_MESSAGES,
-} from "../constants";
+import SpinningWheel from '../components/spinningWheel';
+import { FORM_NAME, EMAIL_REGEX, VALIDATION, SUBMIT_MESSAGES } from '../constants';
 
 interface ContactFormData {
   userName: string;
@@ -29,21 +22,21 @@ function validateName(value: string): string {
   const t = value.trim();
   if (!t) return VALIDATION.NAME_REQUIRED;
   if (t.length < VALIDATION.NAME_MIN_LENGTH) return VALIDATION.NAME_MIN;
-  return "";
+  return '';
 }
 
 function validateEmail(value: string): string {
   const t = value.trim();
   if (!t) return VALIDATION.EMAIL_REQUIRED;
   if (!EMAIL_REGEX.test(t)) return VALIDATION.EMAIL_INVALID;
-  return "";
+  return '';
 }
 
 function validateMessage(value: string): string {
   const t = value.trim();
   if (!t) return VALIDATION.MESSAGE_REQUIRED;
   if (t.length < VALIDATION.MESSAGE_MIN_LENGTH) return VALIDATION.MESSAGE_MIN;
-  return "";
+  return '';
 }
 
 export default function Modal(): JSX.Element {
@@ -52,13 +45,13 @@ export default function Modal(): JSX.Element {
     throw new Error('Modal must be used within ContextoProvider');
   }
   const { modalIsOpen, setIsOpen } = context;
-  const [submitMessage, setSubmitMessage] = useState<string>("");
+  const [submitMessage, setSubmitMessage] = useState<string>('');
   const [allowSend, setAllowSend] = useState<boolean>(true);
   const [form, setForm] = useState<ContactFormData>({
-    userName: "",
-    userEmail: "",
-    userPhoneNumber: "",
-    userMessage: "",
+    userName: '',
+    userEmail: '',
+    userPhoneNumber: '',
+    userMessage: '',
   });
   const [errors, setErrors] = useState<FieldErrors>({});
 
@@ -72,20 +65,32 @@ export default function Modal(): JSX.Element {
 
   const handleForm = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const id = event.target.id as keyof ContactFormData;
-    const value = typeof event.target.value === "string" ? event.target.value : String(event.target.value);
+    const value =
+      typeof event.target.value === 'string' ? event.target.value : String(event.target.value);
     setForm((prev) => ({ ...prev, [id]: value }));
     if (errors[id]) {
-      const fn = id === "userName" ? validateName : id === "userEmail" ? validateEmail : id === "userMessage" ? validateMessage : () => "";
+      const fn =
+        id === 'userName'
+          ? validateName
+          : id === 'userEmail'
+            ? validateEmail
+            : id === 'userMessage'
+              ? validateMessage
+              : () => '';
       setErrors((prev) => ({ ...prev, [id]: fn(value) || undefined }));
     }
   };
 
   const validateField = (id: keyof ContactFormData, value: string): string => {
     switch (id) {
-      case "userName": return validateName(value);
-      case "userEmail": return validateEmail(value);
-      case "userMessage": return validateMessage(value);
-      default: return "";
+      case 'userName':
+        return validateName(value);
+      case 'userEmail':
+        return validateEmail(value);
+      case 'userMessage':
+        return validateMessage(value);
+      default:
+        return '';
     }
   };
 
@@ -98,8 +103,8 @@ export default function Modal(): JSX.Element {
 
   const closeModal = (): void => {
     setIsOpen(false);
-    setSubmitMessage("");
-    setForm({ userName: "", userEmail: "", userPhoneNumber: "", userMessage: "" });
+    setSubmitMessage('');
+    setForm({ userName: '', userEmail: '', userPhoneNumber: '', userMessage: '' });
     setErrors({});
   };
 
@@ -123,16 +128,16 @@ export default function Modal(): JSX.Element {
         let netlifyOk = false;
         let emailjsOk = false;
         const body = new URLSearchParams({
-          "form-name": FORM_NAME,
+          'form-name': FORM_NAME,
           name: form.userName,
           email: form.userEmail,
           phoneNumber: form.userPhoneNumber,
           message: form.userMessage,
         }).toString();
         try {
-          const res = await fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          const res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body,
           });
           netlifyOk = res.ok;
@@ -146,10 +151,10 @@ export default function Modal(): JSX.Element {
             process.env.NEXT_PUBLIC_SERVICE_ID as string,
             process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
             {
-              from_name: form.userName, 
+              from_name: form.userName,
               message: form.userMessage,
               phone: form.userPhoneNumber,
-              from_email: form.userEmail, 
+              from_email: form.userEmail,
             },
             process.env.NEXT_PUBLIC_USER_ID as string
           );
@@ -169,7 +174,7 @@ export default function Modal(): JSX.Element {
         }
         await delay(2);
         closeModal();
-        setSubmitMessage(() => "");
+        setSubmitMessage(() => '');
         await delay(0.5);
         setAllowSend(() => true);
       }
@@ -180,7 +185,7 @@ export default function Modal(): JSX.Element {
         setSubmitMessage(() => SUBMIT_MESSAGES.ERROR);
         await delay(2);
         closeModal();
-        setSubmitMessage(() => "");
+        setSubmitMessage(() => '');
         await delay(0.5);
         setAllowSend(() => true);
       }
@@ -198,9 +203,9 @@ export default function Modal(): JSX.Element {
       role="dialog"
       className="bg-[rgba(0,0,0,0.85)] text-[var(--text-primary)] p-6 rounded-xl w-[90%] max-w-[500px] relative shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modal-appear border-2 border-transparent bg-clip-padding before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:bg-gradient-accent before:rounded-xl before:-z-10 before:opacity-60 before:animate-border-glow transition-all duration-400"
       overlayClassName={{
-        base: "opacity-0 transition-opacity duration-400 ease-in-out fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.85)] flex items-center justify-center z-[1000] backdrop-blur-[5px] text-base",
-        afterOpen: "opacity-100 transition-opacity duration-400 ease-in-out",
-        beforeClose: "opacity-0 transition-opacity duration-400 ease-in-out",
+        base: 'opacity-0 transition-opacity duration-400 ease-in-out fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.85)] flex items-center justify-center z-[1000] backdrop-blur-[5px] text-base',
+        afterOpen: 'opacity-100 transition-opacity duration-400 ease-in-out',
+        beforeClose: 'opacity-0 transition-opacity duration-400 ease-in-out',
       }}
     >
       <h1 className="text-[2.16rem] leading-normal text-center font-bold mb-3">
@@ -211,7 +216,10 @@ export default function Modal(): JSX.Element {
       </h2>
       {/* Error summary for accessibility */}
       {Object.values(errors).some(Boolean) && (
-        <div className="mb-3 p-2 rounded bg-red-500/10 border border-red-400 text-red-400 text-center text-sm" role="alert">
+        <div
+          className="mb-3 p-2 rounded bg-red-500/10 border border-red-400 text-red-400 text-center text-sm"
+          role="alert"
+        >
           Please fix the highlighted errors below.
         </div>
       )}
@@ -232,7 +240,9 @@ export default function Modal(): JSX.Element {
         </p>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="userName" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Name:</label>
+            <label htmlFor="userName" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">
+              Name:
+            </label>
           </li>
           <li>
             <input
@@ -245,9 +255,11 @@ export default function Modal(): JSX.Element {
               required
               value={form.userName}
               aria-invalid={Boolean(errors.userName)}
-              aria-describedby={errors.userName ? "userName-error" : undefined}
+              aria-describedby={errors.userName ? 'userName-error' : undefined}
               className={`w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold ${
-                errors.userName ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
+                errors.userName
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-[var(--border-color)] focus:border-accent-color'
               }`}
               autoComplete="name"
             />
@@ -260,7 +272,9 @@ export default function Modal(): JSX.Element {
         </ul>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="userEmail" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Email:</label>
+            <label htmlFor="userEmail" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">
+              Email:
+            </label>
           </li>
           <li>
             <input
@@ -272,9 +286,11 @@ export default function Modal(): JSX.Element {
               required
               value={form.userEmail}
               aria-invalid={Boolean(errors.userEmail)}
-              aria-describedby={errors.userEmail ? "userEmail-error" : undefined}
+              aria-describedby={errors.userEmail ? 'userEmail-error' : undefined}
               className={`w-full h-8 bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold ${
-                errors.userEmail ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
+                errors.userEmail
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-[var(--border-color)] focus:border-accent-color'
               }`}
               autoComplete="email"
             />
@@ -287,7 +303,12 @@ export default function Modal(): JSX.Element {
         </ul>
         <ul className="mb-2">
           <li className="flex items-center">
-            <label htmlFor="userPhoneNumber" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Phone Number:</label>
+            <label
+              htmlFor="userPhoneNumber"
+              className="mb-1 text-[1.04rem] text-[var(--text-primary)]"
+            >
+              Phone Number:
+            </label>
           </li>
           <li>
             <input
@@ -302,12 +323,16 @@ export default function Modal(): JSX.Element {
               inputMode="tel"
               aria-describedby="phone-hint"
             />
-            <span id="phone-hint" className="block text-xs text-text-secondary opacity-70 mt-1">Format: numbers only, e.g. 1234567890</span>
+            <span id="phone-hint" className="block text-xs text-text-secondary opacity-70 mt-1">
+              Format: numbers only, e.g. 1234567890
+            </span>
           </li>
         </ul>
         <ul className="mb-0">
           <li className="flex items-center">
-            <label htmlFor="userMessage" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">Your message:</label>
+            <label htmlFor="userMessage" className="mb-1 text-[1.04rem] text-[var(--text-primary)]">
+              Your message:
+            </label>
           </li>
           <li>
             <textarea
@@ -318,9 +343,11 @@ export default function Modal(): JSX.Element {
               required
               value={form.userMessage}
               aria-invalid={Boolean(errors.userMessage)}
-              aria-describedby={errors.userMessage ? "userMessage-error" : undefined}
+              aria-describedby={errors.userMessage ? 'userMessage-error' : undefined}
               className={`w-full h-[4.5em] bg-[var(--card-bg)] text-[var(--text-primary)] border rounded px-2 outline-none focus:outline-accent-color focus:rounded-none font-semibold resize-none ${
-                errors.userMessage ? "border-red-500 focus:border-red-500" : "border-[var(--border-color)] focus:border-accent-color"
+                errors.userMessage
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-[var(--border-color)] focus:border-accent-color'
               }`}
               autoComplete="on"
             />
@@ -338,8 +365,8 @@ export default function Modal(): JSX.Element {
             aria-live="polite"
             className={`mt-4 w-full rounded px-3 py-2 text-center text-[1rem] font-semibold ${
               submitMessage === SUBMIT_MESSAGES.SUCCESS
-                ? "bg-[rgba(0,212,255,0.15)] text-[var(--accent-color)] border border-[var(--accent-color)]"
-                : "bg-red-500/15 text-red-400 border border-red-500/50"
+                ? 'bg-[rgba(0,212,255,0.15)] text-[var(--accent-color)] border border-[var(--accent-color)]'
+                : 'bg-red-500/15 text-red-400 border border-red-500/50'
             }`}
           >
             {submitMessage}
@@ -354,11 +381,11 @@ export default function Modal(): JSX.Element {
               aria-busy={!allowSend}
               aria-live="polite"
               className={`bg-accent-color outline-none rounded-[0.2em] w-full mx-auto px-4 py-1 cursor-pointer text-base border border-accent-color text-text-secondary font-semibold font-inherit transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,212,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed ${
-                allowSend ? "" : "opacity-50 cursor-not-allowed"
+                allowSend ? '' : 'opacity-50 cursor-not-allowed'
               }`}
               tabIndex={0}
             >
-              {allowSend ? "SUBMIT" : <SpinningWheel />}
+              {allowSend ? 'SUBMIT' : <SpinningWheel />}
             </button>
           </div>
         </div>

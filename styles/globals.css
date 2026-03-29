@@ -27,7 +27,7 @@
   }
 
   /* Light Theme */
-  [data-theme="light"] {
+  [data-theme='light'] {
     --primary-bg: #ffffff;
     --secondary-bg: #f8fafc;
     --card-bg: #ffffff;
@@ -51,7 +51,10 @@
   /* Theme transition only on theme-aware elements (avoids costly * transitions) */
   body,
   [data-theme] {
-    transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+    transition:
+      background-color 250ms ease,
+      color 250ms ease,
+      border-color 250ms ease;
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -74,14 +77,20 @@
   }
 
   body {
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-family:
+      var(--font-inter),
+      system-ui,
+      -apple-system,
+      sans-serif;
     background: var(--primary-bg);
     color: var(--text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    transition: background-color 250ms ease, color 250ms ease;
+    transition:
+      background-color 250ms ease,
+      color 250ms ease;
   }
 
   /* Form controls: ensure readable colors in dark mode (and autofill) */
@@ -109,7 +118,12 @@
   }
 
   /* Improved Typography */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 600;
     line-height: 1.2;
     color: var(--text-primary);
@@ -260,7 +274,7 @@
     border-color: rgba(255, 255, 255, 0.1);
   }
 
-  [data-theme="light"] .glass {
+  [data-theme='light'] .glass {
     background: rgba(255, 255, 255, 0.8);
     border-color: rgba(0, 0, 0, 0.1);
   }
@@ -353,7 +367,7 @@
   }
 
   .sectionCont h2::before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0.5rem;
     left: 0;
@@ -364,7 +378,7 @@
   }
 
   .sectionCont h2::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -450,7 +464,7 @@
   }
   .sectionContExperience h5::before,
   .sectionContEducation h5::before {
-    content: "";
+    content: '';
     height: 1rem;
     width: 1rem;
     position: absolute;
@@ -467,7 +481,7 @@
   }
   .sectionContExperience .cardContent::before,
   .sectionContEducation .cardContent::before {
-    content: "";
+    content: '';
     height: calc(100% - 0.78125rem);
     position: absolute;
     top: 0.78125rem;
@@ -567,21 +581,10 @@
     opacity: 0.9;
   }
 
-
-
-  .sectionContSkills
-    .cardContainer:nth-child(2)
-    .card
-    > ul:nth-child(3)
-    > li:first-child {
+  .sectionContSkills .cardContainer:nth-child(2) .card > ul:nth-child(3) > li:first-child {
     margin-bottom: 0.5em;
   }
-  .sectionContSkills
-    .cardContainer:nth-child(2)
-    .card
-    > ul:nth-child(3)
-    .rowFlexRes
-    > li {
+  .sectionContSkills .cardContainer:nth-child(2) .card > ul:nth-child(3) .rowFlexRes > li {
     width: 50%;
   }
   .sectionContSkills .cardContainer:nth-child(3) {
@@ -597,7 +600,7 @@
     align-items: stretch;
   }
   .cardContainerSoftwareTools .cardSoftwareToolsList {
-    flex: 1 1  min(100%, 720px);
+    flex: 1 1 min(100%, 720px);
     min-width: 0;
   }
   .cardContainerSoftwareTools .cardWorkflowEnv {
@@ -791,32 +794,18 @@
     }
   }
   @media (max-width: 552px) {
-    .sectionContSkills
-      .cardContainer:nth-child(2)
-      .card
-      > ul:nth-child(3)
-      > li
-      .rowFlexRes {
+    .sectionContSkills .cardContainer:nth-child(2) .card > ul:nth-child(3) > li .rowFlexRes {
       flex-direction: column;
     }
     .sectionContSkills .cardContainer:nth-child(2) .card {
       max-width: 395px;
     }
-    .sectionContSkills
-      .cardContainer:nth-child(2)
-      .card
-      > ul:nth-child(3)
-      .rowFlexRes
-      > li {
+    .sectionContSkills .cardContainer:nth-child(2) .card > ul:nth-child(3) .rowFlexRes > li {
       width: 100%;
       margin-bottom: 0.6em;
     }
 
-    .sectionContSkills
-      .cardContainer:nth-child(2)
-      .card
-      > ul:nth-child(3)
-      > li:first-child {
+    .sectionContSkills .cardContainer:nth-child(2) .card > ul:nth-child(3) > li:first-child {
       margin-bottom: 0;
     }
     .sectionContSkills
@@ -851,15 +840,19 @@
     fill: var(--text-primary) !important;
     font-size: 1rem !important;
     font-weight: 600 !important;
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif !important;
+    font-family:
+      var(--font-inter),
+      system-ui,
+      -apple-system,
+      sans-serif !important;
   }
 
   /* Light theme adjustments for circular progress */
-  [data-theme="light"] .CircularProgressbar .CircularProgressbar-trail {
+  [data-theme='light'] .CircularProgressbar .CircularProgressbar-trail {
     stroke: #e2e8f0 !important;
   }
 
-  [data-theme="light"] .CircularProgressbar .CircularProgressbar-text {
+  [data-theme='light'] .CircularProgressbar .CircularProgressbar-text {
     fill: var(--text-primary) !important;
   }
 
@@ -987,7 +980,7 @@
       width: 60px;
       height: 60px;
     }
-    
+
     .sectionContSkills li {
       margin-bottom: 1rem;
     }
@@ -1000,25 +993,24 @@
     }
   }
 
-
   /* Mobile Navigation Improvements */
   @media (max-width: 767px) {
     /* Ensure mobile menu doesn't interfere with content */
     body.menu-open {
       overflow: hidden;
     }
-    
+
     /* Mobile menu responsive adjustments */
     #navBarResUl {
       box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
     }
-    
+
     /* Hamburger button improvements */
     .hamburger-button {
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
-    
+
     /* Mobile menu links touch improvements */
     #navBarResUl a {
       -webkit-tap-highlight-color: rgba(0, 132, 255, 0.2);
@@ -1035,7 +1027,7 @@
       max-width: 100vw;
       min-width: 100vw;
     }
-    
+
     #navBarResUl a {
       padding-left: 1rem;
       padding-right: 1rem;

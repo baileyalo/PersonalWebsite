@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useReducedMotion } from "../utils/useReducedMotion";
-import { BACK_TO_TOP_SHOW_AFTER_PX } from "../constants";
+import { useState, useEffect } from 'react';
+import { useReducedMotion } from '../utils/useReducedMotion';
+import { BACK_TO_TOP_SHOW_AFTER_PX } from '../constants';
 
 export default function BackToTop(): JSX.Element | null {
   const [show, setShow] = useState(false);
@@ -11,15 +11,15 @@ export default function BackToTop(): JSX.Element | null {
       setShow(window.scrollY > BACK_TO_TOP_SHOW_AFTER_PX);
     };
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToTop = (): void => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: reducedMotion ? "auto" : "smooth",
+      behavior: reducedMotion ? 'auto' : 'smooth',
     });
   };
 

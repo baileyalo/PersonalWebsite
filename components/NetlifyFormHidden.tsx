@@ -1,4 +1,4 @@
-import { FORM_NAME } from "../constants";
+import { FORM_NAME } from '../constants';
 
 /**
  * Hidden form so Netlify's build parser detects the form (required when the

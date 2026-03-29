@@ -2,7 +2,7 @@
 export function delay(seconds: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
-import { NAVBAR_HEIGHT_PX } from "../constants";
+import { NAVBAR_HEIGHT_PX } from '../constants';
 
 export default function scrollIt(destination: HTMLElement): void {
   const documentHeight = Math.max(
@@ -15,21 +15,18 @@ export default function scrollIt(destination: HTMLElement): void {
   const windowHeight =
     window.innerHeight ||
     document.documentElement.clientHeight ||
-    document.getElementsByTagName("body")[0].clientHeight;
+    document.getElementsByTagName('body')[0].clientHeight;
   // Use getBoundingClientRect + scroll position so it works regardless of offsetParent
   const rect = destination.getBoundingClientRect();
   const scrollTop = window.pageYOffset ?? document.documentElement.scrollTop;
   const destinationOffset = scrollTop + rect.top - NAVBAR_HEIGHT_PX;
   const destinationOffsetToScroll = Math.round(
-    Math.min(
-      Math.max(0, destinationOffset),
-      documentHeight - windowHeight
-    )
+    Math.min(Math.max(0, destinationOffset), documentHeight - windowHeight)
   );
 
   window.scroll({
     top: destinationOffsetToScroll,
     left: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 }

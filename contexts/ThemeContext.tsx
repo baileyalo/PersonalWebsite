@@ -30,12 +30,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Load theme from localStorage on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme | null;
-    const systemPreference: Theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const systemPreference: Theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
     const initialTheme: Theme = savedTheme || systemPreference;
-    
+
     setTheme(initialTheme);
     setMounted(true);
-    
+
     // Apply theme to document for both data-theme and Tailwind dark class
     document.documentElement.setAttribute('data-theme', initialTheme);
     if (initialTheme === 'dark') {
@@ -97,9 +99,5 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     return null;
   }
 
-  return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };

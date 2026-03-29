@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -9,20 +9,29 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    title: "Bot Platform",
+    title: 'Bot Platform',
     description:
-      "Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [STAGING ENV.].",
-    url: "https://d39c8b0zoc8fe5.cloudfront.net/",
-    tags: ["Crypto", "Binance", "Coinbase", "Stripe", "React", "TypeScript", "Node.js", "AWS", "PostgreSQL", "Docker"],
+      'Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [STAGING ENV.].',
+    url: 'https://d39c8b0zoc8fe5.cloudfront.net/',
+    tags: [
+      'Crypto',
+      'Binance',
+      'Coinbase',
+      'Stripe',
+      'React',
+      'TypeScript',
+      'Node.js',
+      'AWS',
+      'PostgreSQL',
+      'Docker',
+    ],
   },
   {
-    title: "European Football League Table",
-    description:
-      "European Football League Table displaying real-time scores and standings",
-    url: "https://euleague.netlify.app/",
-    tags: ["Football", "React", "TypeScript", "Netlify", "API Integration",],
+    title: 'European Football League Table',
+    description: 'European Football League Table displaying real-time scores and standings',
+    url: 'https://euleague.netlify.app/',
+    tags: ['Football', 'React', 'TypeScript', 'Netlify', 'API Integration'],
   },
-
 ];
 
 export default function Projects(): JSX.Element {
@@ -47,18 +56,37 @@ export default function Projects(): JSX.Element {
                   <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-color transition-colors duration-fast">
                     {project.title}
                   </h3>
-                {project.tags.includes("Crypto") && (
-                  <img src="/icon.png" alt="Bot Platform Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
-                )}
-                  {project.tags.includes("Football") && (
+                  {project.tags.includes('Crypto') && (
+                    <img
+                      src="/icon.png"
+                      alt="Bot Platform Icon"
+                      className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
+                    />
+                  )}
+                  {project.tags.includes('Football') && (
                     <>
-                    <img src="/PremierLeague.png" alt="Football League Table Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
-                    <img src="/LaLiga.png" alt="Football League Table Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
-                    <img src="/SerieA.png" alt="Football League Table Icon" className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"/>
+                      <img
+                        src="/PremierLeague.png"
+                        alt="Football League Table Icon"
+                        className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
+                      />
+                      <img
+                        src="/LaLiga.png"
+                        alt="Football League Table Icon"
+                        className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
+                      />
+                      <img
+                        src="/SerieA.png"
+                        alt="Football League Table Icon"
+                        className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
+                      />
                     </>
                   )}
                 </div>
-                <ExternalLink className="w-4 h-4 shrink-0 text-text-secondary group-hover:text-accent-color transition-colors duration-fast mt-1" aria-hidden />
+                <ExternalLink
+                  className="w-4 h-4 shrink-0 text-text-secondary group-hover:text-accent-color transition-colors duration-fast mt-1"
+                  aria-hidden
+                />
               </div>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
                 {project.description}

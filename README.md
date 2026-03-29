@@ -85,12 +85,12 @@ Output is in the `out/` directory. Deploy `out/` to any static host (e.g. Netlif
 
 This site uses **static export** (no Node server). The repo’s `netlify.toml` and `.nvmrc` are already set for Netlify:
 
-| Setting            | Value                    |
-|--------------------|--------------------------|
-| **Node version**   | 22 (via `netlify.toml` and `.nvmrc`) |
-| **Build command**  | `npm ci && npm run build` |
-| **Publish directory** | `out`                 |
-| **Next.js plugin** | Disabled (`NETLIFY_NEXT_PLUGIN_SKIP=1`) |
+| Setting               | Value                                   |
+| --------------------- | --------------------------------------- |
+| **Node version**      | 22 (via `netlify.toml` and `.nvmrc`)    |
+| **Build command**     | `npm ci && npm run build`               |
+| **Publish directory** | `out`                                   |
+| **Next.js plugin**    | Disabled (`NETLIFY_NEXT_PLUGIN_SKIP=1`) |
 
 - Use **Node.js 22** so Netlify Agent Runners and features work as expected.
 - Contact form submissions are handled by **Netlify Forms**. Enable Forms in **Site configuration → Forms** and check the Forms tab in the deploy dashboard for submissions.
