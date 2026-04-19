@@ -24,8 +24,8 @@ export default function About(): JSX.Element {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-              Software Engineer | TechOps Engineer |Technical Support Specialist | Customer Support
-              Specialist | Web3 Developer | Banker | Teacher
+            TechOps Engineer | Software Engineer | Web3 Engineer | Technical Support Specialist | Customer Support
+              | Banker | Teacher
             </span>
           </h3>
         </header>
