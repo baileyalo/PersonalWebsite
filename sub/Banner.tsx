@@ -91,9 +91,9 @@ export default function Banner(): JSX.Element {
             transition={motionTransition ?? { duration: 0.8, delay: 0.4 }}
             className="text-[clamp(1.25rem,3vw,1.75rem)] font-normal text-text-secondary mb-6 leading-[1.4]"
           >
-            TechOps Engineer / Software Engineer, Teacher & Web3 Engineer.
+            TechOps Engineer / Software Engineer, Web3 Engineer & Teacher.
             <br />
-            <span className="gradient-text">Building the Future of Web3</span>
+            <span className="gradient-text">Building Software Solutions for the Future.</span>
           </motion.h2>
 
           <motion.div
