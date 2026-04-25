@@ -161,9 +161,6 @@ export default function About(): JSX.Element {
               </a>
               )
             </li>
-            <li className="leading-relaxed">
-              Client solutions & technical support (Monitoring, Debugging, Data Patch, Optimization)
-            </li>
           </ul>
         </div>
         <p>
