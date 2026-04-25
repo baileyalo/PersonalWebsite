@@ -23,7 +23,9 @@ export default function Education(): JSX.Element {
                 </a>
               </h4>
               <ul>
-                <span className="colorRed">Blockchain Development - Software Engineering</span>
+                <li className="mb-2">
+                  <span className="colorRed">Blockchain Development - Software Engineering</span>
+                </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
@@ -86,7 +88,9 @@ export default function Education(): JSX.Element {
               <h3>Graduate Diploma (Honors)</h3>
               <h4>IBT College, Toronto Canada.</h4>
               <ul>
-                <span className="colorRed">Network Engineering</span>
+                <li className="mb-2">
+                  <span className="colorRed">Network Engineering</span>
+                </li>
                 <li>
                   <span className="colorRed">- </span>
                   <span>
@@ -142,7 +146,9 @@ export default function Education(): JSX.Element {
                 </a>
               </h4>
               <ul>
-                <span className="colorRed">Business Administration and Computer Science</span>
+                <li className="mb-2">
+                  <span className="colorRed">Business Administration and Computer Science</span>
+                </li>
 
                 <li>
                   <span className="colorRed">- </span>

@@ -1,18 +1,6 @@
-import { useContext } from 'react';
 import { ExternalLink } from 'lucide-react';
-import { Contexto } from '../appContext';
 
 export default function About(): JSX.Element {
-  const context = useContext(Contexto);
-  if (!context) {
-    throw new Error('About must be used within ContextoProvider');
-  }
-  const { setIsOpen } = context;
-
-  function openModal(): void {
-    setIsOpen(true);
-  }
-
   const email: string = 'baileyalwayne@gmail.com';
   return (
     <section className="container" aria-labelledby="about-heading">
@@ -24,8 +12,8 @@ export default function About(): JSX.Element {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-            TechOps Engineer | Software Engineer | Web3 Engineer | Technical Support Specialist | Customer Support
-              | Banker | Teacher
+              TechOps Engineer | Software Engineer | Web3 Engineer | Technical Support Specialist |
+              Customer Support | Banker | Teacher
             </span>
           </h3>
         </header>
@@ -204,7 +192,7 @@ export default function About(): JSX.Element {
               href="https://www.linkedin.com/in/alwayne-bailey/"
               className="inline-flex items-center gap-1"
             >
-              linkedin
+              LinkedIn
               <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
             </a>
           </strong>{' '}

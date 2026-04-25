@@ -172,7 +172,7 @@ export default function Skills(): JSX.Element {
               >
                 <li>
                   <ul className="rowFlexRes">
-                    {softSkills.slice(0, 2).map((skill, index) => (
+                    {softSkills.slice(0, 3).map((skill, index) => (
                       <motion.li
                         key={index}
                         variants={staggerItem}
@@ -212,7 +212,7 @@ export default function Skills(): JSX.Element {
                 </li>
                 <li>
                   <ul className="rowFlexRes">
-                    {softSkills.slice(5, 8).map((skill, index) => (
+                    {softSkills.slice(5, 7).map((skill, index) => (
                       <motion.li
                         key={index}
                         variants={staggerItem}

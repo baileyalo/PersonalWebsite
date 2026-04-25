@@ -40,9 +40,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     Modal.setAppElement('#__next');
-    const touchHandler = () => {};
-    document.addEventListener('touchstart', touchHandler, { passive: true });
-    return () => document.removeEventListener('touchstart', touchHandler);
   }, []);
 
   // Scroll to section when page loads or route changes
@@ -74,13 +71,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ErrorBoundary>
           <div className={`${inter.className} ${inter.variable} ${jetbrainsMono.variable}`}>
             <Head>
-              {/* Use circular SVG favicon (local) which embeds the existing external image URL */}
-              <link rel="icon" href="" />
-              {/* Fallback for browsers that don't support SVG favicons can be the original image */}
-              <link
-                rel="alternate icon"
-                href="https://ui-avatars.com/api/?name=AB&size=200&background=random&color=fff&bold=true"
-              />
+              <link rel="icon" href="/icon.png" />
               <meta name="viewport" content="width=device-width, initial-scale=1" />
               <meta name="author" content="Mr. Alwayne Bailey" />
               <meta name="theme-color" content="#00d4ff" />

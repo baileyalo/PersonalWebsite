@@ -99,6 +99,7 @@ export default function NavBar(): JSX.Element {
       >
         <ul
           id="navBarResUl"
+          aria-hidden={!navResOpen}
           className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-normal z-[1001] ${
             navResOpen ? 'left-0 pointer-events-auto' : '-left-full opacity-0 pointer-events-none'
           }`}
@@ -128,7 +129,7 @@ export default function NavBar(): JSX.Element {
           <button
             type="button"
             aria-label="Close menu"
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000] cursor-default"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();

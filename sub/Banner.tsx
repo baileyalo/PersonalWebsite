@@ -138,6 +138,7 @@ export default function Banner(): JSX.Element {
               href="https://github.com/baileyalo"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="View GitHub portfolio (opens in new tab)"
               className="btn btn-secondary inline-flex items-center gap-1.5"
               variants={staggerItem}
               transition={motionTransition}

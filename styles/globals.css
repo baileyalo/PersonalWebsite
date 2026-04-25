@@ -1,8 +1,3 @@
-/* Always show focus outlines for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--accent-color, #00d4ff) !important;
-  outline-offset: 2px;
-}
 /* Fonts loaded via next/font in _app.tsx (no render-blocking @import) */
 @tailwind base;
 @tailwind components;
@@ -475,7 +470,7 @@
     position: absolute;
     top: calc(0.6em - 0.5rem);
     left: calc(-1.8rem - 0.5rem + 2px);
-    background-color: var(--red);
+    background-color: var(--accent-color);
     border-radius: 100%;
   }
 
@@ -491,7 +486,7 @@
     position: absolute;
     top: 0.78125rem;
     left: 0;
-    background-color: var(--red);
+    background-color: var(--accent-color);
     width: 4px;
   }
 
@@ -924,6 +919,13 @@
   .sectionContSkills .rowFlexRes > li:hover {
     background: rgba(0, 132, 255, 0.08);
     transform: translateX(2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sectionContSkills li:hover,
+    .sectionContSkills .rowFlexRes > li:hover,
+    .circleSkillContainer:hover {
+      transform: none;
+    }
   }
 
   /* Enhanced circular progress styling */

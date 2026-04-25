@@ -7,16 +7,17 @@ export default function Hamburger(): JSX.Element {
     throw new Error('Hamburger must be used within ContextoProvider');
   }
   const { navResOpen, setNavResOpen } = context;
-  const toggleNavRes = (e: React.MouseEvent): void => {
-    e.preventDefault();
-    e.stopPropagation();
+  const toggleNavRes = (): void => {
     setNavResOpen(!navResOpen);
   };
   return (
-    <section
+    <button
+      type="button"
       onClick={toggleNavRes}
       className="fixed top-4 left-4 z-[1003] cursor-pointer hamburger-button block md:hidden pointer-events-auto"
-      aria-label="Toggle navigation menu"
+      aria-label={navResOpen ? 'Close navigation menu' : 'Open navigation menu'}
+      aria-expanded={navResOpen}
+      aria-controls="navBarResUl"
     >
       <div className="p-2 border border-text-secondary/30 bg-[hsla(0,0%,100%,0.1)] backdrop-blur-sm rounded-md hover:bg-[hsla(0,0%,100%,0.2)] transition-all duration-fast">
         <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1">
@@ -24,19 +25,19 @@ export default function Hamburger(): JSX.Element {
             className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
               navResOpen ? 'rotate-45 translate-y-1.5' : ''
             }`}
-          ></span>
+          />
           <span
             className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
               navResOpen ? 'opacity-0' : ''
             }`}
-          ></span>
+          />
           <span
             className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
               navResOpen ? '-rotate-45 -translate-y-1.5' : ''
             }`}
-          ></span>
+          />
         </div>
       </div>
-    </section>
+    </button>
   );
 }

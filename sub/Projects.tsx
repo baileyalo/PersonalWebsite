@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
 interface Project {
   title: string;
@@ -49,7 +50,8 @@ export default function Projects(): JSX.Element {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block group bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-normal hover:border-accent-color hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,212,255,0.15)]"
+              aria-label={`Open project: ${project.title} (opens in new tab)`}
+              className="block group bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-normal hover:border-accent-color hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,212,255,0.15)] focus-visible:outline-2 focus-visible:outline-accent-color focus-visible:outline-offset-2"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -57,27 +59,35 @@ export default function Projects(): JSX.Element {
                     {project.title}
                   </h3>
                   {project.tags.includes('Crypto') && (
-                    <img
+                    <Image
                       src="/icon.png"
                       alt="Bot Platform Icon"
+                      width={28}
+                      height={28}
                       className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
                     />
                   )}
                   {project.tags.includes('Football') && (
                     <>
-                      <img
+                      <Image
                         src="/PremierLeague.png"
                         alt="Football League Table Icon"
+                        width={28}
+                        height={28}
                         className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
                       />
-                      <img
+                      <Image
                         src="/LaLiga.png"
                         alt="Football League Table Icon"
+                        width={28}
+                        height={28}
                         className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
                       />
-                      <img
+                      <Image
                         src="/SerieA.png"
                         alt="Football League Table Icon"
+                        width={28}
+                        height={28}
                         className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
                       />
                     </>

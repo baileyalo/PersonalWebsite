@@ -66,10 +66,7 @@ export default function Home(): JSX.Element {
       </Head>
 
       {/* Skip to main content link for accessibility */}
-      <a
-        href="#main-content"
-        className="skip-link focus:top-0 focus:left-0 focus:absolute focus:z-[2000] focus:bg-accent-color focus:text-white focus:p-2 focus:rounded transition-all duration-200 -top-10 left-0 absolute"
-      >
+      <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
       <ThemeToggle />
