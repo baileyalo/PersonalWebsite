@@ -2,6 +2,8 @@ import { ExternalLink } from 'lucide-react';
 
 export default function About(): JSX.Element {
   const email: string = 'baileyalwayne@gmail.com';
+  const linkClassName =
+    'text-accent-color underline underline-offset-2 hover:opacity-80 inline-flex items-center gap-1';
   return (
     <section className="container" aria-labelledby="about-heading">
       <div className="sectionCont sectionContAbout">
@@ -31,148 +33,152 @@ export default function About(): JSX.Element {
           where I’ve worked on building secure and efficient decentralized applications. Before
           transitioning into tech, I spent over 8 years in financial services, giving me strong
           domain knowledge in fintech environments and a deep understanding of customer experience.
-          <span className="font-semibold">Core Skills:</span>{' '}
-          <span className="text-accent-color">
-            •{' '}
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              JavaScript
-            </a>{' '}
-            /
-            <a
-              href="https://www.typescriptlang.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              Typescript
-            </a>{' '}
-            (
-            <a
-              href="https://react.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              React
-            </a>
-            ,
-            <a
-              href="https://nodejs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              Node.js
-            </a>
-            ,
-            <a
-              href="https://reactnative.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              React Native
-            </a>
-            ) •
-            <a
-              href="https://aws.amazon.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              AWS
-            </a>
-            ,
-            <a
-              href="https://www.mongodb.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              MongoDB
-            </a>
-            ,
-            <a
-              href="https://www.postgresql.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              PostgreSQL
-            </a>{' '}
-            •
-            <a
-              href="https://restfulapi.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              REST APIs
-            </a>{' '}
-            • Web3 / Blockchain (
-            <a
-              href="https://solana.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              Solana
-            </a>
-            ,
-            <a
-              href="https://ethereum.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              Ethereum
-            </a>
-            ,
-            <a
-              href="https://www.binance.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              Binance
-            </a>
-            ,
-            <a
-              href="https://www.coinbase.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-color underline hover:opacity-80"
-            >
-              {' '}
-              Coinbase
-            </a>
-            )
-          </span>
-          • Client solutions & technical support ( Monitoring, Debugging, Data Patch, Optimization )
+        </p>
+        <div className="mt-4 mb-4 rounded-lg border border-border-color bg-card-bg/40 p-4">
+          <h4 className="mb-3 text-base font-semibold text-text-primary">Core Skills</h4>
+          <ul className="space-y-2 text-text-secondary">
+            <li className="leading-relaxed">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                JavaScript
+              </a>{' '}
+              /{' '}
+              <a
+                href="https://www.typescriptlang.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                TypeScript
+              </a>{' '}
+              (
+              <a
+                href="https://react.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                React
+              </a>
+              ,{' '}
+              <a
+                href="https://nodejs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Node.js
+              </a>
+              ,{' '}
+              <a
+                href="https://reactnative.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                React Native
+              </a>
+              )
+            </li>
+            <li className="leading-relaxed">
+              <a
+                href="https://aws.amazon.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                AWS
+              </a>
+              ,{' '}
+              <a
+                href="https://www.mongodb.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                MongoDB
+              </a>
+              ,{' '}
+              <a
+                href="https://www.postgresql.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                PostgreSQL
+              </a>
+            </li>
+            <li className="leading-relaxed">
+              <a
+                href="https://restfulapi.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                REST APIs
+              </a>
+            </li>
+            <li className="leading-relaxed">
+              Web3 / Blockchain (
+              <a
+                href="https://solana.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Solana
+              </a>
+              ,{' '}
+              <a
+                href="https://ethereum.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Ethereum
+              </a>
+              ,{' '}
+              <a
+                href="https://www.binance.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Binance
+              </a>
+              ,{' '}
+              <a
+                href="https://www.coinbase.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Coinbase
+              </a>
+              )
+            </li>
+            <li className="leading-relaxed">
+              Client solutions & technical support (Monitoring, Debugging, Data Patch, Optimization)
+            </li>
+          </ul>
+        </div>
+        <p>
           I’m passionate about building impactful technology and continuously learning. I’m open to
           opportunities where I can contribute to innovative teams across technical support,
           engineering, fintech, and Web3.
         </p>
-        <p>
-          Email:
-          <strong>
-            <a href={`mailto:${email}`}> 📧{email}</a>
-          </strong>
-          ; projects that I have worked on{' '}
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <strong className="text-text-primary">Email:</strong>
+          <a href={`mailto:${email}`} className="inline-flex items-center gap-1 text-accent-color">
+            <span aria-hidden>📧</span>
+            <span>{email}</span>
+          </a>
+          <span className="text-text-secondary">|</span>
+          <span>Projects:</span>
           <strong>
             <a
               target="_blank"
@@ -183,8 +189,9 @@ export default function About(): JSX.Element {
               Github
               <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
             </a>
-          </strong>{' '}
-          and visit my{' '}
+          </strong>
+          <span> | </span>
+          <span>Profile:</span>
           <strong>
             <a
               target="_blank"
