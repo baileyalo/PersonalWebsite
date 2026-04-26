@@ -14,8 +14,8 @@ export default function About(): JSX.Element {
             My name is Alwayne Bailey,
             <br />
             <span className="colorRed">
-              TechOps Engineer | Software Engineer | Web3 Engineer | Technical Support Specialist |
-              Customer Support | Banker | Teacher
+              TechOps Engineer ● Software Engineer ● Web3 Engineer ● Technical Support Specialist ●
+              Customer Support ● Banker ● Teacher
             </span>
           </h3>
         </header>
@@ -46,7 +46,7 @@ export default function About(): JSX.Element {
               >
                 JavaScript
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
-              </a>{' '},
+              </a>{' '}|
               <a
                 href="https://www.typescriptlang.org/"
                 target="_blank"
@@ -55,7 +55,7 @@ export default function About(): JSX.Element {
               >
                 TypeScript
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
-              </a>{' '},
+              </a>{' '}|
               <a
                 href="https://react.dev/"
                 target="_blank"
@@ -65,7 +65,7 @@ export default function About(): JSX.Element {
                 React
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://nodejs.org/"
                 target="_blank"
@@ -75,7 +75,7 @@ export default function About(): JSX.Element {
                 Node.js
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://reactnative.dev/"
                 target="_blank"
@@ -96,7 +96,7 @@ export default function About(): JSX.Element {
                 AWS
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://www.mongodb.com/"
                 target="_blank"
@@ -106,7 +106,7 @@ export default function About(): JSX.Element {
                 MongoDB 
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://www.postgresql.org/"
                 target="_blank"
@@ -138,7 +138,7 @@ export default function About(): JSX.Element {
                 Solana
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://ethereum.org/"
                 target="_blank"
@@ -148,7 +148,7 @@ export default function About(): JSX.Element {
                 Ethereum
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://www.binance.com/"
                 target="_blank"
@@ -158,7 +158,7 @@ export default function About(): JSX.Element {
                 Binance
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              ,{' '}
+              |{' '}
               <a
                 href="https://www.coinbase.com/"
                 target="_blank"
