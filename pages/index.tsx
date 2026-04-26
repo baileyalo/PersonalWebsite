@@ -104,7 +104,7 @@ export default function Home(): JSX.Element {
           <p>
             <Copyright className="inline w-4 h-4 mr-1" aria-hidden />
             <span>{new Date().getFullYear()} </span>
-            <span className="font-semibold">ABTech.</span> All rights reserved
+            <span className="font-semibold">ABTech.</span> All rights reserved.
           </p>
         </footer>
       </main>
