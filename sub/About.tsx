@@ -35,9 +35,9 @@ export default function About(): JSX.Element {
           domain knowledge in fintech environments and a deep understanding of customer experience.
         </p>
         <div className="mt-4 mb-4 rounded-lg border border-border-color bg-card-bg/40 p-4">
-          <h4 className="mb-3 text-base font-semibold text-text-primary">Core Skills</h4>
+          <h4 className="mb-3 text-base font-semibold text-text-primary text-center">Core Skills</h4>
           <ul className="space-y-2 text-text-secondary">
-            <li className="leading-relaxed">
+            <li className="leading-relaxed flex items-center gap-1 justify-center">
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
                 target="_blank"
@@ -45,8 +45,8 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 JavaScript
-              </a>{' '}
-              /{' '}
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
+              </a>{' '},
               <a
                 href="https://www.typescriptlang.org/"
                 target="_blank"
@@ -54,8 +54,8 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 TypeScript
-              </a>{' '}
-              (
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
+              </a>{' '},
               <a
                 href="https://react.dev/"
                 target="_blank"
@@ -63,6 +63,7 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 React
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -72,6 +73,7 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 Node.js
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -81,10 +83,10 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 React Native
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              )
             </li>
-            <li className="leading-relaxed">
+            <li className="leading-relaxed flex items-center gap-1 justify-center">
               <a
                 href="https://aws.amazon.com/"
                 target="_blank"
@@ -92,6 +94,7 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 AWS
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -100,7 +103,8 @@ export default function About(): JSX.Element {
                 rel="noopener noreferrer"
                 className={linkClassName}
               >
-                MongoDB
+                MongoDB 
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -109,10 +113,11 @@ export default function About(): JSX.Element {
                 rel="noopener noreferrer"
                 className={linkClassName}
               >
-                PostgreSQL
+                PostgreSQL  
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
             </li>
-            <li className="leading-relaxed">
+            <li className="leading-relaxed flex items-center gap-1 justify-center">
               <a
                 href="https://restfulapi.net/"
                 target="_blank"
@@ -120,10 +125,10 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 REST APIs
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
             </li>
-            <li className="leading-relaxed">
-              Web3 / Blockchain (
+            <li className="leading-relaxed flex items-center gap-1 justify-center">
               <a
                 href="https://solana.com/"
                 target="_blank"
@@ -131,6 +136,7 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 Solana
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -140,6 +146,7 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 Ethereum
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -149,6 +156,7 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 Binance
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               ,{' '}
               <a
@@ -158,8 +166,8 @@ export default function About(): JSX.Element {
                 className={linkClassName}
               >
                 Coinbase
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
-              )
             </li>
           </ul>
         </div>
