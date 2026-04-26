@@ -35,7 +35,7 @@ export default function About(): JSX.Element {
           domain knowledge in fintech environments and a deep understanding of customer experience.
         </p>
         <div className="mt-4 mb-4 rounded-lg border border-border-color bg-card-bg/40 p-4">
-          <h4 className="mb-3 text-base font-semibold text-text-primary text-center">Core Skills</h4>
+          <h4 className="mb-3 text-base font-semibold text-text-primary text-center">Core Tools & Technologies</h4>
           <ul className="space-y-2 text-text-secondary">
             <li className="leading-relaxed flex items-center gap-1 justify-center">
               <a
