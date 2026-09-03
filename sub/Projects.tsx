@@ -10,10 +10,10 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    title: 'Bot Platform',
+    title: 'Abtekz Bot Platform',
     description:
-      'Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [SANDBOX].',
-    url: 'https://d39c8b0zoc8fe5.cloudfront.net/',
+      'Abtekz Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [SANDBOX].',
+    url: 'https://staging.abtekz.com/',
     tags: [
       'Crypto',
       'Binance',
