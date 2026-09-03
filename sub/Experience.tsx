@@ -176,7 +176,7 @@ export default function Experience(): JSX.Element {
                 </span>
               </h5>
               <h3>Lead Bank Teller</h3>
-              <h4>Sagicor Bank Jamaica(Formerly RBC Royal Bank Jamaica) Kingston, Jamaica.</h4>
+              <h4>Sagicor Bank Limited Jamaica.</h4>
               <ul>
                 <li>
                   <span className="colorRed">- </span>
