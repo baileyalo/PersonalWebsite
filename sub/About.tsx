@@ -5,7 +5,7 @@ const roles = [
   'Software Engineer',
   'Web3 Engineer',
   'Technical Support',
-  'Customer Support',
+  'Customer Support Analyst',
   'Banker',
   'Teacher',
 ] as const;

@@ -39,7 +39,7 @@ export default function Skills(): JSX.Element {
   ];
 
   const overallCirSkills: CircularSkillData[] = [
-    { name: 'Technical & Customer Support', progress: 90 },
+    { name: 'Technical & Customer Support Analysis', progress: 90 },
     { name: 'Mobile & Web App Development', progress: 90 },
     { name: 'Database Management', progress: 85 },
     { name: 'Cloud Management', progress: 85 },

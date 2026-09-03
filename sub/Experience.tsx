@@ -16,7 +16,7 @@ export default function Experience(): JSX.Element {
                   <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2024 - 2025{' '}
                 </span>
               </h5>
-              <h3>Coordinator, Client Services</h3>
+              <h3>Customer Support Analyst</h3>
               <h4>RepRisk · North America - Remote</h4>
               <ul>
                 <li>
