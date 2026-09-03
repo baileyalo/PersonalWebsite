@@ -1,5 +1,15 @@
 import { ExternalLink } from 'lucide-react';
 
+const roles = [
+  'TechOps Engineer',
+  'Software Engineer',
+  'Web3 Engineer',
+  'Technical Support',
+  'Customer Support',
+  'Banker',
+  'Teacher',
+] as const;
+
 export default function About(): JSX.Element {
   const email: string = 'baileyalwayne@gmail.com';
   const linkClassName =
@@ -10,32 +20,38 @@ export default function About(): JSX.Element {
         <div id="about" className="target" aria-hidden="true"></div>
         <header>
           <h2 id="about-heading">About me</h2>
-          <h3>
-            My name is Alwayne Bailey,
-            <br />
-            <span className="colorRed">
-              TechOps Engineer • Software Engineer • Web3 Engineer • Technical Support Specialist •
-              Customer Support • Banker • Teacher
-            </span>
-          </h3>
+          <h3>My name is Alwayne Bailey</h3>
+          <ul className="aboutRoleChips" aria-label="Roles">
+            {roles.map((role) => (
+              <li key={role}>{role}</li>
+            ))}
+          </ul>
         </header>
-        <p>
-          A TechOps Engineer and Software Engineer with 4+ years of experience building scalable
-          applications, combined with 8+ years in financial services and client-facing roles. I
-          specialize in developing full-stack solutions using React, Node.js, and AWS, with a
-          growing focus on fintech systems and Web3 technologies. My work spans designing system
-          architecture, refactoring legacy code, integrating APIs, and delivering reliable,
-          user-focused applications. What sets me apart is my ability to bridge technical
-          development with client needs. With a background in technical support and client services
-          across SaaS and B2B platforms, I understand how to build systems that are not only
-          functional—but intuitive, scalable, and aligned with real user problems. I also bring
-          hands-on experience in blockchain development, particularly within the Solana ecosystem,
-          where I’ve worked on building secure and efficient decentralized applications. Before
-          transitioning into tech, I spent over 8 years in financial services, giving me strong
-          domain knowledge in fintech environments and a deep understanding of customer experience.
-        </p>
+        <div className="aboutBio">
+          <p className="aboutLead">
+            TechOps and Software Engineer with 4+ years building scalable apps, plus 8+ years in
+            financial services and client-facing roles.
+          </p>
+          <p>
+            I specialize in full-stack solutions with{' '}
+            <strong className="aboutHighlight">React</strong>,{' '}
+            <strong className="aboutHighlight">Node.js</strong>, and{' '}
+            <strong className="aboutHighlight">AWS</strong>, with a growing focus on{' '}
+            <strong className="aboutHighlight">fintech</strong> and Web3. My work spans system
+            architecture, legacy refactoring, API integration, and reliable, user-focused
+            applications.
+          </p>
+          <p>
+            What sets me apart is bridging technical development with client needs—from SaaS and B2B
+            support into products that feel intuitive and solve real problems. I also have hands-on{' '}
+            <strong className="aboutHighlight">Solana</strong> experience building secure dApps,
+            grounded in earlier financial-services work and a strong sense of customer experience.
+          </p>
+        </div>
         <div className="mt-4 mb-4 rounded-lg border border-border-color bg-card-bg/40 p-4">
-          <h4 className="mb-3 text-base font-semibold text-text-primary text-center">Core Tools & Technologies</h4>
+          <h4 className="mb-3 text-base font-semibold text-text-primary text-center">
+            Core Tools & Technologies
+          </h4>
           <ul className="space-y-2 text-text-secondary">
             <li className="leading-relaxed flex items-center gap-1 justify-center">
               <a
@@ -46,7 +62,8 @@ export default function About(): JSX.Element {
               >
                 JavaScript
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
-              </a>{' '}|
+              </a>{' '}
+              |
               <a
                 href="https://www.typescriptlang.org/"
                 target="_blank"
@@ -55,7 +72,8 @@ export default function About(): JSX.Element {
               >
                 TypeScript
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
-              </a>{' '}|
+              </a>{' '}
+              |
               <a
                 href="https://react.dev/"
                 target="_blank"
@@ -103,7 +121,7 @@ export default function About(): JSX.Element {
                 rel="noopener noreferrer"
                 className={linkClassName}
               >
-                MongoDB 
+                MongoDB
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
               |{' '}
@@ -113,7 +131,7 @@ export default function About(): JSX.Element {
                 rel="noopener noreferrer"
                 className={linkClassName}
               >
-                PostgreSQL  
+                PostgreSQL
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
             </li>

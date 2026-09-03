@@ -414,12 +414,48 @@
     margin-top: 0.3em;
     margin-bottom: 0.6em;
   }
-  .sectionContAbout p {
-    font-size: 1.04rem;
-    margin-bottom: 0.77em;
-    line-height: 1.4em;
+  .aboutRoleChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
   }
-  .sectionContAbout p > strong {
+  .aboutRoleChips li {
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.2;
+    padding: 0.35rem 0.85rem;
+  }
+  .aboutBio {
+    max-width: 65ch;
+    margin-bottom: 0.5rem;
+  }
+  .sectionContAbout p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+    margin-bottom: 1.1em;
+    max-width: 65ch;
+    text-align: left;
+  }
+  .sectionContAbout .aboutLead {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.65;
+    margin-bottom: 1em;
+  }
+  .sectionContAbout .aboutHighlight {
+    color: var(--accent-color);
+    cursor: default;
+    font-weight: 600;
+  }
+  .sectionContAbout p > strong:not(.aboutHighlight) {
     font-weight: 600;
     color: var(--text-primary);
     cursor: pointer;
