@@ -29,7 +29,7 @@ export default function About(): JSX.Element {
         </header>
         <div className="aboutBio">
           <p className="aboutLead">
-            TechOps and Software Engineer with 4+ years building scalable apps, plus 8+ years in
+            TechOps and Software Engineer with 6+ years building scalable apps, plus 8+ years in
             financial services and client-facing roles.
           </p>
           <p>
