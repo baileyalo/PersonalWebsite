@@ -431,8 +431,8 @@
     padding: 0.35rem 0.85rem;
   }
   .aboutBio {
-    max-width: 65ch;
     margin-bottom: 0.5rem;
+    width: 100%;
   }
   .sectionContAbout p {
     color: var(--text-secondary);
@@ -440,8 +440,9 @@
     letter-spacing: 0.01em;
     line-height: 1.7;
     margin-bottom: 1.1em;
-    max-width: 65ch;
+    max-width: none;
     text-align: left;
+    width: 100%;
   }
   .sectionContAbout .aboutLead {
     color: var(--text-primary);
