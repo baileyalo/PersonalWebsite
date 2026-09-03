@@ -66,7 +66,7 @@ export default function Experience(): JSX.Element {
                 </span>
               </h5>
               <h3>Software Developer</h3>
-              <h4>Helios Creator Inc. North America - Remote</h4>
+              <h4>HIO Music. North America - Remote</h4>
               <ul>
                 <li>
                   <span className="colorRed">- </span>
