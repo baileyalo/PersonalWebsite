@@ -1,37 +1,44 @@
 import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
+interface ProjectVisual {
+  src: string;
+  alt: string;
+}
+
 interface Project {
   title: string;
-  description: string;
+  problem: string;
+  built: string;
+  result: string;
   url: string;
   tags: string[];
+  visuals: ProjectVisual[];
 }
 
 const PROJECTS: Project[] = [
   {
     title: 'Tekz Automated Bot Platform',
-    description:
-      'Tekz Automated Bot Platform leveraging crypto integrated with Binance, Coinbase and Stripe — [SANDBOX].',
+    problem: 'Crypto operations were split across exchanges and a separate payment provider.',
+    built:
+      'A sandbox platform that connects Binance, Coinbase, and Stripe, built with React, Node.js, PostgreSQL, and AWS.',
+    result: 'The integrated flow is available in a staging environment.',
     url: 'https://staging.abtekz.com/',
-    tags: [
-      'Crypto',
-      'Binance',
-      'Coinbase',
-      'Stripe',
-      'React',
-      'TypeScript',
-      'Node.js',
-      'AWS',
-      'PostgreSQL',
-      'Docker',
-    ],
+    tags: ['React', 'TypeScript', 'Node.js', 'AWS', 'PostgreSQL'],
+    visuals: [{ src: '/icon.png', alt: 'Tekz platform mark' }],
   },
   {
     title: 'European Football League Table',
-    description: 'European Football League Table displaying real-time scores and standings',
+    problem: 'League position and scores lived in separate places.',
+    built: 'A React app that shows live scores and standings for major European leagues.',
+    result: 'Premier League, La Liga, and Serie A are readable in one view.',
     url: 'https://euleague.netlify.app/',
-    tags: ['Football', 'React', 'TypeScript', 'Netlify', 'API Integration'],
+    tags: ['React', 'TypeScript', 'API'],
+    visuals: [
+      { src: '/PremierLeague.png', alt: 'Premier League' },
+      { src: '/LaLiga.png', alt: 'La Liga' },
+      { src: '/SerieA.png', alt: 'Serie A' },
+    ],
   },
 ];
 
@@ -41,77 +48,66 @@ export default function Projects(): JSX.Element {
       <div className="sectionCont">
         <div id="projects" className="target" aria-hidden="true"></div>
         <header>
-          <h2 id="projects-heading">Projects</h2>
+          <h2 id="projects-heading">Selected work</h2>
         </header>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
           {PROJECTS.map((project) => (
-            <a
+            <article
               key={project.url}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open project: ${project.title} (opens in new tab)`}
-              className="block group bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-normal hover:border-accent-color hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,212,255,0.15)] focus-visible:outline-2 focus-visible:outline-accent-color focus-visible:outline-offset-2"
+              className="grid gap-6 md:grid-cols-[220px_minmax(0,1fr)] items-stretch rounded-xl border border-border-color bg-card-bg p-6"
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-color transition-colors duration-fast">
-                    {project.title}
-                  </h3>
-                  {project.tags.includes('Crypto') && (
-                    <Image
-                      src="/icon.png"
-                      alt="Bot Platform Icon"
-                      width={28}
-                      height={28}
-                      className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
-                    />
-                  )}
-                  {project.tags.includes('Football') && (
-                    <>
-                      <Image
-                        src="/PremierLeague.png"
-                        alt="Football League Table Icon"
-                        width={28}
-                        height={28}
-                        className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
-                      />
-                      <Image
-                        src="/LaLiga.png"
-                        alt="Football League Table Icon"
-                        width={28}
-                        height={28}
-                        className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
-                      />
-                      <Image
-                        src="/SerieA.png"
-                        alt="Football League Table Icon"
-                        width={28}
-                        height={28}
-                        className="w-7 h-7 rounded-md bg-[#151c28] border border-border-color mb-4"
-                      />
-                    </>
-                  )}
-                </div>
-                <ExternalLink
-                  className="w-4 h-4 shrink-0 text-text-secondary group-hover:text-accent-color transition-colors duration-fast mt-1"
-                  aria-hidden
-                />
-              </div>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-[rgba(0,212,255,0.1)] text-accent-color border border-[rgba(0,212,255,0.2)]"
-                  >
-                    {tag}
-                  </span>
+              <div className="flex items-center justify-center gap-3 rounded-lg bg-secondary-bg border border-border-color min-h-[140px] p-4">
+                {project.visuals.map((visual) => (
+                  <Image
+                    key={visual.src}
+                    src={visual.src}
+                    alt={visual.alt}
+                    width={72}
+                    height={72}
+                    className="w-14 h-14 md:w-16 md:h-16 rounded-md object-contain"
+                  />
                 ))}
               </div>
-            </a>
+              <div>
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <h3 className="text-xl font-semibold text-text-primary mb-0">{project.title}</h3>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 shrink-0 text-sm font-medium text-accent-color"
+                  >
+                    Live site
+                    <ExternalLink className="w-3.5 h-3.5" aria-hidden />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </div>
+                <dl className="space-y-3 text-sm leading-relaxed">
+                  <div>
+                    <dt className="font-medium text-text-primary">Problem</dt>
+                    <dd className="text-text-secondary">{project.problem}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-text-primary">What I built</dt>
+                    <dd className="text-text-secondary">{project.built}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-text-primary">Result</dt>
+                    <dd className="text-text-secondary">{project.result}</dd>
+                  </div>
+                </dl>
+                <ul className="flex flex-wrap gap-2 mt-4" aria-label="Technologies">
+                  {project.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="text-xs font-medium px-2.5 py-1 rounded-full border border-border-color text-text-secondary"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           ))}
         </div>
       </div>

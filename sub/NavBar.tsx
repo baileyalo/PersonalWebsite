@@ -5,7 +5,6 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import {
   SECTION_IDS,
   NAV_LINKS,
-  CONTACT_TARGET,
   INTERSECTION_OBSERVER_ROOT_MARGIN,
   INTERSECTION_OBSERVER_THRESHOLDS,
   type NavLink,
@@ -16,7 +15,7 @@ export default function NavBar(): JSX.Element {
   if (!context) {
     throw new Error('NavBar must be used within ContextoProvider');
   }
-  const { navResOpen, setNavResOpen, setIsOpen } = context;
+  const { navResOpen, setNavResOpen } = context;
   const [activeSection, setActiveSection] = useState<string>('');
   const ratiosRef = useRef<Record<string, number>>({});
 
@@ -64,11 +63,6 @@ export default function NavBar(): JSX.Element {
     };
   }, [navResOpen]);
   const handleResLink = (link: NavLink): void => {
-    if (link.target === CONTACT_TARGET) {
-      setIsOpen(true);
-      if (navResOpen) setNavResOpen(false);
-      return;
-    }
     const element = document.querySelector(link.target);
     if (element) {
       window.history.replaceState(null, '', link.target);
@@ -79,10 +73,6 @@ export default function NavBar(): JSX.Element {
 
   const handleDeskLink = (e: React.MouseEvent<HTMLAnchorElement>, link: NavLink): void => {
     e.preventDefault();
-    if (link.target === CONTACT_TARGET) {
-      setIsOpen(true);
-      return;
-    }
     const element = document.querySelector(link.target);
     if (element) {
       window.history.replaceState(null, '', link.target);
@@ -100,19 +90,19 @@ export default function NavBar(): JSX.Element {
         <ul
           id="navBarResUl"
           aria-hidden={!navResOpen}
-          className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-[rgba(26,26,26,0.98)] backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-normal z-[1001] ${
+          className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-primary-bg backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-normal z-[1001] ${
             navResOpen ? 'left-0 pointer-events-auto' : '-left-full opacity-0 pointer-events-none'
           }`}
         >
           {NAV_LINKS.map((link) => (
-            <li key={link.target} className="w-full border-b border-white/5">
+            <li key={link.target} className="w-full border-b border-border-color">
               <a
                 href={link.target}
                 onClick={(e) => {
                   e.preventDefault();
                   handleResLink(link);
                 }}
-                className={`block px-6 sm:px-8 py-4 sm:py-6 font-medium text-sm sm:text-base uppercase tracking-wide cursor-pointer transition-all duration-fast relative hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] active:bg-[rgba(0,132,255,0.2)] ${
+                className={`block px-6 sm:px-8 py-4 sm:py-6 font-medium text-sm sm:text-base cursor-pointer transition-colors duration-fast hover:text-accent-color hover:bg-accent-color/10 ${
                   activeSection === link.target
                     ? 'text-accent-color font-semibold'
                     : 'text-text-secondary'
@@ -139,20 +129,18 @@ export default function NavBar(): JSX.Element {
         )}
       </nav>
       <nav
-        className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(10,10,10,0.95)] backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block"
+        className="fixed top-0 left-0 right-0 z-[1000] bg-primary-bg backdrop-blur-[20px] border-b border-border-color transition-all duration-normal hidden md:block"
         aria-label="Main navigation"
       >
-        <div className="container flex justify-center items-center py-4">
-          <ul className="flex items-center gap-12">
+        <div className="container flex justify-center items-center py-4 md:pr-20">
+          <ul className="flex items-center gap-2 lg:gap-6">
             {NAV_LINKS.map((link) => (
               <li key={link.target} className="relative">
                 <a
                   href={link.target}
                   onClick={(e) => handleDeskLink(e, link)}
-                  className={`flex items-center px-4 py-2 font-medium text-sm uppercase tracking-wide cursor-pointer transition-all duration-fast rounded-md relative overflow-hidden hover:text-accent-color hover:bg-[rgba(0,132,255,0.1)] before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:h-0.5 before:bg-gradient-accent before:transition-all before:duration-normal before:-translate-x-1/2 hover:before:w-4/5 ${
-                    activeSection === link.target
-                      ? 'text-accent-color before:w-4/5'
-                      : 'text-text-secondary before:w-0'
+                  className={`flex items-center px-3 py-2 font-medium text-sm cursor-pointer transition-colors duration-fast rounded-md hover:text-accent-color ${
+                    activeSection === link.target ? 'text-accent-color' : 'text-text-secondary'
                   }`}
                   aria-current={activeSection === link.target ? 'page' : undefined}
                 >

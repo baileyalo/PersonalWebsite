@@ -1,27 +1,29 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
-import NavBar from '../sub/NavBar';
-import Banner from '../sub/Banner';
-import AboutMe from '../sub/About';
-import Education from '../sub/Education';
-import Experience from '../sub/Experience';
-import Skills from '../sub/Skills';
-import Projects from '../sub/Projects';
-import ThemeToggle from '../components/ThemeToggle';
-import { Contexto } from '../appContext';
 import { useContext } from 'react';
 import { Copyright } from 'lucide-react';
-import NetlifyFormHidden from '../components/NetlifyFormHidden';
+import { Contexto } from '../appContext';
+import { EMAIL, maskEmail } from '../constants';
 import BackToTop from '../components/BackToTop';
+import NetlifyFormHidden from '../components/NetlifyFormHidden';
+import ThemeToggle from '../components/ThemeToggle';
+import AboutMe from '../sub/About';
+import Banner from '../sub/Banner';
+import Contact from '../sub/Contact';
+import Education from '../sub/Education';
+import Experience from '../sub/Experience';
+import NavBar from '../sub/NavBar';
+import Projects from '../sub/Projects';
+import Skills from '../sub/Skills';
 
-const Modal = dynamic(() => import('../components/modal'), { ssr: false });
+const PORTRAIT =
+  'https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira';
 
 export default function Home(): JSX.Element {
   const context = useContext(Contexto);
   if (!context) {
     throw new Error('Home must be used within ContextoProvider');
   }
-  const { navResOpen, setNavResOpen, setIsOpen } = context;
+  const { navResOpen, setNavResOpen } = context;
   const closeNavRes = (): void => {
     if (navResOpen) setNavResOpen(false);
   };
@@ -29,83 +31,80 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Mr. Alwayne Bailey - TechOps / Software Engineer | Teacher | Web 3</title>
-        {/* <link
-          rel="image_src"
-          href="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
-        /> */}
+        <title>Alwayne Bailey — TechOps Engineer / Escalation Engineer / Software Engineer</title>
         <meta
           name="description"
-          content="TechOps Engineer / Software Engineer | Teacher | Blockchain Enthusiast specializing in React.js, TypeScript, Node.js, Solidity, and Web3 technologies. Building the future of decentralized applications."
+          content="Alwayne Bailey is a software engineer building full-stack products, with a focus on fintech and Web3."
         />
         <meta
           property="og:title"
-          content="Alwayne Bailey - TechOps Engineer / Software Engineer | Teacher | Blockchain Enthusiast"
+          content="Alwayne Bailey — Escalation Engineer / Software Engineer"
         />
-        <meta property="og:site_name" content="Alwayne Bailey Portfolio" />
+        <meta property="og:site_name" content="Alwayne Bailey" />
         <meta
           property="og:description"
-          content="TechOps Engineer / Software Engineer | Teacher | Blockchain Enthusiast building innovative web3 solutions"
+          content="Full-stack software engineer focused on fintech and Web3."
         />
         <meta property="og:type" content="profile" />
-        {/* <meta
-          property="og:image"
-          content="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
-        /> */}
-        <meta property="og:image:width" content="1580" />
-        <meta property="og:image:height" content="790" />
+        <meta property="og:image" content={PORTRAIT} />
         <meta name="twitter:card" content="summary_large_image" />
-        {/* <meta
-          name="twitter:image"
-          content="https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira"
-        /> */}
+        <meta name="twitter:image" content={PORTRAIT} />
         <meta
           name="keywords"
-          content="TechOps Engineer, Software Engineer, Teacher, Blockchain Enthusiast, React.js, JavaScript, TypeScript, Solidity, Web3, Ethereum, Solana, DeFi, Smart Contracts"
+          content="Alwayne Bailey, Software Engineer, React, TypeScript, Node.js, AWS, Fintech, Web3, Solana"
         />
       </Head>
 
-      {/* Skip to main content link for accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
       <ThemeToggle />
-      <Modal />
       <NavBar />
       <BackToTop />
-
       <NetlifyFormHidden />
 
       <main id="main-content" onClick={closeNavRes} tabIndex={-1}>
         <Banner />
-        <AboutMe />
-
-        <section className="container" aria-label="Experience and education">
-          <div className="rowFlexRes breakExpEduc">
-            <Experience />
-            <Education />
-          </div>
-        </section>
-
-        <Skills />
-
         <Projects />
+        <section className="container" aria-label="Experience and education">
+          <Experience />
+          <Education />
+        </section>
+        <AboutMe />
+        <Skills />
+        <Contact />
 
         <footer className="footer" aria-label="Site footer">
-          <p className="mb-2">
-            <button
-              type="button"
-              onClick={() => setIsOpen(true)}
-              className="text-accent-color font-medium underline underline-offset-2 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-color focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary-bg)] rounded"
-            >
-              Get in touch
-            </button>
-          </p>
-          <p>
-            <Copyright className="inline w-4 h-4 mr-1" aria-hidden />
-            <span>{new Date().getFullYear()} </span>
-            <span className="font-semibold">ABTekz.</span> All rights reserved.
-          </p>
+          <div className="container flex flex-col items-center gap-3">
+            <p className="mb-0 font-semibold text-text-primary">Alwayne Bailey</p>
+            <p className="mb-0">
+              Open to TechOps Engineer, Escalation Engineer and Software engineering roles.
+            </p>
+            <p className="mb-0 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+              <a href={`mailto:${EMAIL}`}>{maskEmail()}</a>
+              <span aria-hidden className="text-text-muted">
+                ·
+              </span>
+              <a href="https://github.com/baileyalo" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+              <span aria-hidden className="text-text-muted">
+                ·
+              </span>
+              <a
+                href="https://www.linkedin.com/in/alwayne-bailey/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </p>
+            <p className="mb-0">
+              <Copyright className="inline w-4 h-4 mr-1" aria-hidden />
+              <span>{new Date().getFullYear()} </span>
+              <span className="font-semibold">ABTekz.</span> All rights reserved.
+            </p>
+          </div>
         </footer>
       </main>
     </>

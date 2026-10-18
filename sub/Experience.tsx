@@ -1,226 +1,85 @@
-import { Calendar } from 'lucide-react';
+interface Role {
+  period: string;
+  title: string;
+  org: string;
+  points: string[];
+}
+
+const ROLES: Role[] = [
+  {
+    period: '2024 – 2025',
+    title: 'Client Support Analyst',
+    org: 'RepRisk · North America, remote',
+    points: [
+      'Onboarded and offboarded B2B clients through a secure transition process.',
+      'Tested and debugged REST API integrations so clients could connect reliably.',
+      'Wrote SQL for reporting and kept SFTP transfers and automated data feeds consistent.',
+    ],
+  },
+  {
+    period: '2022 – 2024',
+    title: 'Software Developer',
+    org: 'Helios Creator Inc. · North America, remote',
+    points: [
+      'Built and maintained products with Solana, React, React Native, Node.js, and AWS.',
+      'Designed core architecture and the API structure for web and mobile Web3.',
+      'Shipped releases to the App Store, Play Store, and Solana dApp Store.',
+      'Refactored legacy code so more of the codebase could be reused.',
+    ],
+  },
+  {
+    period: '2020 – 2022',
+    title: 'Technical Support Specialist',
+    org: 'Rogers Communications · Toronto',
+    points: [
+      'Verified and updated customer network settings, including TCP/IP.',
+      'Kept monthly business satisfaction and customer satisfaction above 90%.',
+      'Documented dispatch work and used internal reporting to support other teams.',
+    ],
+  },
+  {
+    period: '2010 – 2016',
+    title: 'Lead Bank Teller',
+    org: 'Sagicor Bank Jamaica · Kingston',
+    points: [
+      'Maintained a high standard of service on each client interaction.',
+      'Managed branch cash with the Bank of Jamaica and internal departments.',
+      'Handled complex transactions and escalations within set limits.',
+    ],
+  },
+];
 
 export default function Experience(): JSX.Element {
   return (
-    <section className="sectionCont sectionContExperience" aria-labelledby="experience-heading">
+    <section className="sectionCont" aria-labelledby="experience-heading">
       <div id="experience" className="target" aria-hidden="true"></div>
       <header>
         <h2 id="experience-heading">Experience</h2>
       </header>
-      <div className="cardContainer">
-        <div className="card">
-          <div className="cardContent">
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2024 - 2025{' '}
-                </span>
-              </h5>
-              <h3>Customer Support Analyst</h3>
-              <h4>RepRisk · North America - Remote</h4>
-              <ul>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Onboarded and offboarded B2B clients, ensuring a smooth and secure transition
-                    process.
-                  </span>
+      <ol className="relative border-l border-border-color ml-2 space-y-10">
+        {ROLES.map((role) => (
+          <li key={role.period + role.title} className="ml-6 relative">
+            <span
+              className="absolute -left-[1.95rem] top-1.5 h-3 w-3 rounded-full bg-accent-color"
+              aria-hidden
+            />
+            <p className="text-sm text-text-muted mb-1">{role.period}</p>
+            <h3 className="text-lg font-semibold mb-0.5">{role.title}</h3>
+            <p className="text-text-secondary mb-3">{role.org}</p>
+            <ul className="space-y-2">
+              {role.points.map((point) => (
+                <li key={point} className="text-text-secondary leading-relaxed pl-4 relative">
+                  <span
+                    className="absolute left-0 top-2.5 h-1.5 w-1.5 rounded-full bg-accent-color"
+                    aria-hidden
+                  />
+                  {point}
                 </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Tested and debugged REST API integrations to support seamless client
-                    connectivity.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>Managed user accounts and permissions within web-based applications</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Wrote and maintained SQL scripts for data extraction, transformation, and
-                    reporting
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Configured and maintained SFTP servers for secure file transfers and data
-                    integration
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Monitored and maintained automated data feeds to ensure accuracy and consistency
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2022 - 2024{' '}
-                </span>
-              </h5>
-              <h3>Software Developer</h3>
-              <h4>HIO Music. North America - Remote</h4>
-              <ul>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Maintain and develop application with Solana, React.js, React Native, MongoDB,
-                    PostgreSQL, AWS, Node.js, Python.{' '}
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    {' '}
-                    Design the architecture of core components and redesign of existing components
-                    to build a maintainable code base.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    {' '}
-                    Lead in the building and design of API routes structure for both web and mobile
-                    for web3.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Spearheaded deploying updates to Appstore , Play store and Solana Dapp store.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Liaise with external venders with integration and implementation of different
-                    third party frameworks.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Collaborate closely and be responsive to inquiries from internal providers to
-                    handle and ensure the timeliness and quality of outputs
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Enhance code quality by refactoring legacy code base for better reuse-ability.
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2020 - 2022{' '}
-                </span>
-              </h5>
-              <h3>Technical Support Specialist</h3>
-              <h4>Rogers Communications Inc. Toronto, Canada.</h4>
-              <ul>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>Providing, verifying, and/or modifying network settings (TCP/IP)</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>Maintain 90% monthly KPIs on business satisfaction</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Recommending solutions- Connect customers with the right self serve tools
-                    proactively suggest other options.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>Empowering customers to understand and utilize Roger’s product suite.</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Track and document all dispatch transactions in tracking tool and follow-up with
-                    internal teams.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Leveraging Rogers reporting to assist internal teams with data collection.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Maintain customer satisfaction rating above 90% through telephone, email and
-                    chat.
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2010 -2016{' '}
-                </span>
-              </h5>
-              <h3>Lead Bank Teller</h3>
-              <h4>Sagicor Bank Limited Jamaica.</h4>
-              <ul>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Client Engagement- Maintain high level of customer satisfaction for each client
-                    on each interaction.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Maintain and manage branch cash liaising with Bank of Jamaica (BOJ) and other
-                    departments
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Completes complex & diverse tasks within given rules/limits and may include
-                    handling escalations from other employees.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>Assist with daily branch closures and maintenance of infrastructure</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Product Knowledge- Expert in Banks comprehensive financial products and
-                    services.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>{' '}
-                  <span>
-                    Assists in processing more complex transactions and customer requests.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

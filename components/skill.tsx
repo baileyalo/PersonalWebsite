@@ -4,7 +4,11 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { staggerItem } from '../utils/animations';
 
-import type { SkillData } from '../sub/Skills';
+interface SkillData {
+  name: string;
+  progress: number | string;
+  url?: string;
+}
 
 interface SkillProps {
   skill: SkillData;

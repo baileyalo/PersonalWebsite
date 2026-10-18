@@ -1,213 +1,60 @@
-import { Calendar } from 'lucide-react';
+interface Credential {
+  year: string;
+  title: string;
+  school: string;
+  href?: string;
+  note: string;
+}
+
+const CREDENTIALS: Credential[] = [
+  {
+    year: '2021',
+    title: 'Graduate Diploma (Honors), Blockchain Development',
+    school: 'George Brown College, Toronto',
+    href: 'https://www.georgebrown.ca/',
+    note: 'Deployed an ERC-721 token and Solidity contracts with Truffle and Hardhat.',
+  },
+  {
+    year: '2019',
+    title: 'Graduate Diploma (Honors), Network Engineering',
+    school: 'IBT College, Toronto',
+    note: 'Configured Windows Server, routing, and virtualized Ubuntu environments.',
+  },
+  {
+    year: '2016',
+    title: 'Bachelor of Education, Business Administration and Computer Science',
+    school: 'University of Technology, Kingston',
+    href: 'https://www.utech.edu.jm/',
+    note: 'Combined business administration with programming, data structures, and web development.',
+  },
+];
 
 export default function Education(): JSX.Element {
   return (
-    <section className="sectionCont sectionContEducation" aria-labelledby="education-heading">
+    <section className="sectionCont" aria-labelledby="education-heading">
       <div id="education" className="target" aria-hidden="true"></div>
       <header>
         <h2 id="education-heading">Education</h2>
       </header>
-      <div className="cardContainer">
-        <div className="card">
-          <div className="cardContent">
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2021
-                </span>
-              </h5>
-              <h3>Graduate Diploma (Honors)</h3>
-              <h4>
-                <a href="https://www.georgebrown.ca/" target="_blank" rel="noopener noreferrer">
-                  George Brown College, Toronto Canada
+      <ul className="divide-y divide-border-color border-y border-border-color">
+        {CREDENTIALS.map((item) => (
+          <li key={item.year} className="py-5 grid gap-1 md:grid-cols-[4.5rem_minmax(0,1fr)]">
+            <p className="text-sm text-text-muted md:pt-1">{item.year}</p>
+            <div>
+              <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
+              {item.href ? (
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  {item.school}
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
-              </h4>
-              <ul>
-                <li className="mb-2">
-                  <span className="colorRed">Blockchain Development - Software Engineering</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Blockchain Fundamentals: Understanding the principles of blockchain technology,
-                    Knowledge of how blockchain works, including concepts like decentralization,
-                    consensus algorithms, and cryptographic hashing.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Technical Writing: Skills in documenting technical information clearly and
-                    concisely.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Web Development using the MERN stack (MongoDB, Express, React, Nodejs) for
-                    building decentralized applications (dApps).
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Systems Analysis and Design: Skills in analyzing requirements and designing
-                    information systems.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Software Development: Knowledge of software development life cycles,
-                    methodologies (like Agile), and project management.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>Project Management: Ability to plan, execute, and oversee projects.</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>Development of ERC-721 token deployed and minted to Ethereum network.</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Create and Deploy Smart Contracts Solidity and using Truffle and Hardhat
-                    frameworks.
-                  </span>
-                </li>
-              </ul>
+              ) : (
+                <p className="text-accent-color mb-1">{item.school}</p>
+              )}
+              <p className="text-text-secondary mt-1 mb-0 max-w-[70ch]">{item.note}</p>
             </div>
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2019
-                </span>
-              </h5>
-              <h3>Graduate Diploma (Honors)</h3>
-              <h4>IBT College, Toronto Canada.</h4>
-              <ul>
-                <li className="mb-2">
-                  <span className="colorRed">Network Engineering</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Install and configure Windows server 2012 and Manage Windows Group Policy.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Network Design and Architecture: Designing and planning network infrastructure,
-                    Understanding network topologies, including star, mesh, and hybrid.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Wireless Networking: Setting up and securing wireless networks, Understanding
-                    wireless standards (e.g., 802.11a/b/g/n/ac).
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Network Troubleshooting and Maintenance: Diagnosing and resolving network issues
-                    using tools like ping, traceroute, and network analyzers, Performing network
-                    performance monitoring and optimization.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>Configure routing and switching for basic network topology.</span>
-                </li>
-
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Configure multiple operating systems and servers on virtual machines using
-                    Ubuntu.
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="cardCont">
-              <h5>
-                <span>
-                  <Calendar className="inline w-4 h-4 mr-1" aria-hidden /> 2016
-                </span>
-              </h5>
-              <h3>Bachelor of Education</h3>
-              <h4>
-                <a href="https://www.utech.edu.jm/" target="_blank" rel="noopener noreferrer">
-                  University of Technology, Kingston Jamaica
-                </a>
-              </h4>
-              <ul>
-                <li className="mb-2">
-                  <span className="colorRed">Business Administration and Computer Science</span>
-                </li>
-
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Finance and Accounting: Basics of financial reporting, budgeting, and accounting
-                    principles.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Management and Leadership: Understanding of organizational behavior, leadership
-                    styles, and management principles
-                  </span>
-                </li>
-
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Business Ethics: Awareness of ethical issues in business and corporate social
-                    responsibility.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>Entrepreneurship: Skills in starting and managing new ventures.</span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Programming: Proficiency in programming languages such as Java, C++, JavaScript,
-                    and SQL.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Networking: Basics of computer networks, network security, and protocols.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Data Structures and Algorithms: Understanding of fundamental data structures and
-                    algorithms and their applications.
-                  </span>
-                </li>
-                <li>
-                  <span className="colorRed">- </span>
-                  <span>
-                    Web Development: Ability to design and develop websites using HTML, CSS,
-                    JavaScript, and other web technologies.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

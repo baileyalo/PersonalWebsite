@@ -130,12 +130,9 @@
   }
 
   h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 700;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
   }
 
   h2 {
@@ -237,20 +234,22 @@
 
   /* Modern Button Styles */
   .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 font-body font-medium text-sm uppercase tracking-wide border-none rounded-md cursor-pointer transition-all duration-fast no-underline relative overflow-hidden;
+    @apply inline-flex items-center justify-center px-4 py-2 font-body font-medium text-sm normal-case tracking-normal border-none rounded-md cursor-pointer transition-colors duration-fast no-underline;
     min-width: 160px;
     height: 48px;
   }
 
   .btn-primary {
-    @apply text-white;
+    color: #041016;
     background: var(--gradient-accent);
-    box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
+  }
+
+  [data-theme='light'] .btn-primary {
+    color: #ffffff;
   }
 
   .btn-primary:hover {
-    @apply -translate-y-0.5;
-    box-shadow: 0 6px 20px rgba(0, 132, 255, 0.4);
+    filter: brightness(1.05);
   }
   @media (prefers-reduced-motion: reduce) {
     .btn-primary:hover,
@@ -440,9 +439,8 @@
     letter-spacing: 0.01em;
     line-height: 1.7;
     margin-bottom: 1.1em;
-    max-width: none;
+    max-width: 70ch;
     text-align: left;
-    width: 100%;
   }
   .sectionContAbout .aboutLead {
     color: var(--text-primary);
@@ -462,6 +460,30 @@
     cursor: pointer;
   }
 
+  .aboutSkills {
+    list-style: none;
+    margin: 0 0 1.1em;
+    max-width: 70ch;
+    padding: 0;
+  }
+  .aboutSkills li {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .aboutSkills li::before {
+    background: var(--accent-color);
+    border-radius: 9999px;
+    content: '';
+    height: 0.4rem;
+    left: 0;
+    position: absolute;
+    top: 0.7em;
+    width: 0.4rem;
+  }
   .sectionContAbout p:last-child {
     margin-bottom: 0;
   }

@@ -19,7 +19,7 @@ export default function Hamburger(): JSX.Element {
       aria-expanded={navResOpen}
       aria-controls="navBarResUl"
     >
-      <div className="p-2 border border-text-secondary/30 bg-[hsla(0,0%,100%,0.1)] backdrop-blur-sm rounded-md hover:bg-[hsla(0,0%,100%,0.2)] transition-all duration-fast">
+      <div className="p-2 border border-border-color bg-card-bg backdrop-blur-sm rounded-md">
         <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1">
           <span
             className={`block w-5 h-0.5 bg-text-secondary rounded-full transition-all duration-300 ${
