@@ -16,9 +16,9 @@ export default function About(): JSX.Element {
         </header>
         <div className="aboutBio">
           <p className="aboutLead">
-            I’m a TechOps Engineer and Software Engineer with 4+ years of experience building
-            scalable applications, combined with 8+ years in financial services and client-facing
-            roles.
+            I’m a TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher with 4+
+            years of experience building scalable applications, combined with 8+ years in financial
+            services and client-facing roles.
           </p>
           <p>
             I specialize in developing full-stack solutions using React, Node.js, and AWS, with a
@@ -51,7 +51,7 @@ export default function About(): JSX.Element {
           <p>
             I’m passionate about building impactful technology and continuously learning. I’m open
             to opportunities where I can contribute to innovative teams across technical support,
-            engineering, fintech, and Web3.
+            engineering, fintech, Web3, and teaching.
           </p>
         </div>
       </div>

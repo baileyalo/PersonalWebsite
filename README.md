@@ -1,6 +1,6 @@
 # Alwayne Bailey – Portfolio
 
-Personal portfolio site for **Alwayne Bailey** (Software Engineer, Educator, Web3 Developer). Built with Next.js, TypeScript, and Tailwind CSS.
+Personal portfolio site for **Alwayne Bailey** (TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher). Built with Next.js, TypeScript, and Tailwind CSS.
 
 **Live:** [alwaynebailey.netlify.app](https://alwaynebailey.netlify.app/)
 

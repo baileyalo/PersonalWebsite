@@ -36,7 +36,7 @@ export default function Home(): JSX.Element {
         </title>
         <meta
           name="description"
-          content="Alwayne Bailey is a software engineer building full-stack products, with a focus on fintech and Web3."
+          content="Alwayne Bailey is a TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher building full-stack products, with a focus on fintech and Web3."
         />
         <meta
           property="og:title"
@@ -45,7 +45,7 @@ export default function Home(): JSX.Element {
         <meta property="og:site_name" content="Alwayne Bailey" />
         <meta
           property="og:description"
-          content="Full-stack software engineer focused on fintech and Web3."
+          content="TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher building full-stack products, with a focus on fintech and Web3."
         />
         <meta property="og:type" content="profile" />
         <meta property="og:image" content={PORTRAIT} />
@@ -53,7 +53,7 @@ export default function Home(): JSX.Element {
         <meta name="twitter:image" content={PORTRAIT} />
         <meta
           name="keywords"
-          content="Alwayne Bailey, Software Engineer, React, TypeScript, Node.js, AWS, Fintech, Web3, Solana"
+          content="Alwayne Bailey, TechOps Engineer, Escalation Engineer, Software Engineer, Teacher, React, TypeScript, Node.js, AWS, Fintech, Web3, Solana"
         />
       </Head>
 
@@ -80,7 +80,7 @@ export default function Home(): JSX.Element {
           <div className="container flex flex-col items-center gap-3">
             <p className="mb-0 font-semibold text-text-primary">Alwayne Bailey</p>
             <p className="mb-0">
-              Open to TechOps Engineer, Escalation Engineer, Software engineering and Teacher roles.
+              Open to TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher roles.
             </p>
             <p className="mb-0 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
               <a href={`mailto:${EMAIL}`}>{maskEmail()}</a>
