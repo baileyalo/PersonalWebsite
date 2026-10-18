@@ -24,14 +24,15 @@ export default function Banner(): JSX.Element {
     <header aria-label="Profile introduction" className="section flex items-center pt-28 pb-16">
       <div className="container flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
         <div className="flex-1 max-w-xl order-2 md:order-1">
-          <p className="text-sm font-medium tracking-wide text-accent-color mb-3">
-            TechOps Engineer / Escalation Engineer / Software Engineer
-          </p>
           <h1 className="text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-[1.05] mb-4 text-text-primary">
             Alwayne Bailey
           </h1>
+          <p className="text-sm font-medium tracking-wide text-accent-color mb-3">
+            TechOps Engineer / Escalation Engineer / Software Engineer / Teacher
+          </p>
           <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-8 max-w-[42rem]">
-            I build reliable full-stack products, with a focus on fintech and Web3.
+            I build and maintain reliable full-stack products, with a focus on fintech and Web3 and
+            also teach.
           </p>
           <div className="flex gap-3 flex-wrap mb-8">
             <a

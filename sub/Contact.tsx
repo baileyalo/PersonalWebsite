@@ -13,7 +13,8 @@ export default function Contact(): JSX.Element {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] items-start">
           <div className="max-w-[36ch]">
             <p className="text-text-secondary leading-relaxed">
-              Open to techops engineering, escalation engineering and software engineering roles.
+              Open to techops engineering, escalation engineering and software engineering roles and
+              Teacher roles.
             </p>
             <ul className="mt-6 space-y-3">
               <li>
