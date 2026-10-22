@@ -1,4 +1,3 @@
-import emailjs from '@emailjs/browser';
 import { ChangeEvent, FocusEvent, FormEvent, useState } from 'react';
 import { EMAIL_REGEX, FORM_NAME, SUBMIT_MESSAGES, VALIDATION } from '../constants';
 import { delay } from './helpers';
@@ -86,16 +85,16 @@ export default function ContactForm(): JSX.Element {
     if (nextErrors.userName || nextErrors.userEmail || nextErrors.userMessage || !allowSend) return;
 
     setAllowSend(false);
-    let netlifyOk = false;
-    let emailjsOk = false;
     const body = new URLSearchParams({
       'form-name': FORM_NAME,
+      'bot-field': '',
       name: form.userName,
       email: form.userEmail,
       phoneNumber: form.userPhoneNumber,
       message: form.userMessage,
     }).toString();
 
+    let netlifyOk = false;
     try {
       const res = await fetch('/', {
         method: 'POST',
@@ -107,25 +106,7 @@ export default function ContactForm(): JSX.Element {
       netlifyOk = false;
     }
 
-    try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
-        {
-          from_name: form.userName,
-          message: form.userMessage,
-          phone: form.userPhoneNumber,
-          from_email: form.userEmail,
-        },
-        process.env.NEXT_PUBLIC_USER_ID as string
-      );
-      emailjsOk = true;
-    } catch (emailErr: unknown) {
-      emailjsOk = false;
-      console.error('EmailJS error:', emailErr);
-    }
-
-    if (emailjsOk || netlifyOk) {
+    if (netlifyOk) {
       setSubmitMessage(SUBMIT_MESSAGES.SUCCESS);
       setForm(EMPTY_FORM);
     } else {
@@ -267,7 +248,14 @@ export default function ContactForm(): JSX.Element {
         aria-busy={!allowSend}
         className="btn btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {allowSend ? 'Send message' : <SpinningWheel />}
+        {allowSend ? (
+          'Send message'
+        ) : (
+          <>
+            <SpinningWheel />
+            <span className="sr-only">Sending message</span>
+          </>
+        )}
       </button>
     </form>
   );

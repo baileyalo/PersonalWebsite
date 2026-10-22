@@ -90,9 +90,8 @@ const GROUPS: SkillGroup[] = [
 
 export default function Skills(): JSX.Element {
   return (
-    <section className="container" aria-labelledby="skills-heading">
+    <section id="skills" className="container scroll-mt-20" aria-labelledby="skills-heading">
       <div className="sectionCont">
-        <div id="skills" className="target" aria-hidden="true"></div>
         <header>
           <h2 id="skills-heading">Skills</h2>
         </header>

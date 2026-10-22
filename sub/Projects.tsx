@@ -44,9 +44,8 @@ const PROJECTS: Project[] = [
 
 export default function Projects(): JSX.Element {
   return (
-    <section className="container" aria-labelledby="projects-heading">
+    <section id="projects" className="container scroll-mt-20" aria-labelledby="projects-heading">
       <div className="sectionCont">
-        <div id="projects" className="target" aria-hidden="true"></div>
         <header>
           <h2 id="projects-heading">Selected work</h2>
         </header>

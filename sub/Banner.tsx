@@ -63,7 +63,7 @@ export default function Banner(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile (opens in a new tab)"
-              className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-border-color text-text-secondary hover:text-accent-color hover:border-accent-color"
+              className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-border-color text-text-secondary hover:text-accent-color hover:border-accent-color [&>svg]:h-5 [&>svg]:w-5"
             >
               <Linkedin />
             </a>
@@ -72,7 +72,7 @@ export default function Banner(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile (opens in a new tab)"
-              className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-border-color text-text-secondary hover:text-accent-color hover:border-accent-color"
+              className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-border-color text-text-secondary hover:text-accent-color hover:border-accent-color [&>svg]:h-5 [&>svg]:w-5"
             >
               <Github />
             </a>

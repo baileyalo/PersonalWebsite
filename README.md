@@ -12,7 +12,6 @@ Personal portfolio site for **Alwayne Bailey** (TechOps Engineer, Escalation Eng
 - **Framework:** [Next.js 15](https://nextjs.org/) (Pages Router, static export)
 - **Language:** TypeScript
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/), custom CSS variables (light/dark theme)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Contact form:** [Netlify Forms](https://docs.netlify.com/forms/setup/) (no third-party SDK)
 - **Icons:** [Lucide React](https://lucide.dev/), custom SVG (GitHub, LinkedIn)
 
@@ -21,17 +20,18 @@ Personal portfolio site for **Alwayne Bailey** (TechOps Engineer, Escalation Eng
 ## Project structure
 
 ```
-├── components/       # Reusable UI (modal, skill, ThemeToggle, hamburger, etc.)
-├── contexts/        # ThemeContext (light/dark)
-├── pages/           # Next.js pages (_app, _document, index)
-├── sub/             # Page sections (Banner, About, NavBar, Experience, Education, Skills)
-├── styles/          # globals.css (theme vars, components, reduced motion)
-├── svg/             # Inline SVG components (github, linkedin)
-├── utils/           # animations (Framer variants), useReducedMotion
-├── appContext.tsx   # Global state (modal, mobile nav)
-├── next.config.js   # Static export, image remotePatterns
-├── netlify.toml     # Netlify build (Node 22, npm ci, publish out)
-├── .nvmrc           # Node 22 (for local dev / Netlify)
+├── components/       # Reusable UI (ContactForm, ThemeToggle, hamburger, etc.)
+├── contexts/         # ThemeContext (light/dark)
+├── pages/            # Next.js pages (_app, _document, index)
+├── sub/              # Page sections (Banner, About, NavBar, Experience, Education, Skills, Contact)
+├── styles/           # globals.css (theme vars, components, reduced motion)
+├── svg/              # Inline SVG components (github, linkedin)
+├── utils/            # useReducedMotion
+├── tests/            # Critical-path Vitest suite
+├── appContext.tsx    # Global state (mobile nav)
+├── next.config.js    # Static export, image remotePatterns
+├── netlify.toml      # Netlify build (Node 22, npm ci, publish out)
+├── .nvmrc            # Node 22 (for local dev / Netlify)
 └── tailwind.config.js
 ```
 
@@ -75,7 +75,7 @@ Output is in the `out/` directory. Deploy `out/` to any static host (e.g. Netlif
 
 ### Other scripts
 
-- `npm run start` – run production server (after build)
+- `npm test` – critical-path tests
 - `npm run type-check` – TypeScript check
 - `npm run lint` – ESLint
 
@@ -99,11 +99,11 @@ This site uses **static export** (no Node server). The repo’s `netlify.toml` a
 
 ## Features
 
-- **Light / dark theme** – ThemeContext + CSS variables, persisted in `localStorage`
-- **Contact modal** – Submissions via Netlify Forms (no third-party email package)
-- **Responsive layout** – Mobile hamburger nav, desktop nav bar
-- **Accessibility** – Skip link, focus styles, `prefers-reduced-motion`, semantic landmarks and ARIA
-- **Static export** – No Node server required; deploy `out/` to Netlify or similar
+- **Light / dark theme** – defaults to dark; ThemeContext + CSS variables, persisted in `localStorage`
+- **Contact form** – submissions via Netlify Forms (honeypot included)
+- **Responsive layout** – mobile hamburger nav, desktop nav bar
+- **Accessibility** – skip link, focus styles, `prefers-reduced-motion`, semantic landmarks and ARIA
+- **Static export** – no Node server required; deploy `out/` to Netlify or similar
 
 ---
 

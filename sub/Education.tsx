@@ -31,8 +31,11 @@ const CREDENTIALS: Credential[] = [
 
 export default function Education(): JSX.Element {
   return (
-    <section className="sectionCont" aria-labelledby="education-heading">
-      <div id="education" className="target" aria-hidden="true"></div>
+    <section
+      id="education"
+      className="sectionCont scroll-mt-20"
+      aria-labelledby="education-heading"
+    >
       <header>
         <h2 id="education-heading">Education</h2>
       </header>

@@ -1,8 +1,9 @@
-// Returns a promise that resolves after `seconds` seconds
+import { NAVBAR_HEIGHT_PX } from '../constants';
+
+/** Returns a promise that resolves after `seconds` seconds */
 export function delay(seconds: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
-import { NAVBAR_HEIGHT_PX } from '../constants';
 
 export default function scrollIt(destination: HTMLElement): void {
   const documentHeight = Math.max(

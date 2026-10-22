@@ -2,6 +2,9 @@
  * App-wide constants in a single location.
  */
 
+// ─── Theme ──────────────────────────────────────────────────────────────────
+export const THEME_CHOICE_KEY = 'theme-choice';
+
 // ─── Navigation ─────────────────────────────────────────────────────────────
 export const SECTION_IDS = [
   'projects',

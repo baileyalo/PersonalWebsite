@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { THEME_CHOICE_KEY } from '../constants';
 
 type Theme = 'dark' | 'light';
 
@@ -23,8 +24,6 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const THEME_CHOICE_KEY = 'theme-choice';
-
 function readThemeChoice(): Theme {
   // Older visits stored the operating system theme under "theme".
   localStorage.removeItem('theme');
@@ -40,19 +39,16 @@ function applyTheme(next: Theme): void {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
     const initialTheme = readThemeChoice();
     applyTheme(initialTheme);
     setTheme(initialTheme);
-    setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
     applyTheme(theme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const toggleTheme = (): void => {
     setTheme((current) => {
@@ -68,11 +64,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     isDark: theme === 'dark',
     isLight: theme === 'light',
   };
-
-  // Prevent flash of wrong theme
-  if (!mounted) {
-    return null;
-  }
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };

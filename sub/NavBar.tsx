@@ -18,6 +18,8 @@ export default function NavBar(): JSX.Element {
   const { navResOpen, setNavResOpen } = context;
   const [activeSection, setActiveSection] = useState<string>('');
   const ratiosRef = useRef<Record<string, number>>({});
+  const menuRef = useRef<HTMLUListElement>(null);
+  const wasOpenRef = useRef(false);
 
   // Intersection Observer: highlight nav link for the section currently in view
   useEffect(() => {
@@ -57,11 +59,37 @@ export default function NavBar(): JSX.Element {
       document.body.classList.remove('menu-open');
     }
 
-    // Cleanup on unmount
     return () => {
       document.body.classList.remove('menu-open');
     };
   }, [navResOpen]);
+
+  // Escape to close, move focus into/out of the mobile menu
+  useEffect(() => {
+    if (navResOpen) {
+      wasOpenRef.current = true;
+      const firstLink = menuRef.current?.querySelector<HTMLAnchorElement>('a');
+      firstLink?.focus();
+
+      const onKeyDown = (event: KeyboardEvent): void => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          setNavResOpen(false);
+        }
+      };
+      window.addEventListener('keydown', onKeyDown);
+      return () => window.removeEventListener('keydown', onKeyDown);
+    }
+
+    if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      const toggle = document.querySelector<HTMLButtonElement>(
+        'button[aria-controls="navBarResUl"]'
+      );
+      toggle?.focus();
+    }
+  }, [navResOpen, setNavResOpen]);
+
   const handleResLink = (link: NavLink): void => {
     const element = document.querySelector(link.target);
     if (element) {
@@ -88,6 +116,7 @@ export default function NavBar(): JSX.Element {
         aria-label="Main navigation"
       >
         <ul
+          ref={menuRef}
           id="navBarResUl"
           aria-hidden={!navResOpen}
           className={`fixed top-0 left-0 w-[280px] max-w-[85vw] min-w-[240px] h-screen bg-primary-bg backdrop-blur-[20px] border-r border-border-color flex flex-col pt-16 transition-all duration-normal z-[1001] ${
@@ -98,6 +127,7 @@ export default function NavBar(): JSX.Element {
             <li key={link.target} className="w-full border-b border-border-color">
               <a
                 href={link.target}
+                tabIndex={navResOpen ? 0 : -1}
                 onClick={(e) => {
                   e.preventDefault();
                   handleResLink(link);
@@ -114,7 +144,6 @@ export default function NavBar(): JSX.Element {
             </li>
           ))}
         </ul>
-        {/* Overlay to close menu when clicking outside */}
         {navResOpen && (
           <button
             type="button"

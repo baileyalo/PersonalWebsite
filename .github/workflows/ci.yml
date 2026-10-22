@@ -1,8 +1,10 @@
 name: CI
 
-# Direct pushes and pull request merges both arrive as a push to main.
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -10,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  critical-paths:
-    name: Critical paths
+  verify:
+    name: Lint, type-check, test, build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,5 +28,14 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run type-check
+
       - name: Test
         run: npm test
+
+      - name: Build
+        run: npm run build

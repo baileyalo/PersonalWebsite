@@ -1,8 +1,6 @@
 import React, { createContext, useState, ReactNode } from 'react';
 
 interface AppContextType {
-  modalIsOpen: boolean;
-  setIsOpen: (value: boolean) => void;
   navResOpen: boolean;
   setNavResOpen: (value: boolean) => void;
 }
@@ -14,14 +12,9 @@ interface ContextoProviderProps {
 }
 
 const ContextoProvider: React.FC<ContextoProviderProps> = ({ children }) => {
-  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [navResOpen, setNavResOpen] = useState<boolean>(false);
 
-  return (
-    <Contexto.Provider value={{ modalIsOpen, setIsOpen, navResOpen, setNavResOpen }}>
-      {children}
-    </Contexto.Provider>
-  );
+  return <Contexto.Provider value={{ navResOpen, setNavResOpen }}>{children}</Contexto.Provider>;
 };
 
 export { Contexto, ContextoProvider };

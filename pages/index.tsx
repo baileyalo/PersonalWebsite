@@ -15,6 +15,11 @@ import NavBar from '../sub/NavBar';
 import Projects from '../sub/Projects';
 import Skills from '../sub/Skills';
 
+const SITE_URL = 'https://alwaynebailey.netlify.app';
+const PAGE_TITLE =
+  'Alwayne Bailey — TechOps Engineer / Escalation Engineer / Software Engineer / Teacher';
+const PAGE_DESCRIPTION =
+  'Alwayne Bailey is a TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher building full-stack products, with a focus on fintech and Web3.';
 const PORTRAIT =
   'https://blue-late-parrotfish-488.mypinata.cloud/ipfs/bafybeie53kkb5dziuuxsxv43pmnxoyjdgj527ltmrxb4zcbrmr22ue4ira';
 
@@ -31,25 +36,18 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Head>
-        <title>
-          Alwayne Bailey — TechOps Engineer / Escalation Engineer / Software Engineer / Teacher
-        </title>
-        <meta
-          name="description"
-          content="Alwayne Bailey is a TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher building full-stack products, with a focus on fintech and Web3."
-        />
-        <meta
-          property="og:title"
-          content="Alwayne Bailey — TechOps Engineer / Escalation Engineer / Software Engineer / Teacher"
-        />
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
+        <link rel="canonical" href={`${SITE_URL}/`} />
+        <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:site_name" content="Alwayne Bailey" />
-        <meta
-          property="og:description"
-          content="TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher building full-stack products, with a focus on fintech and Web3."
-        />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
         <meta property="og:type" content="profile" />
+        <meta property="og:url" content={`${SITE_URL}/`} />
         <meta property="og:image" content={PORTRAIT} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={PAGE_TITLE} />
+        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
         <meta name="twitter:image" content={PORTRAIT} />
         <meta
           name="keywords"

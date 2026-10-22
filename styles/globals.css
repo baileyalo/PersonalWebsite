@@ -393,11 +393,14 @@
     color: var(--text-muted);
   }
 
-  /* Target for smooth scrolling */
-  .target {
-    height: 80px;
-    margin-top: -80px;
-    visibility: hidden;
+  /* Anchor offset for fixed nav (native hash jumps) */
+  #projects,
+  #experience,
+  #education,
+  #about,
+  #skills,
+  #contact {
+    scroll-margin-top: 5rem;
   }
 
   /*About*/

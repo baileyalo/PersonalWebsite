@@ -15,6 +15,7 @@ export default function NetlifyFormHidden(): JSX.Element {
       aria-hidden="true"
     >
       <input type="hidden" name="form-name" value={FORM_NAME} />
+      <input type="text" name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="phoneNumber" />
