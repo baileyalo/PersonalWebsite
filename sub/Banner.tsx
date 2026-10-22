@@ -32,7 +32,7 @@ export default function Banner(): JSX.Element {
           </p>
           <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-8 max-w-[42rem]">
             I build and maintain reliable full-stack products, with a focus on fintech and Web3 and
-            also teach.
+            also teach business and computer studies.
           </p>
           <div className="flex gap-3 flex-wrap mb-8">
             <a
