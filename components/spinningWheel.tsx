@@ -1,17 +1,25 @@
-export default function SpinningWheel(): JSX.Element {
+interface SpinningWheelProps {
+  className?: string;
+}
+
+export default function SpinningWheel({ className = 'h-4 w-4' }: SpinningWheelProps): JSX.Element {
   return (
-    <div className="mx-auto h-[1.8rem] w-[1.8rem]" aria-hidden="true">
-      <svg className="animate-spin origin-center" viewBox="25 25 50 50">
-        <circle
-          className="animate-dash animate-color stroke-current stroke-[4] fill-none stroke-linecap-round"
-          cx="50"
-          cy="50"
-          r="20"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="4"
-        />
-      </svg>
-    </div>
+    <svg
+      className={`animate-spin shrink-0 ${className}`}
+      viewBox="25 25 50 50"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle
+        cx="50"
+        cy="50"
+        r="20"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        className="opacity-80"
+      />
+    </svg>
   );
 }

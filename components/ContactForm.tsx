@@ -1,5 +1,5 @@
 import emailjs from '@emailjs/browser';
-import { ChangeEvent, FocusEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FocusEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import {
   EMAIL_REGEX,
   FORM_NAME,
@@ -18,6 +18,7 @@ interface ContactFormData {
 }
 
 type FieldErrors = Partial<Record<keyof ContactFormData, string>>;
+type SubmitPhase = 'idle' | 'sending' | 'success' | 'error';
 
 const EMPTY_FORM: ContactFormData = {
   userName: '',
@@ -25,6 +26,8 @@ const EMPTY_FORM: ContactFormData = {
   userPhoneNumber: '',
   userMessage: '',
 };
+
+const STATUS_VISIBLE_SECONDS = 5;
 
 function validateName(value: string): string {
   const trimmed = value.trim();
@@ -54,16 +57,25 @@ function validateField(id: keyof ContactFormData, value: string): string {
   return '';
 }
 
-const fieldClass = (invalid: boolean): string =>
+const fieldClass = (invalid: boolean, disabled: boolean): string =>
   `w-full rounded-md border bg-card-bg px-3 py-2 text-text-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color ${
     invalid ? 'border-red-500' : 'border-border-color'
-  }`;
+  } ${disabled ? 'opacity-70 cursor-not-allowed' : ''}`;
 
 export default function ContactForm(): JSX.Element {
   const [form, setForm] = useState<ContactFormData>(EMPTY_FORM);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [submitMessage, setSubmitMessage] = useState('');
-  const [allowSend, setAllowSend] = useState(true);
+  const [phase, setPhase] = useState<SubmitPhase>('idle');
+  const statusRef = useRef<HTMLParagraphElement>(null);
+
+  const isSending = phase === 'sending';
+  const fieldsDisabled = isSending;
+
+  useEffect(() => {
+    if (phase === 'success' || phase === 'error') {
+      statusRef.current?.focus();
+    }
+  }, [phase]);
 
   const handleForm = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const id = event.target.id as keyof ContactFormData;
@@ -72,6 +84,9 @@ export default function ContactForm(): JSX.Element {
     if (errors[id]) {
       const error = validateField(id, value);
       setErrors((prev) => ({ ...prev, [id]: error || undefined }));
+    }
+    if (phase === 'success' || phase === 'error') {
+      setPhase('idle');
     }
   };
 
@@ -89,9 +104,9 @@ export default function ContactForm(): JSX.Element {
       userMessage: validateMessage(form.userMessage) || undefined,
     };
     setErrors(nextErrors);
-    if (nextErrors.userName || nextErrors.userEmail || nextErrors.userMessage || !allowSend) return;
+    if (nextErrors.userName || nextErrors.userEmail || nextErrors.userMessage || isSending) return;
 
-    setAllowSend(false);
+    setPhase('sending');
 
     // Netlify Forms only accepts POSTs when form detection is enabled for the site.
     // Keep trying the static stub; EmailJS is the reliable delivery path.
@@ -136,17 +151,27 @@ export default function ContactForm(): JSX.Element {
     }
 
     if (emailjsOk || netlifyOk) {
-      setSubmitMessage(SUBMIT_MESSAGES.SUCCESS);
       setForm(EMPTY_FORM);
+      setErrors({});
+      setPhase('success');
     } else {
-      setSubmitMessage(SUBMIT_MESSAGES.ERROR);
+      setPhase('error');
     }
-    await delay(4);
-    setSubmitMessage('');
-    setAllowSend(true);
+
+    await delay(STATUS_VISIBLE_SECONDS);
+    setPhase((current) => (current === 'sending' ? current : 'idle'));
   };
 
   const hasErrors = Object.values(errors).some(Boolean);
+  const statusMessage =
+    phase === 'success' ? SUBMIT_MESSAGES.SUCCESS : phase === 'error' ? SUBMIT_MESSAGES.ERROR : '';
+
+  const buttonLabel = (() => {
+    if (phase === 'sending') return 'Sending…';
+    if (phase === 'success') return 'Sent';
+    if (phase === 'error') return 'Try again';
+    return 'Send message';
+  })();
 
   return (
     <form
@@ -184,10 +209,11 @@ export default function ContactForm(): JSX.Element {
           onChange={handleForm}
           onBlur={handleBlur}
           required
+          disabled={fieldsDisabled}
           autoComplete="name"
           aria-invalid={Boolean(errors.userName)}
           aria-describedby={errors.userName ? 'userName-error' : undefined}
-          className={fieldClass(Boolean(errors.userName))}
+          className={fieldClass(Boolean(errors.userName), fieldsDisabled)}
         />
         {errors.userName && (
           <p id="userName-error" role="alert" className="mt-1 text-sm text-red-400">
@@ -207,10 +233,11 @@ export default function ContactForm(): JSX.Element {
           onChange={handleForm}
           onBlur={handleBlur}
           required
+          disabled={fieldsDisabled}
           autoComplete="email"
           aria-invalid={Boolean(errors.userEmail)}
           aria-describedby={errors.userEmail ? 'userEmail-error' : undefined}
-          className={fieldClass(Boolean(errors.userEmail))}
+          className={fieldClass(Boolean(errors.userEmail), fieldsDisabled)}
         />
         {errors.userEmail && (
           <p id="userEmail-error" role="alert" className="mt-1 text-sm text-red-400">
@@ -231,9 +258,10 @@ export default function ContactForm(): JSX.Element {
           type="tel"
           value={form.userPhoneNumber}
           onChange={handleForm}
+          disabled={fieldsDisabled}
           autoComplete="tel"
           inputMode="tel"
-          className={fieldClass(false)}
+          className={fieldClass(false, fieldsDisabled)}
         />
       </div>
       <div>
@@ -247,10 +275,11 @@ export default function ContactForm(): JSX.Element {
           onChange={handleForm}
           onBlur={handleBlur}
           required
+          disabled={fieldsDisabled}
           rows={5}
           aria-invalid={Boolean(errors.userMessage)}
           aria-describedby={errors.userMessage ? 'userMessage-error' : undefined}
-          className={`${fieldClass(Boolean(errors.userMessage))} resize-y min-h-[8rem]`}
+          className={`${fieldClass(Boolean(errors.userMessage), fieldsDisabled)} resize-y min-h-[8rem]`}
         />
         {errors.userMessage && (
           <p id="userMessage-error" role="alert" className="mt-1 text-sm text-red-400">
@@ -258,33 +287,29 @@ export default function ContactForm(): JSX.Element {
           </p>
         )}
       </div>
-      {submitMessage && (
+      {statusMessage && (
         <p
+          ref={statusRef}
           role="status"
           aria-live="polite"
-          className={`rounded-md border px-3 py-2 text-sm ${
-            submitMessage === SUBMIT_MESSAGES.SUCCESS
-              ? 'border-accent-color text-accent-color'
-              : 'border-red-500/50 text-red-400'
+          tabIndex={-1}
+          className={`rounded-md border px-3 py-2 text-sm outline-none ${
+            phase === 'success'
+              ? 'border-accent-color/60 bg-accent-color/10 text-accent-color'
+              : 'border-red-500/50 bg-red-500/10 text-red-400'
           }`}
         >
-          {submitMessage}
+          {statusMessage}
         </p>
       )}
       <button
         type="submit"
-        disabled={!allowSend}
-        aria-busy={!allowSend}
-        className="btn btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+        disabled={isSending || phase === 'success'}
+        aria-busy={isSending}
+        className="btn btn-primary disabled:opacity-60 disabled:cursor-not-allowed gap-2"
       >
-        {allowSend ? (
-          'Send message'
-        ) : (
-          <>
-            <SpinningWheel />
-            <span className="sr-only">Sending message</span>
-          </>
-        )}
+        {isSending && <SpinningWheel />}
+        <span>{buttonLabel}</span>
       </button>
     </form>
   );

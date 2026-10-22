@@ -177,6 +177,7 @@ it('sends a valid contact message', async () => {
   expect(screen.getByLabelText('Name')).toHaveValue('');
   expect(screen.getByLabelText('Email')).toHaveValue('');
   expect(screen.getByLabelText('Message')).toHaveValue('');
+  expect(screen.getByRole('button', { name: 'Sent' })).toBeDisabled();
 
   finishDelay();
   await waitFor(() => {
@@ -197,6 +198,7 @@ it('shows an error when a contact message cannot be delivered', async () => {
   expect(screen.getByLabelText('Name')).toHaveValue('Ada Lovelace');
   expect(screen.getByLabelText('Email')).toHaveValue('ada@example.com');
   expect(screen.getByLabelText('Message')).toHaveValue('I would like to talk about a role.');
+  expect(screen.getByRole('button', { name: 'Try again' })).toBeEnabled();
 
   finishDelay();
   await waitFor(() => {
