@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import { createElement, type ImgHTMLAttributes } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -22,6 +23,12 @@ vi.mock('next/image', () => ({
   }: ImgHTMLAttributes<HTMLImageElement> & { priority?: boolean }) => createElement('img', props),
 }));
 
+vi.mock('@emailjs/browser', () => ({
+  default: {
+    send: vi.fn(),
+  },
+}));
+
 vi.mock('../components/helpers', async () => {
   const actual =
     await vi.importActual<typeof import('../components/helpers')>('../components/helpers');
@@ -35,6 +42,10 @@ vi.mock('../components/helpers', async () => {
 });
 
 const fetchMock = vi.fn();
+
+process.env.NEXT_PUBLIC_SERVICE_ID = 'service';
+process.env.NEXT_PUBLIC_TEMPLATE_ID = 'template';
+process.env.NEXT_PUBLIC_USER_ID = 'user';
 
 const CONTACT_FIELDS = ['name', 'email', 'phoneNumber', 'message', 'bot-field'] as const;
 
@@ -62,6 +73,7 @@ beforeEach(() => {
   finishDelay = () => undefined;
   fetchMock.mockReset();
   vi.stubGlobal('fetch', fetchMock);
+  vi.mocked(emailjs.send).mockReset();
   vi.spyOn(console, 'error').mockImplementation(() => undefined);
 });
 
@@ -127,10 +139,12 @@ it('blocks an incomplete contact submission', async () => {
   expect(screen.getByText(VALIDATION.EMAIL_REQUIRED)).toBeInTheDocument();
   expect(screen.getByText(VALIDATION.MESSAGE_REQUIRED)).toBeInTheDocument();
   expect(fetchMock).not.toHaveBeenCalled();
+  expect(emailjs.send).not.toHaveBeenCalled();
 });
 
 it('sends a valid contact message', async () => {
-  fetchMock.mockResolvedValue({ ok: true });
+  fetchMock.mockResolvedValue({ ok: false, status: 404 });
+  vi.mocked(emailjs.send).mockResolvedValue({ status: 200, text: 'OK' });
   const user = await renderSite();
   await fillValidMessage(user);
 
@@ -149,6 +163,17 @@ it('sends a valid contact message', async () => {
       message: 'I would like to talk about a role.',
     }).toString(),
   });
+  expect(emailjs.send).toHaveBeenCalledWith(
+    'service',
+    'template',
+    {
+      from_name: 'Ada Lovelace',
+      message: 'I would like to talk about a role.',
+      phone: '',
+      from_email: 'ada@example.com',
+    },
+    'user'
+  );
   expect(screen.getByLabelText('Name')).toHaveValue('');
   expect(screen.getByLabelText('Email')).toHaveValue('');
   expect(screen.getByLabelText('Message')).toHaveValue('');
@@ -162,6 +187,7 @@ it('sends a valid contact message', async () => {
 
 it('shows an error when a contact message cannot be delivered', async () => {
   fetchMock.mockRejectedValue(new Error('offline'));
+  vi.mocked(emailjs.send).mockRejectedValue(new Error('emailjs'));
   const user = await renderSite();
   await fillValidMessage(user);
 

@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import { ChangeEvent, FocusEvent, FormEvent, useState } from 'react';
 import {
   EMAIL_REGEX,
@@ -91,6 +92,11 @@ export default function ContactForm(): JSX.Element {
     if (nextErrors.userName || nextErrors.userEmail || nextErrors.userMessage || !allowSend) return;
 
     setAllowSend(false);
+
+    // Netlify Forms only accepts POSTs when form detection is enabled for the site.
+    // Keep trying the static stub; EmailJS is the reliable delivery path.
+    let netlifyOk = false;
+    let emailjsOk = false;
     const body = new URLSearchParams({
       'form-name': FORM_NAME,
       'bot-field': '',
@@ -100,9 +106,6 @@ export default function ContactForm(): JSX.Element {
       message: form.userMessage,
     }).toString();
 
-    // Post to the static skeleton Netlify registers at build time (not "/").
-    // See public/__forms.html — required for reliable Forms on static exports.
-    let netlifyOk = false;
     try {
       const res = await fetch(NETLIFY_FORMS_ENDPOINT, {
         method: 'POST',
@@ -114,7 +117,25 @@ export default function ContactForm(): JSX.Element {
       netlifyOk = false;
     }
 
-    if (netlifyOk) {
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
+        {
+          from_name: form.userName,
+          message: form.userMessage,
+          phone: form.userPhoneNumber,
+          from_email: form.userEmail,
+        },
+        process.env.NEXT_PUBLIC_USER_ID as string
+      );
+      emailjsOk = true;
+    } catch (emailErr: unknown) {
+      emailjsOk = false;
+      console.error('EmailJS error:', emailErr);
+    }
+
+    if (emailjsOk || netlifyOk) {
       setSubmitMessage(SUBMIT_MESSAGES.SUCCESS);
       setForm(EMPTY_FORM);
     } else {

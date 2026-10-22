@@ -12,7 +12,7 @@ Personal portfolio site for **Alwayne Bailey** (TechOps Engineer, Escalation Eng
 - **Framework:** [Next.js 15](https://nextjs.org/) (Pages Router, static export)
 - **Language:** TypeScript
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/), custom CSS variables (light/dark theme)
-- **Contact form:** [Netlify Forms](https://docs.netlify.com/forms/setup/) (no third-party SDK)
+- **Contact form:** [EmailJS](https://www.emailjs.com/) (primary) + optional [Netlify Forms](https://docs.netlify.com/forms/setup/)
 - **Icons:** [Lucide React](https://lucide.dev/), custom SVG (GitHub, LinkedIn)
 
 ---
@@ -93,14 +93,19 @@ This site uses **static export** (no Node server). The repo’s `netlify.toml` a
 | **Next.js plugin**    | Disabled (`NETLIFY_NEXT_PLUGIN_SKIP=1`) |
 
 - Use **Node.js 22** so Netlify Agent Runners and features work as expected.
-- Contact form submissions are handled by **Netlify Forms** via the static stub at `public/__forms.html` (posted to `/__forms.html`). After deploy, confirm a **contact** form appears under **Site configuration → Forms**.
+- Contact messages are sent with **EmailJS**. Set these build env vars in Netlify (**Site configuration → Environment variables**), then redeploy:
+  - `NEXT_PUBLIC_SERVICE_ID`
+  - `NEXT_PUBLIC_TEMPLATE_ID`
+  - `NEXT_PUBLIC_USER_ID`
+
+- Optional: enable **Forms → Form detection**, redeploy, and submissions can also land in Netlify Forms via `public/__forms.html`.
 
 ---
 
 ## Features
 
 - **Light / dark theme** – defaults to dark; ThemeContext + CSS variables, persisted in `localStorage`
-- **Contact form** – submissions via Netlify Forms (honeypot included)
+- **Contact form** – EmailJS delivery (Netlify Forms optional when form detection is enabled)
 - **Responsive layout** – mobile hamburger nav, desktop nav bar
 - **Accessibility** – skip link, focus styles, `prefers-reduced-motion`, semantic landmarks and ARIA
 - **Static export** – no Node server required; deploy `out/` to Netlify or similar

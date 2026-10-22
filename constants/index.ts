@@ -66,5 +66,5 @@ export const VALIDATION = {
 
 export const SUBMIT_MESSAGES = {
   SUCCESS: 'Message successfully sent!',
-  ERROR: 'Error, please try Again later',
+  ERROR: 'Error, please try again later.',
 } as const;
