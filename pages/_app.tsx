@@ -53,9 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ErrorBoundary>
           <div className={`${inter.className} ${inter.variable} ${jetbrainsMono.variable}`}>
             <Head>
-              <link rel="icon" href="/favicon.ico" />
+              <link rel="icon" href="/initial.png" type="image/png" />
               <meta name="viewport" content="width=device-width, initial-scale=1" />
-              <meta name="author" content="Mr. Alwayne Bailey" />
+              <meta name="author" content="Alwayne Bailey" />
               <meta name="theme-color" content="#00d4ff" />
               <meta name="color-scheme" content="dark light" />
             </Head>

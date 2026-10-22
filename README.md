@@ -106,7 +106,3 @@ This site uses **static export** (no Node server). The repo’s `netlify.toml` a
 - **Static export** – no Node server required; deploy `out/` to Netlify or similar
 
 ---
-
-## License
-
-Private project. All rights reserved.
