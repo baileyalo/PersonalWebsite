@@ -93,7 +93,7 @@ This site uses **static export** (no Node server). The repo’s `netlify.toml` a
 | **Next.js plugin**    | Disabled (`NETLIFY_NEXT_PLUGIN_SKIP=1`) |
 
 - Use **Node.js 22** so Netlify Agent Runners and features work as expected.
-- Contact form submissions are handled by **Netlify Forms**. Enable Forms in **Site configuration → Forms** and check the Forms tab in the deploy dashboard for submissions.
+- Contact form submissions are handled by **Netlify Forms** via the static stub at `public/__forms.html` (posted to `/__forms.html`). After deploy, confirm a **contact** form appears under **Site configuration → Forms**.
 
 ---
 

@@ -1,5 +1,11 @@
 import { ChangeEvent, FocusEvent, FormEvent, useState } from 'react';
-import { EMAIL_REGEX, FORM_NAME, SUBMIT_MESSAGES, VALIDATION } from '../constants';
+import {
+  EMAIL_REGEX,
+  FORM_NAME,
+  NETLIFY_FORMS_ENDPOINT,
+  SUBMIT_MESSAGES,
+  VALIDATION,
+} from '../constants';
 import { delay } from './helpers';
 import SpinningWheel from './spinningWheel';
 
@@ -94,9 +100,11 @@ export default function ContactForm(): JSX.Element {
       message: form.userMessage,
     }).toString();
 
+    // Post to the static skeleton Netlify registers at build time (not "/").
+    // See public/__forms.html — required for reliable Forms on static exports.
     let netlifyOk = false;
     try {
-      const res = await fetch('/', {
+      const res = await fetch(NETLIFY_FORMS_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,

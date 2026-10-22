@@ -3,7 +3,13 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { ContextoProvider } from '../appContext';
-import { EMAIL, NAV_LINKS, SUBMIT_MESSAGES, VALIDATION } from '../constants';
+import {
+  EMAIL,
+  NAV_LINKS,
+  NETLIFY_FORMS_ENDPOINT,
+  SUBMIT_MESSAGES,
+  VALIDATION,
+} from '../constants';
 import { ThemeProvider } from '../contexts/ThemeContext';
 import Home from '../pages';
 
@@ -131,7 +137,7 @@ it('sends a valid contact message', async () => {
   await user.click(screen.getByRole('button', { name: 'Send message' }));
 
   expect(await screen.findByRole('status')).toHaveTextContent(SUBMIT_MESSAGES.SUCCESS);
-  expect(fetchMock).toHaveBeenCalledWith('/', {
+  expect(fetchMock).toHaveBeenCalledWith(NETLIFY_FORMS_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({

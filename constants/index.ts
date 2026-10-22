@@ -49,6 +49,8 @@ export function maskEmail(email: string = EMAIL): string {
 
 // ─── Contact form ──────────────────────────────────────────────────────────
 export const FORM_NAME = 'contact';
+/** Static Netlify Forms endpoint (must match public/__forms.html). */
+export const NETLIFY_FORMS_ENDPOINT = '/__forms.html';
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const VALIDATION = {
