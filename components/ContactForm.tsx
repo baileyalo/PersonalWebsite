@@ -1,12 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { ChangeEvent, FocusEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import {
-  EMAIL_REGEX,
-  FORM_NAME,
-  NETLIFY_FORMS_ENDPOINT,
-  SUBMIT_MESSAGES,
-  VALIDATION,
-} from '../constants';
+import { EMAIL_REGEX, FORM_NAME, SUBMIT_MESSAGES, VALIDATION } from '../constants';
 import { delay } from './helpers';
 import SpinningWheel from './spinningWheel';
 
@@ -108,30 +102,7 @@ export default function ContactForm(): JSX.Element {
 
     setPhase('sending');
 
-    // Netlify Forms only accepts POSTs when form detection is enabled for the site.
-    // Keep trying the static stub; EmailJS is the reliable delivery path.
-    let netlifyOk = false;
-    let emailjsOk = false;
-    const body = new URLSearchParams({
-      'form-name': FORM_NAME,
-      'bot-field': '',
-      name: form.userName,
-      email: form.userEmail,
-      phoneNumber: form.userPhoneNumber,
-      message: form.userMessage,
-    }).toString();
-
-    try {
-      const res = await fetch(NETLIFY_FORMS_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
-      netlifyOk = res.ok;
-    } catch {
-      netlifyOk = false;
-    }
-
+    let sent = false;
     try {
       await emailjs.send(
         process.env.NEXT_PUBLIC_SERVICE_ID as string,
@@ -144,13 +115,12 @@ export default function ContactForm(): JSX.Element {
         },
         process.env.NEXT_PUBLIC_USER_ID as string
       );
-      emailjsOk = true;
+      sent = true;
     } catch (emailErr: unknown) {
-      emailjsOk = false;
       console.error('EmailJS error:', emailErr);
     }
 
-    if (emailjsOk || netlifyOk) {
+    if (sent) {
       setForm(EMPTY_FORM);
       setErrors({});
       setPhase('success');
@@ -176,19 +146,11 @@ export default function ContactForm(): JSX.Element {
   return (
     <form
       name={FORM_NAME}
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
       onSubmit={submitForm}
       className="space-y-4"
       aria-label="Contact form"
       noValidate
     >
-      <input type="hidden" name="form-name" value={FORM_NAME} />
-      <p className="hidden" aria-hidden="true">
-        <label htmlFor="bot-field">Don’t fill this out</label>
-        <input id="bot-field" name="bot-field" type="text" tabIndex={-1} autoComplete="off" />
-      </p>
       {hasErrors && (
         <div
           role="alert"

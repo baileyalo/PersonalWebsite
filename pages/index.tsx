@@ -4,7 +4,6 @@ import { Copyright } from 'lucide-react';
 import { Contexto } from '../appContext';
 import { EMAIL, maskEmail } from '../constants';
 import BackToTop from '../components/BackToTop';
-import NetlifyFormHidden from '../components/NetlifyFormHidden';
 import ThemeToggle from '../components/ThemeToggle';
 import AboutMe from '../sub/About';
 import Banner from '../sub/Banner';
@@ -61,7 +60,6 @@ export default function Home(): JSX.Element {
       <ThemeToggle />
       <NavBar />
       <BackToTop />
-      <NetlifyFormHidden />
 
       <main id="main-content" onClick={closeNavRes} tabIndex={-1}>
         <Banner />

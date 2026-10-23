@@ -12,7 +12,7 @@ Personal portfolio site for **Alwayne Bailey** (TechOps Engineer, Escalation Eng
 - **Framework:** [Next.js 15](https://nextjs.org/) (Pages Router, static export)
 - **Language:** TypeScript
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/), custom CSS variables (light/dark theme)
-- **Contact form:** [EmailJS](https://www.emailjs.com/) (primary) + optional [Netlify Forms](https://docs.netlify.com/forms/setup/)
+- **Contact form:** [EmailJS](https://www.emailjs.com/)
 - **Icons:** [Lucide React](https://lucide.dev/), custom SVG (GitHub, LinkedIn)
 
 ---
@@ -98,14 +98,12 @@ This site uses **static export** (no Node server). The repo’s `netlify.toml` a
   - `NEXT_PUBLIC_TEMPLATE_ID`
   - `NEXT_PUBLIC_USER_ID`
 
-- Optional: enable **Forms → Form detection**, redeploy, and submissions can also land in Netlify Forms via `public/__forms.html`.
-
 ---
 
 ## Features
 
 - **Light / dark theme** – defaults to dark; ThemeContext + CSS variables, persisted in `localStorage`
-- **Contact form** – EmailJS delivery (Netlify Forms optional when form detection is enabled)
+- **Contact form** – EmailJS delivery
 - **Responsive layout** – mobile hamburger nav, desktop nav bar
 - **Accessibility** – skip link, focus styles, `prefers-reduced-motion`, semantic landmarks and ARIA
 - **Static export** – no Node server required; deploy `out/` to Netlify or similar
