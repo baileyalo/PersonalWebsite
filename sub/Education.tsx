@@ -12,7 +12,7 @@ const CREDENTIALS: Credential[] = [
     title: 'Graduate Diploma (Honors), Blockchain Development',
     school: 'George Brown College, Toronto',
     href: 'https://www.georgebrown.ca/',
-    note: 'Deployed an ERC-721 token and Solidity contracts with Truffle and Hardhat.',
+    note: 'Build and Deployed web3 applications using Solidity, Next.js, and React.',
   },
   {
     year: '2019',
@@ -25,7 +25,7 @@ const CREDENTIALS: Credential[] = [
     title: 'Bachelor of Education, Business Administration and Computer Science',
     school: 'University of Technology, Kingston',
     href: 'https://www.utech.edu.jm/',
-    note: 'Combined business administration with programming, data structures, and web development.',
+    note: 'Combined business administration and computer science with programming, data structures, and web development.',
   },
 ];
 
