@@ -30,7 +30,11 @@ export default function BackToTop(): JSX.Element | null {
       type="button"
       onClick={scrollToTop}
       aria-label="Back to top"
-      className="fixed bottom-6 right-6 z-[999] flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--text-primary)] shadow-lg transition-all duration-200 hover:border-[var(--accent-color)] hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary-bg)]"
+      className="fixed z-[999] flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--text-primary)] shadow-lg transition-all duration-200 hover:border-[var(--accent-color)] hover:shadow-[0_4px_20px_rgba(0,212,255,0.2)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary-bg)]"
+      style={{
+        bottom: 'max(1.5rem, env(safe-area-inset-bottom))',
+        right: 'max(1.5rem, env(safe-area-inset-right))',
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

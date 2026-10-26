@@ -1,7 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { ChangeEvent, FocusEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { EMAIL_REGEX, FORM_NAME, SUBMIT_MESSAGES, VALIDATION } from '../constants';
-import { delay } from './helpers';
 import SpinningWheel from './spinningWheel';
 
 interface ContactFormData {
@@ -21,7 +20,8 @@ const EMPTY_FORM: ContactFormData = {
   userMessage: '',
 };
 
-const STATUS_VISIBLE_SECONDS = 5;
+const STATUS_VISIBLE_MS = 5000;
+const FIELD_ORDER: (keyof ContactFormData)[] = ['userName', 'userEmail', 'userMessage'];
 
 function validateName(value: string): string {
   const trimmed = value.trim();
@@ -52,7 +52,7 @@ function validateField(id: keyof ContactFormData, value: string): string {
 }
 
 const fieldClass = (invalid: boolean, disabled: boolean): string =>
-  `w-full rounded-md border bg-card-bg px-3 py-2 text-text-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color ${
+  `w-full min-h-11 rounded-md border bg-card-bg px-3 py-3 text-base text-text-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color ${
     invalid ? 'border-red-500' : 'border-border-color'
   } ${disabled ? 'opacity-70 cursor-not-allowed' : ''}`;
 
@@ -60,15 +60,20 @@ export default function ContactForm(): JSX.Element {
   const [form, setForm] = useState<ContactFormData>(EMPTY_FORM);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [phase, setPhase] = useState<SubmitPhase>('idle');
-  const statusRef = useRef<HTMLParagraphElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
 
   const isSending = phase === 'sending';
   const fieldsDisabled = isSending;
 
   useEffect(() => {
-    if (phase === 'success' || phase === 'error') {
-      statusRef.current?.focus();
-    }
+    if (phase !== 'success' && phase !== 'error') return;
+    const timer = window.setTimeout(() => {
+      if (document.activeElement?.getAttribute('role') === 'status') {
+        submitRef.current?.focus();
+      }
+      setPhase('idle');
+    }, STATUS_VISIBLE_MS);
+    return () => window.clearTimeout(timer);
   }, [phase]);
 
   const handleForm = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -98,7 +103,16 @@ export default function ContactForm(): JSX.Element {
       userMessage: validateMessage(form.userMessage) || undefined,
     };
     setErrors(nextErrors);
-    if (nextErrors.userName || nextErrors.userEmail || nextErrors.userMessage || isSending) return;
+
+    const firstInvalid = FIELD_ORDER.find((id) => nextErrors[id]);
+    if (firstInvalid || isSending) {
+      if (firstInvalid) {
+        requestAnimationFrame(() => {
+          document.getElementById(firstInvalid)?.focus();
+        });
+      }
+      return;
+    }
 
     setPhase('sending');
 
@@ -126,10 +140,8 @@ export default function ContactForm(): JSX.Element {
       setPhase('success');
     } else {
       setPhase('error');
+      requestAnimationFrame(() => submitRef.current?.focus());
     }
-
-    await delay(STATUS_VISIBLE_SECONDS);
-    setPhase((current) => (current === 'sending' ? current : 'idle'));
   };
 
   const hasErrors = Object.values(errors).some(Boolean);
@@ -178,7 +190,7 @@ export default function ContactForm(): JSX.Element {
           className={fieldClass(Boolean(errors.userName), fieldsDisabled)}
         />
         {errors.userName && (
-          <p id="userName-error" role="alert" className="mt-1 text-sm text-red-400">
+          <p id="userName-error" className="mt-1 text-sm text-red-400">
             {errors.userName}
           </p>
         )}
@@ -202,7 +214,7 @@ export default function ContactForm(): JSX.Element {
           className={fieldClass(Boolean(errors.userEmail), fieldsDisabled)}
         />
         {errors.userEmail && (
-          <p id="userEmail-error" role="alert" className="mt-1 text-sm text-red-400">
+          <p id="userEmail-error" className="mt-1 text-sm text-red-400">
             {errors.userEmail}
           </p>
         )}
@@ -244,18 +256,16 @@ export default function ContactForm(): JSX.Element {
           className={`${fieldClass(Boolean(errors.userMessage), fieldsDisabled)} resize-y min-h-[8rem]`}
         />
         {errors.userMessage && (
-          <p id="userMessage-error" role="alert" className="mt-1 text-sm text-red-400">
+          <p id="userMessage-error" className="mt-1 text-sm text-red-400">
             {errors.userMessage}
           </p>
         )}
       </div>
       {statusMessage && (
         <p
-          ref={statusRef}
           role="status"
           aria-live="polite"
-          tabIndex={-1}
-          className={`rounded-md border px-3 py-2 text-sm outline-none ${
+          className={`rounded-md border px-3 py-2 text-sm ${
             phase === 'success'
               ? 'border-accent-color/60 bg-accent-color/10 text-accent-color'
               : 'border-red-500/50 bg-red-500/10 text-red-400'
@@ -265,6 +275,7 @@ export default function ContactForm(): JSX.Element {
         </p>
       )}
       <button
+        ref={submitRef}
         type="submit"
         disabled={isSending || phase === 'success'}
         aria-busy={isSending}

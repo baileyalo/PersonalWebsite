@@ -44,7 +44,7 @@ const PROJECTS: Project[] = [
 
 export default function Projects(): JSX.Element {
   return (
-    <section id="projects" className="container scroll-mt-20" aria-labelledby="projects-heading">
+    <section id="projects" className="container" aria-labelledby="projects-heading">
       <div className="sectionCont">
         <header>
           <h2 id="projects-heading">Selected work</h2>
@@ -53,7 +53,7 @@ export default function Projects(): JSX.Element {
           {PROJECTS.map((project) => (
             <article
               key={project.url}
-              className="grid gap-6 md:grid-cols-[220px_minmax(0,1fr)] items-stretch rounded-xl border border-border-color bg-card-bg p-6"
+              className="grid gap-6 md:grid-cols-[220px_minmax(0,1fr)] items-stretch rounded-xl border border-border-color bg-card-bg p-5 sm:p-6"
             >
               <div className="flex items-center justify-center gap-3 rounded-lg bg-secondary-bg border border-border-color min-h-[140px] p-4">
                 {project.visuals.map((visual) => (
@@ -68,13 +68,13 @@ export default function Projects(): JSX.Element {
                 ))}
               </div>
               <div>
-                <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-4">
                   <h3 className="text-xl font-semibold text-text-primary mb-0">{project.title}</h3>
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 shrink-0 text-sm font-medium text-accent-color"
+                    className="inline-flex items-center gap-1.5 self-start min-h-11 px-3 rounded-md border border-accent-color/40 text-sm font-medium text-accent-color hover:bg-accent-color/10"
                   >
                     Live site
                     <ExternalLink className="w-3.5 h-3.5" aria-hidden />

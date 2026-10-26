@@ -4,7 +4,7 @@ import { EMAIL, maskEmail } from '../constants';
 
 export default function Contact(): JSX.Element {
   return (
-    <section id="contact" className="container scroll-mt-20" aria-labelledby="contact-heading">
+    <section id="contact" className="container" aria-labelledby="contact-heading">
       <div className="sectionCont">
         <header>
           <h2 id="contact-heading">Contact</h2>

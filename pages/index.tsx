@@ -73,17 +73,21 @@ export default function Home(): JSX.Element {
         <Contact />
 
         <footer className="footer" aria-label="Site footer">
-          <div className="container flex flex-col items-center gap-3">
+          <div className="container flex flex-col items-center gap-3 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
             <p className="mb-0 font-semibold text-text-primary">Alwayne Bailey</p>
-            <p className="mb-0">
-              Open to TechOps Engineer, Escalation Engineer, Software Engineer, and Teacher roles.
-            </p>
-            <p className="mb-0 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-              <a href={`mailto:${EMAIL}`}>{maskEmail()}</a>
+            <p className="mb-0 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+              <a href={`mailto:${EMAIL}`} className="inline-flex min-h-11 items-center">
+                {maskEmail()}
+              </a>
               <span aria-hidden className="text-text-muted">
                 ·
               </span>
-              <a href="https://github.com/baileyalo" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/baileyalo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center"
+              >
                 GitHub
               </a>
               <span aria-hidden className="text-text-muted">
@@ -93,11 +97,12 @@ export default function Home(): JSX.Element {
                 href="https://www.linkedin.com/in/alwayne-bailey/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center"
               >
                 LinkedIn
               </a>
             </p>
-            <p className="mb-0">
+            <p className="mb-0 text-sm">
               <Copyright className="inline w-4 h-4 mr-1" aria-hidden />
               <span>{new Date().getFullYear()} </span>
               <span className="font-semibold">ABTekz.</span> All rights reserved.

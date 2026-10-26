@@ -8,7 +8,7 @@ const coreSkills = [
 
 export default function About(): JSX.Element {
   return (
-    <section id="about" className="container scroll-mt-20" aria-labelledby="about-heading">
+    <section id="about" className="container" aria-labelledby="about-heading">
       <div className="sectionCont sectionContAbout">
         <header>
           <h2 id="about-heading">About</h2>

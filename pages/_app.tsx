@@ -54,9 +54,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           <div className={`${inter.className} ${inter.variable} ${jetbrainsMono.variable}`}>
             <Head>
               <link rel="icon" href="/initial.png" type="image/png" />
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1, viewport-fit=cover"
+              />
               <meta name="author" content="Alwayne Bailey" />
-              <meta name="theme-color" content="#00d4ff" />
+              <meta name="theme-color" content="#0a0a0a" />
               <meta name="color-scheme" content="dark light" />
             </Head>
             {/* Visually hidden live region for route announcements */}

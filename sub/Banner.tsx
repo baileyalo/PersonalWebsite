@@ -21,14 +21,29 @@ export default function Banner(): JSX.Element {
   };
 
   return (
-    <header aria-label="Profile introduction" className="section flex items-center pt-28 pb-16">
+    <header
+      aria-label="Profile introduction"
+      className="section flex items-center pt-24 sm:pt-28 pb-12 sm:pb-16"
+    >
       <div className="container flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
         <div className="flex-1 max-w-xl order-2 md:order-1">
           <h1 className="text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-[1.05] mb-4 text-text-primary">
             Alwayne Bailey
           </h1>
-          <p className="text-sm font-medium tracking-wide text-accent-color mb-3">
-            TechOps Engineer / Escalation Engineer / Software Engineer / Teacher
+          <p className="text-sm font-medium tracking-wide text-accent-color mb-3 leading-relaxed flex flex-wrap gap-x-2 gap-y-1">
+            <span>TechOps Engineer</span>
+            <span aria-hidden className="text-text-muted">
+              /
+            </span>
+            <span>Escalation Engineer</span>
+            <span aria-hidden className="text-text-muted">
+              /
+            </span>
+            <span>Software Engineer</span>
+            <span aria-hidden className="text-text-muted">
+              /
+            </span>
+            <span>Teacher</span>
           </p>
           <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-8 max-w-[42rem]">
             I build and maintain reliable full-stack products, with a focus on fintech and Web3 and

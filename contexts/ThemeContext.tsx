@@ -35,6 +35,8 @@ function readThemeChoice(): Theme {
 function applyTheme(next: Theme): void {
   document.documentElement.setAttribute('data-theme', next);
   document.documentElement.classList.toggle('dark', next === 'dark');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  themeColor?.setAttribute('content', next === 'dark' ? '#0a0a0a' : '#ffffff');
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {

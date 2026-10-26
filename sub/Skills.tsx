@@ -90,7 +90,7 @@ const GROUPS: SkillGroup[] = [
 
 export default function Skills(): JSX.Element {
   return (
-    <section id="skills" className="container scroll-mt-20" aria-labelledby="skills-heading">
+    <section id="skills" className="container" aria-labelledby="skills-heading">
       <div className="sectionCont">
         <header>
           <h2 id="skills-heading">Skills</h2>
@@ -106,7 +106,7 @@ export default function Skills(): JSX.Element {
                       href={skill.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm px-3 py-1 rounded-full border border-border-color text-text-secondary hover:text-accent-color hover:border-accent-color"
+                      className="inline-flex items-center gap-1.5 text-sm min-h-11 px-3 py-2.5 rounded-full border border-border-color text-text-secondary hover:text-accent-color hover:border-accent-color"
                     >
                       {skill.name}
                       <ExternalLink className="w-3 h-3 shrink-0 opacity-70" aria-hidden />

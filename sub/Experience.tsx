@@ -51,11 +51,7 @@ const ROLES: Role[] = [
 
 export default function Experience(): JSX.Element {
   return (
-    <section
-      id="experience"
-      className="sectionCont scroll-mt-20"
-      aria-labelledby="experience-heading"
-    >
+    <section id="experience" className="sectionCont" aria-labelledby="experience-heading">
       <header>
         <h2 id="experience-heading">Experience</h2>
       </header>

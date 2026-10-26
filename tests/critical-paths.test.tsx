@@ -2,13 +2,11 @@ import emailjs from '@emailjs/browser';
 import { createElement, type ImgHTMLAttributes } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { ContextoProvider } from '../appContext';
 import { EMAIL, NAV_LINKS, SUBMIT_MESSAGES, VALIDATION } from '../constants';
 import { ThemeProvider } from '../contexts/ThemeContext';
 import Home from '../pages';
-
-let finishDelay: () => void = () => undefined;
 
 vi.mock('next/image', () => ({
   default: ({
@@ -23,24 +21,12 @@ vi.mock('@emailjs/browser', () => ({
   },
 }));
 
-vi.mock('../components/helpers', async () => {
-  const actual =
-    await vi.importActual<typeof import('../components/helpers')>('../components/helpers');
-  return {
-    ...actual,
-    delay: () =>
-      new Promise<void>((resolve) => {
-        finishDelay = resolve;
-      }),
-  };
-});
-
 process.env.NEXT_PUBLIC_SERVICE_ID = 'service';
 process.env.NEXT_PUBLIC_TEMPLATE_ID = 'template';
 process.env.NEXT_PUBLIC_USER_ID = 'user';
 
 async function renderSite(): Promise<ReturnType<typeof userEvent.setup>> {
-  const user = userEvent.setup();
+  const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
   render(
     <ThemeProvider>
       <ContextoProvider>
@@ -60,17 +46,20 @@ async function fillValidMessage(user: ReturnType<typeof userEvent.setup>): Promi
 
 beforeEach(() => {
   localStorage.clear();
-  finishDelay = () => undefined;
+  vi.useFakeTimers({ shouldAdvanceTime: true });
   vi.mocked(emailjs.send).mockReset();
   vi.spyOn(console, 'error').mockImplementation(() => undefined);
+});
+
+afterEach(() => {
+  vi.useRealTimers();
 });
 
 it('shows the profile, section navigation, and contact form', async () => {
   await renderSite();
 
-  expect(
-    screen.getByText('TechOps Engineer / Escalation Engineer / Software Engineer / Teacher')
-  ).toBeInTheDocument();
+  expect(screen.getByText('TechOps Engineer')).toBeInTheDocument();
+  expect(screen.getByText('Teacher')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Email Alwayne Bailey' })).toHaveAttribute(
     'href',
     `mailto:${EMAIL}`
@@ -147,7 +136,7 @@ it('sends a valid contact message', async () => {
   expect(screen.getByLabelText('Message')).toHaveValue('');
   expect(screen.getByRole('button', { name: 'Sent' })).toBeDisabled();
 
-  finishDelay();
+  await vi.advanceTimersByTimeAsync(5000);
   await waitFor(() => {
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
   });
@@ -167,7 +156,7 @@ it('shows an error when a contact message cannot be delivered', async () => {
   expect(screen.getByLabelText('Message')).toHaveValue('I would like to talk about a role.');
   expect(screen.getByRole('button', { name: 'Try again' })).toBeEnabled();
 
-  finishDelay();
+  await vi.advanceTimersByTimeAsync(5000);
   await waitFor(() => {
     expect(screen.getByRole('button', { name: 'Send message' })).toBeEnabled();
   });
